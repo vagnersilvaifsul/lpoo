@@ -27,7 +27,7 @@ public class FuncionarioController {
         System.out.println(funcionariosList.stream().sorted(Comparator.comparing(Funcionario::getSalario).reversed()).collect(Collectors.toList()));
         System.out.println("\nLista original");
         System.out.println(funcionariosList);
-        System.out.println("\nUtilizando List para ordenação (critério salário, ordem decrescente) (note que nesse caso a lista passa a ficar ordenada no critério do Comparator");
+        System.out.println("\nUtilizando List para ordenação (critério salário, ordem decrescente) (note que nesse caso a lista passa a ficar ordenada no critério do Comparator)");
         funcionariosList.sort(Comparator.comparing(Funcionario::getSalario).reversed());
         System.out.println(funcionariosList);
         System.out.println("\nLista original (alterada pela ordenação por List)");
@@ -58,16 +58,17 @@ public class FuncionarioController {
         System.out.println("\nSet original");
         System.out.println(funcionariosSet);
         for (int i = 0; i < 10; i++) {
-            funcionariosSet.add(new Funcionario(i+1, String.valueOf(i+1), i * 1000));
+            funcionariosSet.add(new Funcionario(i+1, String.valueOf(i+1), (i+1) * 1000));
         }
         funcionariosSet.add(new Funcionario(1, String.valueOf(1), 1 * 1000));
         System.out.println("\nSet populado");
+        System.out.println(funcionariosSet);
         System.out.println("\nTentativa de adicionar uma duplicata");
         System.out.println(funcionariosSet);
         System.out.println("\nSet original");
         System.out.println(funcionariosSet);
         System.out.println("\nUtilizando um Stream para ordenação (critério salário, ordem decrescente)");
-        System.out.println(funcionariosSet.stream().sorted(Comparator.comparing(Funcionario::getSalario)).collect(Collectors.toList()));
+        System.out.println(funcionariosSet.stream().sorted(Comparator.comparing(Funcionario::getSalario).reversed()).collect(Collectors.toList()));
         System.out.println("\nSet original");
         System.out.println(funcionariosSet);
     }
