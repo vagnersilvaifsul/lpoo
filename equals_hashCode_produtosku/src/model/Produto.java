@@ -28,20 +28,20 @@ public class Produto {
         this.nome = nome;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Produto produto = (Produto) o;
-//
-//        return sku.equals(produto.sku);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return sku.hashCode();
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Produto produto = (Produto) o;
+
+        return sku.equals(produto.sku);
+    }
+
+    @Override
+    public int hashCode() {
+        return sku.hashCode();
+    }
 
     @Override
     public String toString() {

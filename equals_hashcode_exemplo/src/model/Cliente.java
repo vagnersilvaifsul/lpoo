@@ -1,6 +1,6 @@
 package model;
 
-public class Cliente {
+public class Cliente extends Object{
 	//atributos
 	private Long id;
 	private String cpf;
@@ -92,6 +92,21 @@ public class Cliente {
 		this.email = email;
 	}
 
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o) return true;
+//		if (o == null || getClass() != o.getClass()) return false;
+//
+//		Cliente cliente = (Cliente) o;
+//
+//		return id.equals(cliente.id);
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return id.hashCode();
+//	}
+
 	//	@Override
 //	public String toString() {
 //		return "Cliente{" +
@@ -105,4 +120,10 @@ public class Cliente {
 //			", email='" + email + '\'' +
 //			'}';
 //	}
+
+
+	@Override
+	public String toString() {
+		return getClass().getName() + '@' + hashCode();
+	}
 }

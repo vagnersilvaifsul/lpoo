@@ -10,6 +10,11 @@ import model.TanqueV;
 
 public class GameControllerV {
 	public static void main(String[] args) {
+
+		double a = 23L; //coerção
+		//int a = 23.5;
+		System.out.println(a); //23
+
 		//1. Sobrecarga dos contrutores
 		AviaoV a1 = new AviaoV();
 		AviaoV a2 = new AviaoV(1,1,1);

@@ -7,14 +7,14 @@ public class TratamentoExcecoesV {
 	public static void main(String[] args) {
 
 		// Divisão por Zero
-		System.out.println(10/0);
+		//System.out.println(10/0);
 
 		// NullPointerException (Ponteiro Nulo)
 //		Conta4V conta1 = null;//new Conta4V();
 //		System.out.println(conta1.toString());
 
 		// analisando a Pilha de exceção
-		//comportamento1(); // chamada de método
+		comportamento1(); // chamada de método
 
 	}
 
@@ -24,18 +24,18 @@ public class TratamentoExcecoesV {
 
 	private static void comportamento2() {
 		// Divisão por Zero
-		//System.out.println(10/0); //lança a exceção
-		// System.out.println("Executou todas as chamadas.");
+		System.out.println(10/0); //lança a exceção
+		System.out.println("Executou todas as chamadas.");
 
 //		InputMismatchException exception = new InputMismatchException();
 //		throw exception;
 
 		
-		//throwException();	
+		//throwException();
 
-		
+
 		mythrowException();
-		
+
 
 	}
 
@@ -46,7 +46,7 @@ public class TratamentoExcecoesV {
 			System.out.println("Tentou executar o bloco try, mas lança a MinhaExcecao");
 			throw new MinhaExcecao(); // gera a exceção
 		} catch (MinhaExcecao e) { // pega a exceção lançada no bloco try
-			e.printStackTrace(); //imprime a stack de exceção
+			//e.printStackTrace(); //imprime a stack de exceção
 		} finally { // executa em qualquer caso, seja resultado da execução do try ou do catch
 			System.err.println("Finally executado em mythrowException()");
 		}
