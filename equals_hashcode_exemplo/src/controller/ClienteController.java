@@ -10,7 +10,8 @@ import java.util.Map;
 public class ClienteController {
     public static void main(String[] args) {
         Cliente c1 = new Cliente(1L, "500.226.660-60", "Ana Paula", "Santos", "Rua das Flores, 10", "96060-090", "53955551111", "anapaula@email.com");
-        Cliente c2 = new Cliente(2L, "490.670.060-84", "Rafael", "Silva", "Rua das Flores, 10", "96060-090", "53955552222", "rafael@email.com");
+        //Cliente c2 = new Cliente(1L, "500.226.660-60", "Ana Paula", "Santos", "Rua das Flores, 10", "96060-090", "53955551111", "anapaula@email.com");
+        Cliente c2 = new Cliente(1L, "490.670.060-84", "Rafael", "Silva", "Rua das Flores, 10", "96060-090", "53955552222", "rafael@email.com");
         //Cliente c2 = c1;
         //c2.setId(23L);
         System.out.println("\nOs objetos criados são:");
