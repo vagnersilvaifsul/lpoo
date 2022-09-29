@@ -5,7 +5,7 @@ import model.Funcionario;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FuncionarioController {
+public class FuncionarioController_CriacaoOrdenacao {
     public static void main(String[] args) {
         System.out.println("********* Trabalhando com a Interface Collection *********");
 
