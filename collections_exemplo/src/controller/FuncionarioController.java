@@ -2,7 +2,6 @@ package controller;
 
 import model.Funcionario;
 
-import java.security.cert.CollectionCertStoreParameters;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,6 +31,31 @@ public class FuncionarioController {
         System.out.println(funcionariosList);
         System.out.println("\nLista original (alterada pela ordenação por List)");
         System.out.println(funcionariosList);
+
+        //Collection (o mais abstrado possível, tratando a Collection como List nesse exemplo)
+        /* Permite ordenação */
+        /* Contém duplicatas */
+        System.out.println("\nCollection Criada");
+        Collection<Funcionario> funcionariosCollection = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            funcionariosCollection.add(new Funcionario(i+1, String.valueOf(i+1), i * 1000));
+        }
+        System.out.println(funcionariosCollection);
+        System.out.println("\nCollection original");
+        System.out.println(funcionariosCollection);
+        System.out.println("\nUtilizando um Stream para ordenação (critério salário, ordem decrescente)");
+        System.out.println(funcionariosCollection.stream().sorted(Comparator.comparing(Funcionario::getSalario).reversed()).collect(Collectors.toList()));
+        System.out.println("\nCollection original");
+        System.out.println(funcionariosCollection);
+        System.out.println("\nUtilizando List para ordenação (critério salário, ordem decrescente) (note que nesse caso a lista passa a ficar ordenada no critério do Comparator)");
+        ((List)funcionariosCollection).sort(Comparator.comparing(Funcionario::getSalario).reversed());
+        System.out.println(funcionariosCollection);
+        System.out.println("\nCollection original (alterada pela ordenação por List)");
+        System.out.println(funcionariosCollection);
+        System.out.println("\nUma terceira forma de ordenar uma Collection (utilizando Collections");
+        //Collections: Esta classe consiste exclusivamente em métodos estáticos que operam ou retornam coleções
+        Collections.sort((List) funcionariosCollection, Comparator.comparing(Funcionario::getSalario));
+        System.out.println(funcionariosCollection);
 
         /**** coleções que NÃO PERMITEM elementos repetidos ****/
 
