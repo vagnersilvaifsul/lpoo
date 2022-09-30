@@ -5,7 +5,7 @@ import model.Funcionario;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FuncionarioController_CriacaoOrdenacao {
+public class FuncionarioController_Ordenacao {
     public static void main(String[] args) {
         System.out.println("********* Trabalhando com a Interface Collection *********");
 
@@ -22,10 +22,12 @@ public class FuncionarioController_CriacaoOrdenacao {
         System.out.println(funcionariosList);
         System.out.println("\nLista original");
         System.out.println(funcionariosList);
+
         System.out.println("\nUtilizando um Stream para ordenação (critério salário, ordem decrescente)");
         System.out.println(funcionariosList.stream().sorted(Comparator.comparing(Funcionario::getSalario).reversed()).collect(Collectors.toList()));
         System.out.println("\nLista original");
         System.out.println(funcionariosList);
+
         System.out.println("\nUtilizando List para ordenação (critério salário, ordem decrescente) (note que nesse caso a lista passa a ficar ordenada no critério do Comparator)");
         funcionariosList.sort(Comparator.comparing(Funcionario::getSalario).reversed());
         System.out.println(funcionariosList);
