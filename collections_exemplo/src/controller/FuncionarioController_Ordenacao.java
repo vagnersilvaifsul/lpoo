@@ -74,7 +74,7 @@ public class FuncionarioController_Ordenacao {
         System.out.println("\nMap populado");
         System.out.println(funcionariosMap);
         System.out.println("\nUtilizando um Stream para ordenação (critério salário, ordem decrescente) *Operação inválida nesse tipo de estrutura de dados");
-        //System.out.println(funcionariosMap.stream().sorted(Comparator.comparing(Funcionario::getSalario).reversed()).collect(Collectors.toList()));
+        //System.out.println(funcionariosMap.stream().sorted(Comparator.comparing(Funcionario::getSalario).reversed()).collect(Collectors.toList())); //operação inválida (por isso está comentado)
 
 
         //Set

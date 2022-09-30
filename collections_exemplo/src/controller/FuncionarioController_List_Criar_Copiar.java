@@ -6,11 +6,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FuncionarioControllerOutrasOperacoes {
+public class FuncionarioController_List_Criar_Copiar {
     public static void main(String[] args) throws CloneNotSupportedException{
         //List
         /* Permite ordenação */
         /* Contém duplicatas */
+
+        /* Criação de Listas */
+
+        //Criando uma lista (Cria a lista vazia, depois popula a lista em um laço for)
         List<Funcionario> funcionariosList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             funcionariosList.add(new Funcionario(i+1, String.valueOf(i+1), i * 1000));
@@ -22,6 +26,7 @@ public class FuncionarioControllerOutrasOperacoes {
         funcionariosList.clear();
         System.out.println("\nTamanho da lista esvaziada: " + funcionariosList.size());
 
+        //Criando uma lista com tamanho inicial definido
         System.out.println("\nCriando uma lista de tamanho definido");
         funcionariosList = new ArrayList<>(3);
         System.out.println("\nList Criada com tamanho 3");
@@ -31,6 +36,7 @@ public class FuncionarioControllerOutrasOperacoes {
         System.out.println(funcionariosList);
         funcionariosList.clear();
 
+        //Criando uma lista com valores previamente definidos
         System.out.println("\nCriando uma lista com valores definidos");
         funcionariosList = Arrays.asList(
             new Funcionario(1, String.valueOf(1), 1 * 1000),
@@ -54,5 +60,9 @@ public class FuncionarioControllerOutrasOperacoes {
         System.out.println("\nHashcode de funcionariosListCopy: " + funcionariosListCopy.hashCode());
         System.out.println("Hashcode de funcionariosList: " + funcionariosList.hashCode());
 
+        //copiando listas com List.copyOf
+        System.out.println("\nCopiando listas com copyOf do Java 10");
+        funcionariosListCopy = List.copyOf(funcionariosList);
+        System.out.println(funcionariosListCopy);
     }
 }
