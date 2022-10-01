@@ -3,11 +3,9 @@ package controller;
 import model.Funcionario;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-public class FuncionarioController_Pesquisa {
+public class Collection_Pesquisa {
     public static void main(String[] args) {
         //List
         /* Permite ordenação */
@@ -30,13 +28,13 @@ public class FuncionarioController_Pesquisa {
 
         //Pesquisa otimizada (ver referência)
 
-        //Utilizando Stream
+        //Utilizando Stream (Lambdas do Java 8+)
         /* Note que, além de otimizada, essa pesquisa não corre o risco de alterar a Lista Original (pois utiliza um stream) */
         System.out.println("\nPesquisa Otimizada (utilizando stream().filter(), filtro pelo nome (nome=10)");
         Funcionario FuncionarioFind = funcionariosList.stream().filter(f -> f.getNome().equalsIgnoreCase("10")).findAny().orElse(null);
         System.out.println("Localizou o funcionário: " + FuncionarioFind);
 
-        //Utilizando List
+        //Utilizando a classe List
         /* Atente para o fato de o critério ser o do hashcode implementado na classe */
         System.out.print("\nPesquisa Otimizada (utilizando contains), filtro pelo objeto (nesse caso o critério é o hashcode implementado na classe Funcionario): ");
         System.out.println(funcionariosList.contains(new Funcionario(10, "10", 9.000)));

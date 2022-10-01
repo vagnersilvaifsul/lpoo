@@ -6,7 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FuncionarioController_List_Criar_Copiar {
+/**
+ * O framework Collection contém muitas estruturas de dados genéricas predefinidas
+ * Uma coleção é uma estrutura de dados — na realidade, um objeto — que pode armazenar referências a outros objetos.
+ * **/
+
+//List é uma das estruturas de dados de Collecion que mais utilizaremos
+public class List_Criar_Copiar {
     public static void main(String[] args) throws CloneNotSupportedException{
         //List
         /* Permite ordenação */

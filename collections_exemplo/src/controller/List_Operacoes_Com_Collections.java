@@ -4,9 +4,11 @@ import model.Funcionario;
 
 import java.util.*;
 
-public class FuncionarioController_List_Operacoes_Com_Collections {
+public class List_Operacoes_Com_Collections {
     public static void main(String[] args) {
-        /* A classe Collections é uma classe utilitária que manipula coleções (qualquer tipo da interface Collection) */
+        /* A classe Collections é uma classe utilitária que manipula coleções (qualquer tipo da interface Collection)
+        *  A classe Collections fornece métodos static que pesquisam, classificam e realizam outras operações sobre as coleções.
+        * */
 
 
         //Criando uma lista (Cria a lista vazia, depois popula a lista em um laço for)
