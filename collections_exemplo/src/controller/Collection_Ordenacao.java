@@ -127,7 +127,7 @@ public class Collection_Ordenacao {
         for (int i = 0; i < 10; i++) {
             funcionariosSet.add(new Funcionario(i+1, String.valueOf(i+1), (i+1) * 1000));
         }
-        funcionariosSet.add(new Funcionario(1, String.valueOf(1), 1 * 1000));
+        funcionariosSet.add(new Funcionario(1, String.valueOf(1), 1000));
         System.out.println("\nSet populado");
         System.out.println(funcionariosSet);
 
