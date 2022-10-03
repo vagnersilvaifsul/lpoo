@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.Veiculo_Lista2;
+import model.Veiculo;
 
 public class VeiculoController {
 	public static void main(String[] args) {
 		//1
 		
 		//constrói instâncias da classe
-		Veiculo_Lista2 veiculo1 = new Veiculo_Lista2(); //utilizando o construtor padrão
-		Veiculo_Lista2 veiculo2 = new Veiculo_Lista2("22", "IVV2222", "branco", 4, "álcool/gasolina", 0, "22", 20.00); //utilizando o construtor parametrizado
+		Veiculo veiculo1 = new Veiculo(); //utilizando o construtor padrão
+		Veiculo veiculo2 = new Veiculo("22", "IVV2222", "branco", 4, "álcool/gasolina", 0, "22", 20.00); //utilizando o construtor parametrizado
 		
 		//imprime essas instâncias
 		System.out.println("Modelos criados com os contrutores padrão e parametrizado");
@@ -57,12 +57,12 @@ public class VeiculoController {
 		
 		//2	
 		//para desenvolver o que foi solicitado no item 2, a classe de modelo recebeu mais um atributo, o id
-		Veiculo_Lista2 veiculo3 = new Veiculo_Lista2("3333", "IVV3333", "branco", 4, "álcool/gasolina", 0, "3333", 130.00);
-		Veiculo_Lista2 veiculo4 = new Veiculo_Lista2("4444", "IVV4444", "branco", 4, "álcool/gasolina", 0, "4444", 140.00);
-		Veiculo_Lista2 veiculo5 = new Veiculo_Lista2("4444", "IVV4444", "branco", 4, "álcool/gasolina", 0, "4444", 140.00);
+		Veiculo veiculo3 = new Veiculo("3333", "IVV3333", "branco", 4, "álcool/gasolina", 0, "3333", 130.00);
+		Veiculo veiculo4 = new Veiculo("4444", "IVV4444", "branco", 4, "álcool/gasolina", 0, "4444", 140.00);
+		Veiculo veiculo5 = new Veiculo("4444", "IVV4444", "branco", 4, "álcool/gasolina", 0, "4444", 140.00);
 		
 		//coleção do tipo List
-		List<Veiculo_Lista2> veiculosList = new ArrayList<>();
+		List<Veiculo> veiculosList = new ArrayList<>();
 		veiculosList.add(veiculo1);
 		veiculosList.add(veiculo2);
 		veiculosList.add(veiculo3);
@@ -73,17 +73,17 @@ public class VeiculoController {
 		//pesquisando na coleção (método filter)
 		System.out.println();
 		System.out.print("Localizando o Modelo pela chave de pesquisa (id=3) na coleção do tipo List ...");
-		Veiculo_Lista2 ModeloFind = veiculosList.stream().filter(c -> c.getRenavan().equals("3333")).findAny().orElse(null);
+		Veiculo ModeloFind = veiculosList.stream().filter(c -> c.getRenavan().equals("3333")).findAny().orElse(null);
 		System.out.println(ModeloFind);
 		
 		//ordenando a coleçao do tipo List
 		System.out.println();
-		veiculosList.sort(Comparator.comparing(Veiculo_Lista2::getRenavan).reversed());
+		veiculosList.sort(Comparator.comparing(Veiculo::getRenavan).reversed());
 		System.out.println("\nColeção do tipo List em ordem decrescente, chave id");
 		System.out.println(veiculosList);
 		
 		//coleção do tipo Map
-		Map<String, Veiculo_Lista2> veiculosMap = new HashMap<>();
+		Map<String, Veiculo> veiculosMap = new HashMap<>();
 		veiculosMap.put(veiculo1.getRenavan(), veiculo1);
 		veiculosMap.put(veiculo2.getRenavan(), veiculo2);
 		veiculosMap.put(veiculo3.getRenavan(), veiculo3);

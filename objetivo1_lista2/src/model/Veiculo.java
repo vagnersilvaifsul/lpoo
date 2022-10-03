@@ -2,7 +2,7 @@ package model;
 
 import java.text.NumberFormat;
 
-public class Veiculo_Lista2 {
+public class Veiculo {
 	//atributos
 	private String renavan;
 	private String placa;
@@ -13,12 +13,12 @@ public class Veiculo_Lista2 {
 	private String chassi;
 	private double valor_locacao;
 	
-	public Veiculo_Lista2() {
+	public Veiculo() {
 		super();
 	}
 
-	public Veiculo_Lista2(String renavan, String placa, String cor, Integer num_rodas, String combustivel,
-			Integer quilometragem, String chassi, Double valor_locacao) {
+	public Veiculo(String renavan, String placa, String cor, Integer num_rodas, String combustivel,
+				   Integer quilometragem, String chassi, Double valor_locacao) {
 		super();
 		this.renavan = renavan;
 		this.placa = placa;

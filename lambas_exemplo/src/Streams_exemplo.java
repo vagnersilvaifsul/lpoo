@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 
 
 @SuppressWarnings({"DanglingJavadoc", "MismatchedQueryAndUpdateOfCollection", "RedundantArrayCreation", "OptionalGetWithoutIsPresent"})
-public class Main {
+public class Streams_exemplo {
     public static void main(String[] args) {
 
         /***** O Básico sobre Streams *****/

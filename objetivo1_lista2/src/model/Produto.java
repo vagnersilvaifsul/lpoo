@@ -2,18 +2,18 @@ package model;
 
 import java.text.NumberFormat;
 
-public class ProdutoL1 {
+public class Produto {
 	private long codigo;
 	private String nome;
 	private int quantidade;
 	private double preco;
 	private Fornecedor fornecedor;
 
-	public ProdutoL1() {
+	public Produto() {
 		super();
 	}
 
-	public ProdutoL1(long codigo, String nome, int quantidade, double preco, Fornecedor fornecedor) {
+	public Produto(long codigo, String nome, int quantidade, double preco, Fornecedor fornecedor) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;

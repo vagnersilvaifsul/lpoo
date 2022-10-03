@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Locacao_Lista2 {
+public class Locacao {
 	private Integer id;
 	private Calendar dataLocacao;
 	private Calendar dataDevolucao;
@@ -13,12 +13,12 @@ public class Locacao_Lista2 {
 	private double valorLocacao;
 	private Boolean devolvido;
 	
-	public Locacao_Lista2() {
+	public Locacao() {
 		super();
 	}
 
-	public Locacao_Lista2(Integer id, Calendar dataLocacao, Calendar dataDevolucao, Integer quilometragem,
-			Double valorCalcao, Double valorLocacao, Boolean devolvido) {
+	public Locacao(Integer id, Calendar dataLocacao, Calendar dataDevolucao, Integer quilometragem,
+				   Double valorCalcao, Double valorLocacao, Boolean devolvido) {
 		super();
 		this.id = id;
 		this.dataLocacao = dataLocacao;

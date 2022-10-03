@@ -2,18 +2,18 @@ package model;
 
 import java.text.NumberFormat;
 
-public class Produto_Lista1 {
+public class Produto {
 	private int id;
 	private String nome;
 	private double valor;
 	private int estoque;
 	
 	//métodos constutores
-	public Produto_Lista1() {
+	public Produto() {
 		
 	}
 
-	public Produto_Lista1(int id, String nome, double valor, int estoque) {
+	public Produto(int id, String nome, double valor, int estoque) {
 		super();
 		this.id = id;
 		this.nome = nome;

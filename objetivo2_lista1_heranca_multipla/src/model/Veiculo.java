@@ -1,17 +1,17 @@
 package model;
 
-public abstract class VeiculoG {
+public abstract class Veiculo {
 	private int numeroDeEixos;
 	private String propulsao;
 	private String marca;
 	private String modelo;
 	private int anoFabricacao;
 	
-	public VeiculoG() {
+	public Veiculo() {
 		super();
 	}
 
-	public VeiculoG(int numeroDeEixos, String propulsao, String marca, String modelo, int anoFabricacao) {
+	public Veiculo(int numeroDeEixos, String propulsao, String marca, String modelo, int anoFabricacao) {
 		super();
 		this.numeroDeEixos = numeroDeEixos;
 		this.propulsao = propulsao;

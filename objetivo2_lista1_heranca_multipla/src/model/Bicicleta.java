@@ -1,17 +1,17 @@
 package model;
 
-public class BicicletaG extends VeiculoG {
+public class Bicicleta extends Veiculo {
 
 	private int tamanhoRoda;
 	private String chassi; //de int para string na implementação
 	
-	public BicicletaG(int tamanhoRoda, String chassi) {
+	public Bicicleta(int tamanhoRoda, String chassi) {
 		super();
 		this.tamanhoRoda = tamanhoRoda;
 		this.chassi = chassi;
 	}
 	
-	public BicicletaG(int numeroDeEixos, String propulsao, String marca, String modelo, int anoFabricacao, int tamanhoRoda, String chassi) {
+	public Bicicleta(int numeroDeEixos, String propulsao, String marca, String modelo, int anoFabricacao, int tamanhoRoda, String chassi) {
 		super(numeroDeEixos, propulsao, marca, modelo, anoFabricacao);
 		this.tamanhoRoda = tamanhoRoda;
 		this.chassi = chassi;

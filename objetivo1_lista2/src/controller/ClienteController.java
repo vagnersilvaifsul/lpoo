@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.Cliente_Lista2;
+import model.Cliente;
 
 public class ClienteController {
 
@@ -14,8 +14,8 @@ public class ClienteController {
 		//1
 		
 		//constrói instâncias da classe
-		Cliente_Lista2 cliente1 = new Cliente_Lista2(); //utilizando o construtor padrão
-		Cliente_Lista2 cliente2 = new Cliente_Lista2("2", "Ana", "da Silva", "Rua das Flores, 10", "96000700", "5395551234", "ana@email.com"); //utilizando o construtor parametrizado
+		Cliente cliente1 = new Cliente(); //utilizando o construtor padrão
+		Cliente cliente2 = new Cliente("2", "Ana", "da Silva", "Rua das Flores, 10", "96000700", "5395551234", "ana@email.com"); //utilizando o construtor parametrizado
 		
 		//imprime essas instâncias
 		System.out.println("Clientes criados com os contrutores padrão e parametrizado");
@@ -57,12 +57,12 @@ public class ClienteController {
 		
 		//2	
 		//para desenvolver o que foi solicitado no item 2, a classe de modelo recebeu mais um atributo, o id
-		Cliente_Lista2 cliente3 = new Cliente_Lista2("3", "Gabriel", "da Silva", "Rua das Flores, 10", "96000700", "5395554433", "gabriel@email.com");
-		Cliente_Lista2 cliente4 = new Cliente_Lista2("4", "Antonia", "Soares", "Rua das Flores, 10", "96000700", "5395557890", "antonia@email.com");
-		Cliente_Lista2 cliente5 = new Cliente_Lista2("4", "Antonia", "Soares", "Rua das Flores, 10", "96000700", "5395557890", "antonia@email.com");
+		Cliente cliente3 = new Cliente("3", "Gabriel", "da Silva", "Rua das Flores, 10", "96000700", "5395554433", "gabriel@email.com");
+		Cliente cliente4 = new Cliente("4", "Antonia", "Soares", "Rua das Flores, 10", "96000700", "5395557890", "antonia@email.com");
+		Cliente cliente5 = new Cliente("4", "Antonia", "Soares", "Rua das Flores, 10", "96000700", "5395557890", "antonia@email.com");
 		
 		//coleção do tipo List
-		List<Cliente_Lista2> clientesList = new ArrayList<>();
+		List<Cliente> clientesList = new ArrayList<>();
 		clientesList.add(cliente1);
 		clientesList.add(cliente2);
 		clientesList.add(cliente3);
@@ -73,17 +73,17 @@ public class ClienteController {
 		//pesquisando na coleção (método filter)
 		System.out.println();
 		System.out.print("Localizando o Cliente pela chave de pesquisa (id=3) na coleção do tipo List ...");
-		Cliente_Lista2 ClienteFind = clientesList.stream().filter(c -> c.getCpf().equals("3")).findAny().orElse(null);
+		Cliente ClienteFind = clientesList.stream().filter(c -> c.getCpf().equals("3")).findAny().orElse(null);
 		System.out.println(ClienteFind);
 		
 		//ordenando a coleçao do tipo List
 		System.out.println();
-		clientesList.sort(Comparator.comparing(Cliente_Lista2::getCpf).reversed());
+		clientesList.sort(Comparator.comparing(Cliente::getCpf).reversed());
 		System.out.println("\nColeção do tipo List em ordem decrescente, chave id");
 		System.out.println(clientesList);
 		
 		//coleção do tipo Map
-		Map<String, Cliente_Lista2> clientesMap = new HashMap<>();
+		Map<String, Cliente> clientesMap = new HashMap<>();
 		clientesMap.put(cliente1.getCpf(), cliente1);
 		clientesMap.put(cliente2.getCpf(), cliente2);
 		clientesMap.put(cliente3.getCpf(), cliente3);

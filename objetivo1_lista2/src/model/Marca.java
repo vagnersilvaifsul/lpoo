@@ -1,14 +1,14 @@
 package model;
 
-public class Modelo_Lista2 {
+public class Marca {
 	private int id;
 	private String descricao;
 
-	public Modelo_Lista2() {
+	public Marca() {
 		super();
 	}
 
-	public Modelo_Lista2(int id, String descricao) {
+	public Marca(int id, String descricao) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -32,7 +32,7 @@ public class Modelo_Lista2 {
 
 	@Override
 	public String toString() {
-		return "\nModelo_Lista2 [id=" + id + ", descricao=" + descricao + "]";
+		return "\nMarca_Lista2 [id=" + id + ", descricao=" + descricao + "]";
 	}
 	
 }

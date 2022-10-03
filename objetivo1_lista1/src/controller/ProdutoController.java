@@ -7,8 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.Produto_Lista1;
-
+import model.Produto;
 
 
 public class ProdutoController {
@@ -17,8 +16,8 @@ public class ProdutoController {
 		//1
 		
 		//constrói instâncias da classe
-		Produto_Lista1 produto1 = new Produto_Lista1(); //utilizando o construtor padrão
-		Produto_Lista1 produto2 = new Produto_Lista1(2, "Feijão", 8.50, 2000); //utilizando o construtor parametrizado
+		Produto produto1 = new Produto(); //utilizando o construtor padrão
+		Produto produto2 = new Produto(2, "Feijão", 8.50, 2000); //utilizando o construtor parametrizado
 		
 		//imprime essas instâncias
 		System.out.println("Produtos criados com os contrutores padrão e parametrizado");
@@ -48,12 +47,12 @@ public class ProdutoController {
 		
 		//2	
 		//para desenvolver o que foi solicitado no item 2, a classe de modelo recebeu mais um atributo, o id
-		Produto_Lista1 produto3 = new Produto_Lista1(3, "Batata", 2.00, 6000);
-		Produto_Lista1 produto4 = new Produto_Lista1(4, "Cenoura", 2.50, 1000);
-		Produto_Lista1 produto5 = new Produto_Lista1(4, "Cenoura", 2.50, 1000);
+		Produto produto3 = new Produto(3, "Batata", 2.00, 6000);
+		Produto produto4 = new Produto(4, "Cenoura", 2.50, 1000);
+		Produto produto5 = new Produto(4, "Cenoura", 2.50, 1000);
 		
 		//coleção do tipo List
-		List<Produto_Lista1> produtosList = new ArrayList<>();
+		List<Produto> produtosList = new ArrayList<>();
 		produtosList.add(produto1);
 		produtosList.add(produto2);
 		produtosList.add(produto3);
@@ -64,17 +63,17 @@ public class ProdutoController {
 		//pesquisando na coleção (método filter)
 		System.out.println();
 		System.out.print("Localizando o Produto pela chave de pesquisa (id=3) na coleção do tipo List ...");
-		Produto_Lista1 ProdutoFind = produtosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
+		Produto ProdutoFind = produtosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
 		System.out.println(ProdutoFind);
 		
 		//ordenando a coleçao do tipo List
 		System.out.println();
-		produtosList.sort(Comparator.comparing(Produto_Lista1::getId).reversed());
+		produtosList.sort(Comparator.comparing(Produto::getId).reversed());
 		System.out.println("\nColeção do tipo List em ordem decrescente, chave id");
 		System.out.println(produtosList);
 		
 		//coleção do tipo Map
-		Map<Integer, Produto_Lista1> produtosMap = new HashMap<>();
+		Map<Integer, Produto> produtosMap = new HashMap<>();
 		produtosMap.put(produto1.getId(), produto1);
 		produtosMap.put(produto2.getId(), produto2);
 		produtosMap.put(produto3.getId(), produto3);

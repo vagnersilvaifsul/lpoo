@@ -1,6 +1,6 @@
 package model;
 
-public interface AutomovelG {
+public interface Automovel {
 	String getRenavam(); //de int para string na implementação
 	void setRenavam(String renavam); //de int para string na implementação
 	String getChassi(); //de int para string na implementação

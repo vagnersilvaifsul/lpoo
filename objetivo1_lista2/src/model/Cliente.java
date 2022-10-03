@@ -1,6 +1,6 @@
 package model;
 
-public class Cliente_Lista2 {
+public class Cliente {
 	//atributos
 	private String cpf;
 	private String nome;
@@ -11,12 +11,12 @@ public class Cliente_Lista2 {
 	private String email;	
 	
 	//Métodos construtores
-	public Cliente_Lista2() {
+	public Cliente() {
 		super();
 	}
 
-	public Cliente_Lista2(String cpf, String nome, String sobrenome, String endereco, String cep, String telefone,
-			String email) {
+	public Cliente(String cpf, String nome, String sobrenome, String endereco, String cep, String telefone,
+				   String email) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;

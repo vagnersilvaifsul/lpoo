@@ -1,6 +1,6 @@
 package model;
 
-public class CarroG extends VeiculoG implements AutomovelG {
+public class Carro extends Veiculo implements Automovel {
 
 	private int capacidadePortaMalas;
 	private String renavam;
@@ -9,11 +9,11 @@ public class CarroG extends VeiculoG implements AutomovelG {
 	
 	
 	
-	public CarroG() {
+	public Carro() {
 		super();
 	}	
 
-	public CarroG(int numeroDeEixos, String propulsao, String marca, String modelo, int anoFabricacao, int capacidadePortaMalas , String renavam, String chassi, String placa) {
+	public Carro(int numeroDeEixos, String propulsao, String marca, String modelo, int anoFabricacao, int capacidadePortaMalas , String renavam, String chassi, String placa) {
 		super(numeroDeEixos, propulsao, marca, modelo, anoFabricacao);
 		this.capacidadePortaMalas = capacidadePortaMalas;
 		this.renavam = renavam;
