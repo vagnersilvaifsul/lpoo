@@ -68,16 +68,15 @@ public class Collection_Pesquisa {
         System.out.print("\n+++++++++++++++++++++++++ Pesquisa pelo método contains da interface Collection ++++++++++++++++++++++++++++++");
         System.out.println("\nPesquisa pelo funcionario de id=3 (utiliza o hashcode para pesquisar, nesse caso o id)"); //pesquisa pela chave
         System.out.println(funcionariosSet.contains(new Funcionario(3, String.valueOf(3), 3 * 1000))); //devolve um booleno
-        System.out.println();
 
         //Eu recomento essa técnica!!!!!!
         System.out.print("\n+++++++++++++++++++++++++ Pesquisa usando Stream (Lambda) ++++++++++++++++++++++++++++++");
-        System.out.println("Técnica recomendada pelo professor");
+        System.out.print("\nTécnica recomendada pelo professor");
         System.out.print(funcionariosSet.stream()
             .filter(o -> o.getNome().equals("3"))
             .findFirst().get());
 
-        System.out.print("\n+++++++++++++++++++++++++ Pesquisa pelo objeto, utilizando força bruta ++++++++++++++++++++++++++++++");
+        System.out.print("\n\n+++++++++++++++++++++++++ Pesquisa pelo objeto, utilizando força bruta ++++++++++++++++++++++++++++++");
         //ou utilizar força bruta (técnica não recomendada)
         funcionariosSet.forEach(fs -> {
             Funcionario f = (new Funcionario(3, String.valueOf(3), 3 * 1000));
