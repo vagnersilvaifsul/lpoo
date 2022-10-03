@@ -4,10 +4,12 @@ import model.Funcionario;
 
 import java.util.*;
 
-public class List_Operacoes_Com_Collections {
+public class Collections_operações {
     public static void main(String[] args) {
         /* A classe Collections é uma classe utilitária que manipula coleções (qualquer tipo da interface Collection)
         *  A classe Collections fornece métodos static que pesquisam, classificam e realizam outras operações sobre as coleções.
+        *  Antes do Java 8, era comum associar a uma interface uma classe contendo métodos auxiliares static para trabalhar com
+        *  os objetos que implementavam a interface. Esse é o caso da classe Collections.
         * */
 
 
