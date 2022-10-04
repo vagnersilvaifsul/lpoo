@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *  Uma grande vantagem da Stream está no fato de não alterar os dados da Collection Original.
@@ -140,6 +141,15 @@ public class ProgramacaoFuncional_com_Stream {
             .toArray(size -> new Object[size]);//2
         Arrays.stream(array).forEach(System.out::print); //para imprimir utilizou stream e a operação terminal forEach
 
+        //builder
+        System.out.println("\nExemplos de aplicação da operação terminal builder:");
+        // Using Stream builder()
+        Stream.Builder<String> builder = Stream.builder();
+        // Adding elements in the stream of Strings
+        Stream<String> stream = builder.add("Geeks").build();
+        // Displaying the elements in the stream
+        stream.forEach(System.out::println);
+
 
         System.out.println("\n\n***************** Exemplos de Operações Intermediárias *****************");
         /*
@@ -189,15 +199,26 @@ public class ProgramacaoFuncional_com_Stream {
             4. Coleta a stream para uma List;
          */
         System.out.print("\nExemplo de aplicação da operação distinct:");
-        changeCollection(values); //insere salários repetidos na Collection
-        System.out.println("\nColeção adptada (inseridos salários repetidos na Collection)" + values);
+        //Alterando a Collection original para que ela contenha dados repetidos (salários repetidos nesse exemplo)
+        /*ATENÇÃO: Note que as Streams tem o poder de alterar o valor original da Collection (apenas procura-se evitar se utilizar desse artifício,
+        * deixando a Collection original immutable).
+        */
+        List<Funcionario> finalValues = values;
+        values.stream().filter(f -> {
+            if (f.getSalario() > 7000.00) {
+                finalValues.get(finalValues.indexOf(f)).setSalario(2000.00); //substitui os salarios de 8.000, 9.000 e 10.000 por 2.000
+            }
+            return true;
+        }).collect(Collectors.toList());
+        System.out.println("\nColeção original adptada (inseridos salários repetidos na Collection)" + values);
         System.out.println("\nSaída após a aplicação da operação intermediária Distintict:");
         System.out.println(
             values.stream() //1
             .distinct() //2 (Note que a classe Funcionário foi modificada para que equals e hasdcode funcione pelo atributo salário)
             .sorted(Comparator.comparing(f -> f.getSalario())) //3
             .collect(Collectors.toList())); //4
-        values = getFuncionarioCollection(); //volta a coleção para os valores originais
+        System.out.print("\nRetornando a Collection ao dados originais");
+        values = getFuncionarioCollection(); //retorna os dados originais
 
         /** Exemplo de aplicação da operação intermediária Limit **/
         //limit
@@ -253,7 +274,6 @@ public class ProgramacaoFuncional_com_Stream {
             3. Busca uma ocorrência na Collection e para a busca;
          */
         System.out.print("\nExemplo de aplicação da operação findAny:");
-        changeCollection(values); //insere salários repetidos na Collection
         System.out.println(values.stream() //1
             .filter(f -> f.getSalario() == 5000.00) //2
             .findAny().get()); //3 (Como devolve um Optional tem que extrair dele o Funcionário com  o get)
@@ -267,7 +287,6 @@ public class ProgramacaoFuncional_com_Stream {
             2. Localiza o objeto pelo critério do Predicado;
          */
         System.out.print("\nExemplo de aplicação da operação anyMatch: ");
-        changeCollection(values); //insere salários repetidos na Collection
         System.out.println(values.stream() //1
             .anyMatch(f -> f.getSalario() == 5000.00)); //2
 
@@ -279,20 +298,10 @@ public class ProgramacaoFuncional_com_Stream {
              2. Localiza o objeto pelo critério do Predicado.
          */
         System.out.print("\nExemplo de aplicação da operação allMatch: ");
-        changeCollection(values); //insere salários repetidos na Collection
         System.out.println(values.stream() //1
             .allMatch(f -> f.getSalario() == 5000.00)); //2
 
         System.out.println();
-    }
-
-    private static void changeCollection(List<Funcionario> values) {
-        //Prepara a Collection inserindo salários repeditos na coleção
-        for(Funcionario f : values){ //note que aqui foi aplicado o forEach do Java 7-, assim tem acesso na Collection values
-            if (f.getSalario() > 7000.00) {
-                values.get(values.indexOf(f)).setSalario(2000.00);
-            }
-        }
     }
 
     private static List<Funcionario> getFuncionarioCollection() {
