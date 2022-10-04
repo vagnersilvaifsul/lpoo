@@ -120,6 +120,7 @@ public class ProgramacaoFuncional_com_Stream {
             .mapToDouble(f -> f.getSalario()) //2
             .reduce(1, (x, y) -> x * y)); //3 (ao invés de soma, determinou o produto)
 
+        /** Exemplo de aplicação da operação terminal collect **/
         //collect
         //Cria uma nova coleção dos elementos contendo os resultados das operações anteriores do fluxo.
         /* Como trata-se de programação funcional, lê-se assim:
@@ -130,6 +131,7 @@ public class ProgramacaoFuncional_com_Stream {
         System.out.println(values.stream() //1
             .collect(Collectors.toList())); //2
 
+        /** Exemplo de aplicação da operação terminal toArray **/
         //toArray
         //Cria um array contendo os resultados das operações anteriores do fluxo.
         /* Como trata-se de programação funcional, lê-se assim:
@@ -141,14 +143,28 @@ public class ProgramacaoFuncional_com_Stream {
             .toArray(size -> new Object[size]);//2
         Arrays.stream(array).forEach(System.out::print); //para imprimir utilizou stream e a operação terminal forEach
 
+        /** Exemplo de aplicação da operação builder **/
         //builder
-        System.out.println("\nExemplos de aplicação da operação terminal builder:");
-        // Using Stream builder()
-        Stream.Builder<String> builder = Stream.builder();
-        // Adding elements in the stream of Strings
-        Stream<String> stream = builder.add("Geeks").build();
-        // Displaying the elements in the stream
+        //Cria uma stream utilizando o padrão de projeto buider.
+        /* Como trata-se de programação funcional, lê-se assim:
+            1. Crie um Steam a partir da Collection (origem de dados);
+            2. Percorre a Stream para realizar a operação de impressão.
+         */
+        System.out.print("\n\nExemplos de aplicação da operação builder:");
+        Stream.Builder<Funcionario> builder = Stream.builder(); // utilizando builder()
+        Stream<Funcionario> stream = builder.add(new Funcionario(3, String.valueOf(3), 3 * 1000)).build(); //adicionando elementos a stream
         stream.forEach(System.out::println);
+
+        /** Exemplo de aplicação da operação empty **/
+        //empty
+        //Cria uma stream vazia
+        /* Como trata-se de programação funcional, lê-se assim:
+            1. Crie um Steam vazia;
+            2. Percorre a Stream para realizar a operação de impressão.
+         */
+        System.out.print("\n\nExemplos de aplicação da operação empty (imprime a stream vazia):");
+        Stream<String> myStream = Stream.empty();
+        myStream.forEach(System.out::println); //imprime a stream vazia
 
 
         System.out.println("\n\n***************** Exemplos de Operações Intermediárias *****************");
@@ -244,6 +260,20 @@ public class ProgramacaoFuncional_com_Stream {
         System.out.println(values.stream() //1
             .skip(3) //2
             .collect(Collectors.toList())); //3
+
+        /** Exemplo de aplicação da operação intermediária concat **/
+        //concat
+        //Concatena streams.
+        //Cria uma stream utilizando o padrão de projeto buider.
+        /* Como trata-se de programação funcional, lê-se assim:
+            1. Crie um Steam a partir das Collections concatenadas (origem de dados);
+            2. Percorre a Stream para realizar a operação de impressão.
+         */
+        System.out.print("\n\nExemplos de aplicação da operação terminal concat:");
+        System.out.print("\nCriando outra lista (com os mesmos dados)");
+        List<Funcionario> values2 = getFuncionarioCollection();
+        Stream.concat(values.stream(), values2.stream()) //1
+            .forEach(System.out::print); //2
 
 
         System.out.println("\n\n***************** Exemplos de Operações de Pesquisa (Operações Terminais de Pesquisa) *****************");
