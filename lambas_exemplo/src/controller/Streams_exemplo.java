@@ -12,7 +12,7 @@ public class Streams_exemplo {
 
         /***** O Básico sobre Streams *****/
 
-        /*  Cada elemento na coleção deve ser computado antes que possa ser adicionado à coleção. Enquanto um
+        /*  Cada elemento numa coleção deve ser computado antes que possa ser adicionado à coleção. Enquanto um
             Stream é conceitualmente um pipeline, no qual os elementos são calculados sob demanda.
             As operações de fluxo são intermediárias ou terminais. As operações do terminal retornam um
             resultado de um determinado tipo e as operações intermediárias retornam o próprio fluxo para que

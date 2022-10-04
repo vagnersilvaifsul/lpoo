@@ -6,16 +6,18 @@ public class Funcionario {
 	private int id;
 	private String nome;
 	private double salario;
+	private String departamento;
 	
 	public Funcionario() {
 		super();
 	}
 		
-	public Funcionario(int id, String nome, double salario) {
+	public Funcionario(int id, String nome, double salario, String departamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.salario = salario;
+		this.departamento = departamento;
 	}
 
 	public int getId() {
@@ -42,6 +44,14 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+
 	/* ATENÇÃO: O critério do equals e hashcode foi modificado para salário */
 	@Override
 	public boolean equals(Object o) {
@@ -61,7 +71,11 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "\nFuncionario [id=" + id + ", nome=" + nome + ", salario=" + NumberFormat.getCurrencyInstance().format(salario) + "]";
+		return "\nFuncionario{" +
+			"id=" + id +
+			", nome='" + nome + '\'' +
+			", salario=" + salario +
+			", departamento='" + departamento + '\'' +
+			'}';
 	}
-	
 }

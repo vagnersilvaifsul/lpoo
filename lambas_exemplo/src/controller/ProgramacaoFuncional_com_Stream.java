@@ -2,10 +2,7 @@ package controller;
 
 import model.Funcionario;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -123,6 +120,7 @@ public class ProgramacaoFuncional_com_Stream {
         /** Exemplo de aplicação da operação terminal collect **/
         //collect
         //Cria uma nova coleção dos elementos contendo os resultados das operações anteriores do fluxo.
+        //Obs.: Mais adiante, nesse mesmo arquivo, você verá outros exemplos de Collectors.
         /* Como trata-se de programação funcional, lê-se assim:
             1. Crie um Steam a partir da Collection (origem de dados);
             2. Coleta a stream para uma List.
@@ -130,6 +128,38 @@ public class ProgramacaoFuncional_com_Stream {
         System.out.print("\nExemplos de aplicação da operação terminal collect:");
         System.out.println(values.stream() //1
             .collect(Collectors.toList())); //2
+
+        System.out.println("\n\n***************** Exemplos Avançado de Operações Terminais Collect *****************");
+        //Collectors.groupingBy
+        //Faz o agrupamento dos objetos contidos na stream (baseado em um critério)
+        /* Como trata-se de programação funcional, lê-se assim:
+             1. Crie um Steam a partir da Collection (origem de dados);
+             2. Agrupe por departamento;
+             3. Percorra a coleção para realizar a operação de impressão.
+         */
+        System.out.print("\nExemplo de aplicação da operação Collectors.groupingBy: ");
+        Map<String, List<Funcionario>> groupedPorDepartmento =
+            values.stream() //1
+                .collect(Collectors.groupingBy(Funcionario::getDepartamento)); //2 Collectors.groupingBy devolve um Map
+        groupedPorDepartmento.forEach((departamento, funcionariosPorDepartamento) -> { //3
+            System.out.print("\n\nDEPARTAMENTO: " + departamento);
+            funcionariosPorDepartamento.forEach(  f -> System.out.printf("%s", f));
+        });
+
+        //Collectors.counting()
+        //Conta a quantidade em cada agrupamento
+        /* Como trata-se de programação funcional, lê-se assim:
+             1. Crie um Steam a partir da Collection (origem de dados);
+             2. Agrupe por departamento e conte a quantidade de funcionários em cada um deles;
+             3. Percorra a coleção para realizar a operação de impressão.
+         */
+        System.out.print("\n\nExemplo de aplicação da operação Collectors.counting: \n");
+        Map<String, Long> empregadosPorDepartmento =
+            values.stream() //1
+                .collect(Collectors.groupingBy(Funcionario::getDepartamento, Collectors.counting())); //2 Collectors.groupingBy devolve um Map
+        empregadosPorDepartmento
+            .forEach((departamento, count) -> System.out.printf("%s contém %d empregado(s)%n", departamento, count)); //3
+
 
         /** Exemplo de aplicação da operação terminal toArray **/
         //toArray
@@ -152,7 +182,7 @@ public class ProgramacaoFuncional_com_Stream {
          */
         System.out.print("\n\nExemplos de aplicação da operação builder:");
         Stream.Builder<Funcionario> builder = Stream.builder(); // utilizando builder()
-        Stream<Funcionario> stream = builder.add(new Funcionario(3, String.valueOf(3), 3 * 1000)).build(); //adicionando elementos a stream
+        Stream<Funcionario> stream = builder.add(new Funcionario(3, String.valueOf(3), 3 * 1000, "desenvolvimento")).build(); //adicionando elementos a stream
         stream.forEach(System.out::println);
 
         /** Exemplo de aplicação da operação empty **/
@@ -331,13 +361,18 @@ public class ProgramacaoFuncional_com_Stream {
         System.out.println(values.stream() //1
             .allMatch(f -> f.getSalario() == 5000.00)); //2
 
+
         System.out.println();
     }
 
     private static List<Funcionario> getFuncionarioCollection() {
         List<Funcionario> funcionariosList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            funcionariosList.add(new Funcionario(i+1, String.valueOf(i+1), (i+1) * 1000));
+            if(i % 2 == 0){
+                funcionariosList.add(new Funcionario(i+1, String.valueOf(i+1), (i+1) * 1000, "Desenvolvimento"));
+            } else {
+                funcionariosList.add(new Funcionario(i+1, String.valueOf(i+1), (i+1) * 1000, "Administrativo"));
+            }
         }
         System.out.println("\nList Criada");
         System.out.println(funcionariosList);
