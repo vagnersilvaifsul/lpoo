@@ -74,7 +74,7 @@ public class Collection_Pesquisa {
         System.out.print("\nTécnica recomendada pelo professor");
         System.out.print(funcionariosSet.stream()
             .filter(o -> o.getNome().equals("3"))
-            .findFirst().get());
+            .findAny().get());
 
         System.out.print("\n\n+++++++++++++++++++++++++ Pesquisa pelo objeto, utilizando força bruta ++++++++++++++++++++++++++++++");
         //ou utilizar força bruta (técnica não recomendada)

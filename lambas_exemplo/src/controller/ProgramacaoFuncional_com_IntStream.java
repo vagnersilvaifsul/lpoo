@@ -2,6 +2,17 @@ package controller;
 
 import java.util.stream.IntStream;
 
+/**
+ *  Uma grande vantagem da Stream está no fato de não alterar os dados da Collection Original.
+ *  Outra vantagem está no fato das Streams terem sido projetadas para tirar proveito da parelalidade das arquiteturas
+ *  dos processadores atuais (dos vários cores que eles podem possuir).
+ *
+ *  Nesse exemplo é explorada a Interface IntStream a partir de um array de inteiros.
+ *
+ *  Há interfaces especializadas para operar long (LongStream) e double (DoubleStream), mas implementam as mesma operacões
+ *  da interface IntStream. Em outras palavras, aprendendo as operações de IntStream você saberá operar LongStream e DoubleStream.
+ *
+ **/
 public class ProgramacaoFuncional_com_IntStream {
     public static void main(String[] args) {
         //Cria um array de inteiros (de tipo primitivo int)
@@ -66,17 +77,17 @@ public class ProgramacaoFuncional_com_IntStream {
             .sum()); //2
         System.out.printf("%nSum com range de 1 a 9 (soma os números inteiros de 1 ao 9): %d", IntStream.range(1, 9).sum());
         System.out.printf("%nSum com range de 1 a 10 (soma os números inteiros de 1 ao 10): %d%n", IntStream.rangeClosed(1, 10).sum());
+
         //Reduce
         /* Como trata-se de programação funcional, lê-se assim:
             1. Crie um Steam a partir do array (origem de dados);
             2. Determine qual é a soma dos valores contidos nessa Stream;
 
             Obs.: O exemplo trada da adição, mas poderia ser qualquer outra operação da artmética, desde que, redutível (reduce).
-            Entendeu o peder da operação de redução Reduce? (ela extende o poder das operações redutíveis)
+            Entendeu o poder da operação de redução Reduce? (ela extende o poder das operações redutíveis)
          */
         System.out.print("\nExemplos de aplicação da operação terminal reduce:");
-        System.out.print("\nA soma de todos os valores");
-        System.out.printf("\nReduce (Soma dos valores): %d%n", IntStream.of(values) //1
+        System.out.printf("\nReduce (Soma de todos valores da Collection): %d%n", IntStream.of(values) //1
             .reduce(0, Integer::sum)); //2
 
         System.out.print("\nO produto de todos os valores");
@@ -85,7 +96,6 @@ public class ProgramacaoFuncional_com_IntStream {
 
 
         System.out.println("\n***************** Exemplos de Operações Intermediárias *****************");
-
         /*
         *   ATENÇÃO: Toda operação intermediária é inicializada por uma operação terminal.
         * */
@@ -123,7 +133,7 @@ public class ProgramacaoFuncional_com_IntStream {
             .forEach(value -> System.out.printf("%d ", value)); //5 (itera sobre cada valor e o imprime na saída padrão)
 
         /** Exemplo de aplicação da operação intermediária distinct **/
-        //distinct //TODO: Fazer essa operação
+        //distinct //TODO: Fazer essa operação e as demais
 
         System.out.println();
     }

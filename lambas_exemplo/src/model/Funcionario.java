@@ -37,11 +37,12 @@ public class Funcionario {
 	public double getSalario() {
 		return salario;
 	}
-	
+
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
+	/* ATENÇÃO: O critério do equals e hashcode foi modificado para salário */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -49,12 +50,13 @@ public class Funcionario {
 
 		Funcionario that = (Funcionario) o;
 
-		return id == that.id;
+		return Double.compare(that.salario, salario) == 0;
 	}
 
 	@Override
 	public int hashCode() {
-		return id;
+		long temp = Double.doubleToLongBits(salario);
+		return (int) (temp ^ (temp >>> 32));
 	}
 
 	@Override
