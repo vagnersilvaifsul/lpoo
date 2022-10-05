@@ -8,7 +8,19 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-/** Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas. **/
+/**
+ *
+ * Conteúdo: Streams para arquivos de texto (Fluxos no paradigma funcional).
+ *
+ * Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas.
+ *
+ * Streams fazem parte da Programação Funcional.
+ * A grande vantagem da Programação Funcional é que ela está mais próxima das regras de negócio. Para tornar mais clara a
+ * aplicação desse raciocínio, os exemplos a seguir estão anotados pela seguinte observação:
+ *      "Como trata-se de programação funcional, lê-se assim:"
+ *  A ideia é demostrar com esta observação como a Programação Funcional está bem próxima da regra de negócio que ela resolve
+ *  (em contraste com a Programação Procedural e a Programação Orientada a Objetos).
+ * **/
 public class ProgramacaoFuncional_com_Arquivos {
     public static void main(String[] args) throws IOException {
         //Regex que corresponde a um ou mais caracteres de espaço em branco consecutivos

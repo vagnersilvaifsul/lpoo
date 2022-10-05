@@ -9,18 +9,32 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- *  Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas.
+ *
+ *  Conteúdo: Streams (Fluxos no paradigma funcional).
+ *
+ *  Streams (fluxos) são sequências de elementos que suportam operações de agregação sequenciais e paralelas.
+ *
+ *  As operações de fluxo são divididas em operações intermediárias e terminais e são combinadas para formar
+ *  pipelines de fluxo.
  *
  *  Fonte: https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/stream/package-summary.html
  *
- *  Uma grande vantagem da Stream está no fato de não alterar os dados da Collection Original.
- *  Outra vantagem está no fato das Streams terem sido projetadas para tirar proveito da parelalidade das arquiteturas
+ *  Vantagens:
+ *  1. Uma grande vantagem da Stream está no fato de não alterar os dados da Collection Original.
+ *  2. Outra vantagem está no fato das Streams terem sido projetadas para tirar proveito da parelalidade das arquiteturas
  *  dos processadores atuais (dos vários cores que eles podem possuir).
  *
  *  Nesse exemplo é explorada a Interface Stream a partir de uma Collection (nesse exemplo, uma List).
  *
  *  Não só é explorada a interface Stream, mas, para tornar o exemplo mais próximo da realidade de sistemas baseados em CRUD,
  *  a Collection (uma List), representa uma coleção de objetos (no exemplo, de objetos da classe Funcionario).
+ *
+ *  Streams fazem parte da Programação Funcional.
+ *  A grande vantagem da Programação Funcional é que ela está mais próxima das regras de negócio. Para tornar mais clara a
+ *  aplicação desse raciocínio, os exemplos a seguir estão anotados pela seguinte observação:
+ *      "Como trata-se de programação funcional, lê-se assim:"
+ *  A ideia é demostrar com esta observação como a Programação Funcional está bem próxima da regra de negócio que ela resolve
+ *  (em contraste com a Programação Procedural e a Programação Orientada a Objetos).
  **/
 public class ProgramacaoFuncional_com_Stream {
     public static void main(String[] args) {

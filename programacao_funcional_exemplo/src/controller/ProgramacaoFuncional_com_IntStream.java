@@ -3,6 +3,9 @@ package controller;
 import java.util.stream.IntStream;
 
 /**
+ *
+ *  Conteúdo: IntStreams (Fluxos para números inteiros no paradigma funcional).
+ *
  *  Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas.
  *
  *  Uma grande vantagem da Stream está no fato de não alterar os dados da Collection Original.
@@ -14,6 +17,12 @@ import java.util.stream.IntStream;
  *  Há interfaces especializadas para operar long (LongStream) e double (DoubleStream), mas implementam as mesma operacões
  *  da interface IntStream. Em outras palavras, aprendendo as operações de IntStream você saberá operar LongStream e DoubleStream.
  *
+ *  Streams fazem parte da Programação Funcional.
+ *  A grande vantagem da Programação Funcional é que ela está mais próxima das regras de negócio. Para tornar mais clara a
+ *  aplicação desse raciocínio, os exemplos a seguir estão anotados pela seguinte observação:
+ *      "Como trata-se de programação funcional, lê-se assim:"
+ *  A ideia é demostrar com esta observação como a Programação Funcional está bem próxima da regra de negócio que ela resolve
+ *  (em contraste com a Programação Procedural e a Programação Orientada a Objetos).
  **/
 public class ProgramacaoFuncional_com_IntStream {
     public static void main(String[] args) {
