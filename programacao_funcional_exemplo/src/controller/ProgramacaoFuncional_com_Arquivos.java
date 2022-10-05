@@ -22,7 +22,7 @@ public class ProgramacaoFuncional_com_Arquivos {
              4. Agrupe as palavras dessa stream pela categoria indicada e conte as ocorrências das palavras.
          */
         Map<String, Long> wordCounts =
-            Files.lines(Paths.get("lambdas_exemplo/src/assets/data.txt")) //1
+            Files.lines(Paths.get("programacao_funcional_exemplo/src/assets/data.txt")) //1
                 .map(line -> line.replaceAll("(?!')\\p{P}", "")) //2
                 .flatMap(line -> pattern.splitAsStream(line)) //3
                 .collect(Collectors.groupingBy(String::toLowerCase, //4
