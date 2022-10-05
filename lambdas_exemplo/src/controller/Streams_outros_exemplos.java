@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-
+/** Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas. **/
 @SuppressWarnings({"DanglingJavadoc", "MismatchedQueryAndUpdateOfCollection", "RedundantArrayCreation", "OptionalGetWithoutIsPresent"})
-public class Streams_exemplo {
+public class Streams_outros_exemplos {
     public static void main(String[] args) {
 
         /***** O Básico sobre Streams *****/

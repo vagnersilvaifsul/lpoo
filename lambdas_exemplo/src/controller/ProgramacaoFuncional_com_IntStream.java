@@ -3,6 +3,8 @@ package controller;
 import java.util.stream.IntStream;
 
 /**
+ *  Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas.
+ *
  *  Uma grande vantagem da Stream está no fato de não alterar os dados da Collection Original.
  *  Outra vantagem está no fato das Streams terem sido projetadas para tirar proveito da parelalidade das arquiteturas
  *  dos processadores atuais (dos vários cores que eles podem possuir).

@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/** Streams são sequências de elementos que suportam operações de agregação sequenciais e paralelas. **/
 public class ProgramacaoFuncional_com_Arquivos {
     public static void main(String[] args) throws IOException {
         //Regex que corresponde a um ou mais caracteres de espaço em branco consecutivos
