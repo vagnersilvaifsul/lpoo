@@ -1,6 +1,6 @@
 package model;
 
-public class Cliente extends Object{
+public class Cliente extends Object implements Cloneable{
 	//atributos
 	private Long id;
 	private String cpf;
@@ -125,5 +125,10 @@ public class Cliente extends Object{
 	@Override
 	public String toString() {
 		return getClass().getName() + '@' + hashCode();
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }
