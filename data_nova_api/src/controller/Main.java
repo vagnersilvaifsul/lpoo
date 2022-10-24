@@ -66,11 +66,22 @@ public class Main {
         //Instant +++++++++++++++++++++++++++
         /* Retorna a data e hora atual em nanosegundos */
         System.out.println("\n++++ Datas para computadores ++++");
-        System.out.println("--------- Exemplo de uso do Instant (data e hora atual do sistema - Um TIMESTAMP) --------- ");
+        System.out.println("--------- Exemplo de uso do Instant (data e hora atual do sistema) --------- ");
         Instant agora = Instant.now();
-        System.out.print("Saída padrão (note que está com o offset de Londres): " + agora); //2022-10-21T14:11:25.109702Z (formato ISO-8601)
+        System.out.print("Saída padrão (note que está com o offset de Greenwich): " + agora); //exemplo: 2022-10-21T14:11:25.109702Z (formato ISO-8601)
         LocalDateTime dataHoraSP = LocalDateTime.ofInstant(agora, ZoneId.of("America/Sao_Paulo"));
         System.out.println("\nSaída ajustada pelo ZoneId (note que está com o offset de São Paulo): " + dataHoraSP);
+
+        System.out.println("\n--------- Exemplo de uso do Instant a partir de uma String (data e hora atual do sistema - Um TIMESTAMP) --------- ");
+        agora = Instant.parse("2022-10-24T14:21:00Z");
+        System.out.println("Saída padrão: " + agora); //formato ISO-8601
+
+        //Hora do Sistema com o ZoneId
+        System.out.println("\n--------- Exemplo de uso do Instant para pegar a data/hora do sistema no ZoneId --------- ");
+        LocalDateTime dataHoraSaoPaulo = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("America/Sao_Paulo"));
+        System.out.println("America/Sao_Paulo: " + dataHoraSaoPaulo);
+        LocalDateTime dataHoraParis = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("Europe/Paris"));
+        System.out.println("Europe/Paris: " + dataHoraParis);
 
         //Podemos usar um Instant, por exemplo, para medir o tempo de execução de um algoritmo.
         Instant inicio = Instant.now();
