@@ -67,9 +67,8 @@ public class Main {
          */
         System.out.println("\n++++ Datas para computadores ++++");
         //System
-        /*  Se você quiser apenas o tempo em como um long (data e hora atual do sistema), pode utilizar a classe System para
-            objeto */
-        System.out.println("\n--------- Exemplo de uso de System.currentTimeMillis() (data e hora atual do sistema como TIMESTAMP) --------- ");
+        /*  Se você quiser apenas o tempo em como um long (data e hora atual do sistema), pode utilizar a classe System */
+        System.out.println("--------- Exemplo de uso de System.currentTimeMillis() como TIMESTAMP (data e hora atual do sistema como um Long em ms) --------- ");
         System.out.println("Timestamp UTC Zero offset: " + System.currentTimeMillis()); //note que é o equivalente a Instant.now().toEpochMilli()
 
         //Instant +++++++++++++++++++++++++++
@@ -78,13 +77,13 @@ public class Main {
             a uma determinada quantidade de tempo decorrida a partir de um instante inicial.
             No caso do Java ele parte da época Java padrão em 1970-01-01T00:00:00Z
          */
-        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema como TIMESTAMP) --------- ");
+        System.out.println("\n--------- Exemplo de uso do Instant como TIMESTAMP (data e hora atual do sistema como um Long em ms) --------- ");
         Long timestamp = Instant.now().toEpochMilli();
         System.out.println("Timestamp UTC Zero offset: " + timestamp);
         //fazendo o contrário
         System.out.println("Instante UTC Zero offset: " + Instant.ofEpochMilli(timestamp));
 
-        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema como TIMESTAMP) --------- ");
+        System.out.println("\n--------- Exemplo de uso do Instant como TIMESTAMP (data e hora atual do sistema em UTC) --------- ");
         Instant agora = Instant.now();
         System.out.print("Saída padrão (Instant UTC Zero offset): " + agora); //exemplo: 2022-10-21T14:11:25.109702Z (formato ISO-8601)
         LocalDateTime dataHoraSP = LocalDateTime.ofInstant(agora, ZoneId.of("America/Sao_Paulo"));
@@ -96,10 +95,19 @@ public class Main {
 
         //Hora do Sistema com o ZoneId
         System.out.println("\n--------- Exemplo de uso do Instant para pegar a data/hora do sistema no ZoneId --------- ");
-        LocalDateTime dataHoraSaoPaulo = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("America/Sao_Paulo"));
+        Instant now = Instant.now(); //timestamp em UTC+0 ou GMT
+        LocalDateTime dataHoraSaoPaulo = LocalDateTime.ofInstant(now, ZoneId.of("America/Sao_Paulo"));
         System.out.println("America/Sao_Paulo: " + dataHoraSaoPaulo);
-        LocalDateTime dataHoraParis = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("Europe/Paris"));
-        System.out.println("Europe/Paris: " + dataHoraParis);
+        LocalDateTime dataHoraLondres = LocalDateTime.ofInstant(now, ZoneId.of("Europe/London"));
+        System.out.println("Europe/London: " + dataHoraLondres);
+        //ou
+        System.out.println("ou");
+        System.out.println(now.atZone(ZoneId.of("America/Sao_Paulo")));
+        System.out.println(now.atZone(ZoneId.of("Europe/London")));
+        System.out.println(now.atZone(ZoneId.of("Europe/Paris"))); //UTC significa Tempo Coordenado Universal
+        System.out.println(now.atZone(ZoneId.of("GMT"))); //GMT Greenwich Mean Time
+        System.out.println(now.atZone(ZoneId.of("UTC"))); //UTC Coordinated Universal Time
+        System.out.println(now); //está em UTC+0
 
         //Podemos usar um Instant, por exemplo, para medir o tempo de execução de um algoritmo.
         Instant inicio = Instant.now();
@@ -211,6 +219,9 @@ public class Main {
         System.out.print("Saída padrão: " + aberturaDaCopa); //2014-06-12T17:00 (formato ISO-8601)
         System.out.print("\nSaída formatada: ");
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
+
+        System.out.println("\n--------- Lista de Timezones disponíveis --------- ");
+        System.out.println(ZoneId.getAvailableZoneIds());
 
         System.out.println("\n\n");
     }
