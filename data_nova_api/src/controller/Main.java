@@ -58,32 +58,39 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
+
         /**
          * ++++ Datas para computadores ++++
          * Para um computador, o tempo é um número que cresce a cada instante. No Java, historicamente era utilizado um
          * long que representava os milissegundos desde 01/01/1970 às 00:00:00. Na javq.time, a classe Instant é utilizada
          * para representar esse número, agora com precisão de nanossegundos.
          */
+        System.out.println("\n++++ Datas para computadores ++++");
+        //System
+        /*  Se você quiser apenas o tempo em como um long (data e hora atual do sistema), pode utilizar a classe System para
+            objeto */
+        System.out.println("\n--------- Exemplo de uso de System.currentTimeMillis() (data e hora atual do sistema como TIMESTAMP) --------- ");
+        System.out.println("Timestamp UTC Zero offset: " + System.currentTimeMillis()); //note que é o equivalente a Instant.now().toEpochMilli()
+
         //Instant +++++++++++++++++++++++++++
         /* Retorna a data e hora atual em nanosegundos */
-        System.out.println("\n++++ Datas para computadores ++++");
         /*  Um timestamp basicamente representa um instante único, um ponto específico na linha do tempo, e seu valor corresponde
             a uma determinada quantidade de tempo decorrida a partir de um instante inicial.
             No caso do Java ele parte da época Java padrão em 1970-01-01T00:00:00Z
          */
-        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema) como TIMESTAMP --------- ");
+        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema como TIMESTAMP) --------- ");
         Long timestamp = Instant.now().toEpochMilli();
         System.out.println("Timestamp UTC Zero offset: " + timestamp);
         //fazendo o contrário
         System.out.println("Instante UTC Zero offset: " + Instant.ofEpochMilli(timestamp));
 
-        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema) --------- ");
+        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema como TIMESTAMP) --------- ");
         Instant agora = Instant.now();
         System.out.print("Saída padrão (Instant UTC Zero offset): " + agora); //exemplo: 2022-10-21T14:11:25.109702Z (formato ISO-8601)
         LocalDateTime dataHoraSP = LocalDateTime.ofInstant(agora, ZoneId.of("America/Sao_Paulo"));
         System.out.println("\nSaída ajustada pelo ZoneId (note que está com o offset de São Paulo): " + dataHoraSP);
 
-        System.out.println("\n--------- Exemplo de uso do Instant a partir de uma String (data e hora atual do sistema - Um TIMESTAMP) --------- ");
+        System.out.println("\n--------- Exemplo de uso do Instant a partir de uma String (data e hora atual do sistema) --------- ");
         agora = Instant.parse("2022-10-24T14:21:00Z");
         System.out.println("Saída padrão: " + agora); //formato ISO-8601
 
