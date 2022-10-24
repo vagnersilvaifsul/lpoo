@@ -52,6 +52,7 @@ import java.time.format.DateTimeFormatter;
  *      LocalDateTime - Representa uma data com hora.
  *      ZoneDateTime - Representa uma data com hora e fuso horário.
  *      Period - Calcula o período decorrido entre duas datas (considera anos bissextos).
+ *      DateTimeFormatter: Para Formatar a saída como uma String formatada (uma máscara para data e hora)
  *
  */
 
@@ -66,9 +67,19 @@ public class Main {
         //Instant +++++++++++++++++++++++++++
         /* Retorna a data e hora atual em nanosegundos */
         System.out.println("\n++++ Datas para computadores ++++");
-        System.out.println("--------- Exemplo de uso do Instant (data e hora atual do sistema) --------- ");
+        /*  Um timestamp basicamente representa um instante único, um ponto específico na linha do tempo, e seu valor corresponde
+            a uma determinada quantidade de tempo decorrida a partir de um instante inicial.
+            No caso do Java ele parte da época Java padrão em 1970-01-01T00:00:00Z
+         */
+        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema) como TIMESTAMP --------- ");
+        Long timestamp = Instant.now().toEpochMilli();
+        System.out.println("Timestamp UTC Zero offset: " + timestamp);
+        //fazendo o contrário
+        System.out.println("Instante UTC Zero offset: " + Instant.ofEpochMilli(timestamp));
+
+        System.out.println("\n--------- Exemplo de uso do Instant (data e hora atual do sistema) --------- ");
         Instant agora = Instant.now();
-        System.out.print("Saída padrão (note que está com o offset de Greenwich): " + agora); //exemplo: 2022-10-21T14:11:25.109702Z (formato ISO-8601)
+        System.out.print("Saída padrão (Instant UTC Zero offset): " + agora); //exemplo: 2022-10-21T14:11:25.109702Z (formato ISO-8601)
         LocalDateTime dataHoraSP = LocalDateTime.ofInstant(agora, ZoneId.of("America/Sao_Paulo"));
         System.out.println("\nSaída ajustada pelo ZoneId (note que está com o offset de São Paulo): " + dataHoraSP);
 
