@@ -40,6 +40,19 @@ import java.time.format.DateTimeFormatter;
  *      minus- subtrai uma quantidade de um objeto
  *      to- converte este objeto para outro tipo
  *      at- combina este objeto com outro, comodate.atTime(time)
+ *
+ *  As principais classes para representar datas e horas são:
+ *      Para Computadores
+ *      Instant - Representa um momento (data e hora) no tempo em UTC.
+ *      Duration - Mede o intervalo entre dois instantes
+ *
+ *      Para Humanos:
+ *      LocalDate - Representa uma data.
+ *      LocalTime - Representa um horário.
+ *      LocalDateTime - Representa uma data com hora.
+ *      ZoneDateTime - Representa uma data com hora e fuso horário.
+ *      Period - Calcula o período decorrido entre duas datas (considera anos bissextos).
+ *
  */
 
 public class Main {
@@ -50,18 +63,21 @@ public class Main {
          * long que representava os milissegundos desde 01/01/1970 às 00:00:00. Na javq.time, a classe Instant é utilizada
          * para representar esse número, agora com precisão de nanossegundos.
          */
-        //Instant
+        //Instant +++++++++++++++++++++++++++
         /* Retorna a data e hora atual em nanosegundos */
         System.out.println("\n++++ Datas para computadores ++++");
         System.out.println("--------- Exemplo de uso do Instant (data e hora atual do sistema - Um TIMESTAMP) --------- ");
-        Instant agora = Instant.now(); System.out.println(agora); //2022-10-21T14:11:25.109702Z (formato ISO-8601)
+        Instant agora = Instant.now();
+        System.out.print("Saída padrão (note que está com o offset de Londres): " + agora); //2022-10-21T14:11:25.109702Z (formato ISO-8601)
+        LocalDateTime dataHoraSP = LocalDateTime.ofInstant(agora, ZoneId.of("America/Sao_Paulo"));
+        System.out.println("\nSaída ajustada pelo ZoneId (note que está com o offset de São Paulo): " + dataHoraSP);
 
         //Podemos usar um Instant, por exemplo, para medir o tempo de execução de um algoritmo.
         Instant inicio = Instant.now();
         rodaAlgoritmo();
         Instant fim = Instant.now();
 
-        //Duration
+        //Duration +++++++++++++++++++++++++++
         /* Mede o intervalo entre dois instantes (Instant) em até nanogundos */
         System.out.println("\n--------- Exemplo de uso do Duration (intervalo entre dois instantes) --------- ");
         Duration duracao = Duration.between(inicio, fim);
@@ -79,7 +95,7 @@ public class Main {
          * e manipuladas de forma precisa, ao contrário do que acontecia ao usarmos Date ou Calendar (A partir de java.time
          * procure descontinuar o uso de java.util.Date e java.util.Calendar).
          */
-        //LocalDate
+        //LocalDate +++++++++++++++++++++++++++
         /* Representa uma data, ou seja, um período de 24 horas, com dia, mês, e ano. */
         System.out.println("\n\n++++ Datas para humanos ++++");
         System.out.println("--------- Exemplo de uso do LocalDate (data do sistema, sem a hora) --------- ");
@@ -92,21 +108,29 @@ public class Main {
             Um LocalDate serve para representarmos, por exemplo, a data de emissão do nosso RG, em que não nos importa as horas
             ou minutos, mas o dia da emissão. Podemos criar um LocalDate para uma data específica utilizando o método of.
          */
-        System.out.println("\n\n--------- Exemplo de uso do LocalDate com uma data definida --------- ");
+        System.out.println("\n\n--------- Exemplo de uso do LocalDate com uma data específica --------- ");
         LocalDate emissaoRG = LocalDate.of(2022, 10, 20);
         System.out.print("Saída padrão: " + emissaoRG);
         System.out.print("\nSaída formatada: ");
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
-        /*
-            Note que foi utilizado o valor 10 para representar o mês de Outubro. Podería ter utilizado o ENUM Month com o valor
-            OCTOBER. Há ainda o enum DayOfWeek, que representa os dias da semana.
-         */
-        System.out.println("\n\n--------- Exemplo de uso do LocalDate com uma data definida com o Enum Month --------- ");
-        emissaoRG = LocalDate.of(2022, Month.OCTOBER, 1);
+
+        System.out.println("\n\n--------- Exemplo de uso do LocalDate a partir de uma data específica, com o uso do Enum Month --------- ");
+        emissaoRG = LocalDate.of(2022, Month.OCTOBER, 20);
         System.out.print("Saída padrão: " + emissaoRG);
         System.out.print("\nSaída formatada: ");
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
 
+        System.out.println("\n\n--------- Exemplo de uso do LocalDate a partir de uma String (data específica) --------- ");
+        emissaoRG = LocalDate.parse("2022-10-20");
+        System.out.print("Saída padrão: " + emissaoRG);
+        System.out.print("\nSaída formatada: ");
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
+        //ou
+        System.out.println("ou");
+        emissaoRG = LocalDate.parse("20/10/2022", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        System.out.print("Saída padrão: " + emissaoRG);
+        System.out.print("\nSaída formatada: ");
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
 
         //Period +++++++++++++++++++++++++++
         /*  Para calcularmos a duração entre dois LocalDate, devemos utilizar um Period, que já trata anos bissextos e outros
@@ -116,7 +140,7 @@ public class Main {
         Period periodo = Period.between(hoje, emissaoRG);
         System.out.println(periodo);
 
-        System.out.println("\n\n--------- Outro exemplo de uso do Period (distância entre dois LocalDate) --------- ");
+        System.out.println("\n--------- Outro exemplo de uso do Period (distância entre dois LocalDate) --------- ");
         LocalDate homemNoEspaco = LocalDate.of(1961, Month.APRIL, 12);
         LocalDate homemNaLua = LocalDate.of(1969, Month.MAY, 25);
         periodo = Period.between(homemNoEspaco, homemNaLua); System.out.println(periodo);
@@ -127,19 +151,34 @@ public class Main {
         /*  Já a classe 'LocalTime' serve para representar apenas um horário, sem data específica. Podemos, por exemplo, usá-la
             para representar o horário de entrada no trabalho.
          */
-        System.out.println("\n\n--------- Exemplo de uso do LocalTime (hora, sem a data) --------- ");
-        LocalTime horarioDeEntrada = LocalTime.of(14, 0); System.out.println(horarioDeEntrada); //14:00
         System.out.println("\n\n--------- Exemplo de uso do LocalTime (hora atual do sistema, sem a data) --------- ");
-        horarioDeEntrada = LocalTime.now(); System.out.println(horarioDeEntrada);//imprime a hora atual do sistema (em nanosegundos)
+        LocalTime horarioDeEntrada = LocalTime.now();
+        System.out.println(horarioDeEntrada);//imprime a hora atual do sistema (em nanosegundos)
 
+        System.out.println("\n\n--------- Exemplo de uso do LocalTime a partir de uma hora específica (hora específica, sem a data) --------- ");
+        horarioDeEntrada = LocalTime.of(14, 0);
+        System.out.println(horarioDeEntrada); //14:00
+
+        System.out.println("\n\n--------- Exemplo de uso do LocalTime a partir de uma String (hora específica, sem a data) --------- ");
+        horarioDeEntrada = LocalTime.parse("14:00");
+        System.out.println(horarioDeEntrada); //14:00
 
         //LocalDateTime +++++++++++++++++++++++++++
         /*  A classe LocalDateTime serve para representar uma data e hora específicas. Podemos representar uma data e hora de
             uma prova importante ou de uma audiência em um tribunal.
          */
         System.out.println("\n\n--------- Exemplo de uso do LocalDateTime (data e hora atual) --------- ");
-        LocalDateTime agoraLD = LocalDateTime.now(); System.out.println(agoraLD); //2014-06-12T17:00 (formato ISO-8601)
+        LocalDateTime agoraLD = LocalDateTime.now();
+        System.out.println(agoraLD); //2014-06-12T17:00 (formato ISO-8601)
+
+        System.out.println("\n\n--------- Exemplo de uso do LocalDateTime a partir de uma data e hora específica --------- ");
         LocalDateTime aberturaDaCopa = LocalDateTime.of(2014, Month.JUNE, 12, 17, 0);
+        System.out.print("Saída padrão: " + aberturaDaCopa); //2014-06-12T17:00 (formato ISO-8601)
+        System.out.print("\nSaída formatada: ");
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
+
+        System.out.println("\n\n--------- Exemplo de uso do LocalDateTime a partir de uma String (data e hora específica) --------- ");
+        aberturaDaCopa = LocalDateTime.parse("2014-06-12T17:00");
         System.out.print("Saída padrão: " + aberturaDaCopa); //2014-06-12T17:00 (formato ISO-8601)
         System.out.print("\nSaída formatada: ");
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
