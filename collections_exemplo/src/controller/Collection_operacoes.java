@@ -96,6 +96,8 @@ public class Collection_operacoes {
         Collection listToRemove = getFuncionarioCollection(); //cria uma outra Collection com os mesmos dados de funcionarios
         f = new Funcionario(2, String.valueOf(2), 2 * 1000);
         listToRemove.remove(f); //remove o Funcionario de id=2 da listToRemove
+        System.out.println("\nCollecton a ser removida (note que o funcionário de id=2 não está nessa Collection)");
+        System.out.println(listToRemove);
         funcionarios.removeAll(listToRemove); //remove todos os objetos de listToRemove da Collection funcionarios
         System.out.println("\nCollecton depois de removeAll");
         System.out.println(funcionarios); //só premaneceu o f na coleção funcionarios
@@ -103,7 +105,7 @@ public class Collection_operacoes {
         //Método removeIf
         funcionarios = getFuncionarioCollection(); //recria a Collection
         funcionarios.removeIf(func -> func.getSalario() == 3000);
-        System.out.println("\nCollecton depois de removeIf (critério para remoção salário=3000");
+        System.out.println("\nCollecton depois de removeIf (critério para remoção salário=3000)");
         System.out.println(funcionarios);
 
         //Método retainAll (inverso de removeAll. Retém apenas os que estão na Collection de critério)
@@ -116,10 +118,10 @@ public class Collection_operacoes {
         System.out.println(funcionarios); //só premaneceu o f na coleção funcionarios
 
         //Método size
-        System.out.println("\nTamanho da Collecton (uso do método size()");
+        System.out.print("\nTamanho da Collecton (uso do método size() = ");
         System.out.println(funcionarios.size());
 
-        //Método stream (stream faz parte do conteúdo de Lambdas no Java. Ele foi introduzido no Java 8. Veja o módulo streams)
+        //Método stream (stream faz parte do conteúdo de Lambdas no Java. Ele foi introduzido no Java 8. Veja o módulo programacao_funcional_exemplo)
         System.out.println("\nStream retornada (um objeto do tipo Stream)"); //vai retornar o toString da classe Object
         Stream<Funcionario> stream = funcionarios.stream();
         System.out.println(stream);
@@ -135,7 +137,7 @@ public class Collection_operacoes {
 
         //Método forEach
         System.out.print("\nCollection impressa com o uso de forEach");
-        funcionarios.forEach(funcionario -> System.out.println(funcionario));
+        funcionarios.forEach(System.out::println);
     }
 
     private static Collection<Funcionario> getFuncionarioCollection() {
