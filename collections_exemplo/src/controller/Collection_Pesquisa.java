@@ -35,7 +35,7 @@ public class Collection_Pesquisa {
         Funcionario FuncionarioFind = funcionariosList.stream().filter(f -> f.getNome().equalsIgnoreCase("10")).findAny().orElse(null);
         System.out.println("Localizou o funcionário: " + FuncionarioFind);
 
-        //Utilizando a interface List
+        //Utilizando a interface Collection
         /* Atente para o fato de o critério ser o do hashcode implementado na classe */
         System.out.print("\n************************* Pesquisa otimizada com o método contains da interface Collection em uma List *************************");
         System.out.print("\nPesquisa Otimizada (utilizando contains da interface Collection), filtro pelo objeto (nesse caso o critério é o hashcode implementado na classe Funcionario): ");
