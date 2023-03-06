@@ -41,6 +41,17 @@ public class Collection_Pesquisa {
         System.out.print("\nPesquisa Otimizada (utilizando contains da interface Collection), filtro pelo objeto (nesse caso o critério é o hashcode implementado na classe Funcionario): ");
         System.out.println(funcionariosList.contains(new Funcionario(10, "10", 9.000)));
 
+        System.out.print("\n************************* Pesquisa otimizada com Collections.binarySearch *************************");
+        System.out.println(
+            funcionariosList.get(
+                Collections.binarySearch(
+                    funcionariosList,
+                    new Funcionario(10, "10", 9.000),
+                    Comparator.comparing(Funcionario::getId)
+                )
+            )
+        );
+
         //Pesquisa em Map
         /* A vantagem nesse tipo de coleção é a velocidade para salvar dados e recuperar dados. */
         System.out.print("\n************************* Operando Map *************************");

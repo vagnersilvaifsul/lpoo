@@ -52,7 +52,7 @@ public class ProgramacaoFuncional_com_Stream {
          */
         System.out.print("\nExemplo de aplicação da operação terminal forEach:");
         values.stream() //1
-            .forEach(v -> System.out.print(v)); //2 - Usa a operação terminal para percorrer cada elemento para imprimi-lo)
+            .forEach(System.out::println); //2 - Usa a operação terminal para percorrer cada elemento para imprimi-lo)
         System.out.println();
 
         /** Exemplo de aplicação de operações terminais de Redução (count, min, max, average, sum e reduce) **/

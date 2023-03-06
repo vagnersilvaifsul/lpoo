@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Cliente extends Object implements Cloneable{
 	//atributos
 	private Long id;
@@ -92,22 +94,22 @@ public class Cliente extends Object implements Cloneable{
 		this.email = email;
 	}
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o) return true;
-//		if (o == null || getClass() != o.getClass()) return false;
-//
-//		Cliente cliente = (Cliente) o;
-//
-//		return id.equals(cliente.id);
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return id.hashCode();
-//	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
-	//	@Override
+		Cliente cliente = (Cliente) o;
+
+		return Objects.equals(id, cliente.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
+
+//	@Override
 //	public String toString() {
 //		return "Cliente{" +
 //			"id=" + id +
