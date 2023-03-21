@@ -123,15 +123,15 @@ public class FuncionarioController {
 		System.out.println("\n\n******* Total da Nova Folha COM Bônus *******");
 		System.out.println("Cálculo com acumulador e forEach (Programação imperativa)");
 		System.out.println(NumberFormat.getCurrencyInstance().format(total_folha_com_bonus));
-//		System.out.println("Cálculo com programação funcional (Streams do Projeto Lambda do Java)");
-//		System.out.println(
-//			NumberFormat.getCurrencyInstance().format(
-//				funcionarios.stream().mapToDouble(f -> {
-//					f.setSalario(f.getSalario() + (f.getSalario() * 0.05));
-//					return f.getSalario() + f.getBonus();
-//				}).sum()
-//			)
-//		);
+		System.out.println("Cálculo com programação funcional (Streams do Projeto Lambda do Java)");
+		System.out.println(
+			NumberFormat.getCurrencyInstance().format(
+				funcionarios.stream().mapToDouble(f -> {
+					f.setSalario(f.getSalario() + (f.getSalario() * 0.05));
+					return f.getSalario() + f.getBonus();
+				}).sum()
+			)
+		);
 	}
 
 }
