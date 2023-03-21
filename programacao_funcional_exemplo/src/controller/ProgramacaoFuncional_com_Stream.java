@@ -86,7 +86,6 @@ public class ProgramacaoFuncional_com_Stream {
         System.out.print("\n\nExemplo de aplicação da operação terminal max:");
         System.out.print(values.stream() //1
             .max(Comparator.comparing(Funcionario::getSalario)).get()); //2 (o get retorna o valor do Optional, um Funcionario)
-
         //average
         //Calcula a média dos elementos em um fluxo numérico.
         /* Como trata-se de programação funcional, lê-se assim:

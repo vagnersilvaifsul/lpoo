@@ -1,14 +1,14 @@
 package model;
 
-public abstract class FuncionarioG {
+public abstract class Funcionario {
 	private String nome;
 	private double salario;
 	
-	public FuncionarioG() {
+	public Funcionario() {
 		super();
 	}
 
-	public FuncionarioG(String nome, double salario) {
+	public Funcionario(String nome, double salario) {
 		super();
 		this.nome = nome;
 		this.salario = salario;
