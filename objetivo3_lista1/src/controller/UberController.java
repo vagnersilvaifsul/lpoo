@@ -37,13 +37,11 @@ public class UberController {
 		
 		
 		//parte 3
-		System.out.print("\n***** Total das corridas do motorista " + m.getClass() + "= ");
-		double acum = 0.0;
-		for (int i = 0; i < m.getCorridas().size(); i++) {
-			acum += m.getCorridas().get(i).getPreco();	
-		}
-		System.out.println(NumberFormat.getCurrencyInstance().format(acum));
-		
-		
+		System.out.print("\n***** Total das corridas do motorista " + m.getNome() + "= ");
+		System.out.println(NumberFormat.getCurrencyInstance().format(
+			m.getCorridas().stream()
+				.mapToDouble(c -> c.getPreco())
+				.sum()));
+
 	}
 }

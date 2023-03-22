@@ -45,12 +45,13 @@ public class FornecimentoController {
 		fornecimentos.add(fr3);
 		System.out.print("\n***** Lista de Fornecimentos");
 		System.out.println(fornecimentos);
-		
-		double totalFornecido = 0.0;
-		for (int i = 0; i < fornecimentos.size(); i++) {
-			totalFornecido += fornecimentos.get(i).getTotal();
-		}
-		System.out.print("\n***** Total Fornecido = " + NumberFormat.getCurrencyInstance().format(totalFornecido));
+
+		System.out.println();
+		System.out.print("\n***** Total Fornecido = " +
+			NumberFormat.getCurrencyInstance().format(
+				fornecimentos.stream()
+					.mapToDouble(f -> f.getTotal())
+					.sum()));
 	}
 
 }

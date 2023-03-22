@@ -1,5 +1,6 @@
 package model;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -89,7 +90,7 @@ public class Corrida {
 	@Override
 	public String toString() {
 		return "\n\nCorrida [id=" + id + ", tipoPagamento=" + tipoPagamento + ", detalhesPagamento=" + detalhesPagamento
-				+ ", dataInicio=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataInicio) + ", preco=" + preco + ", usuario=" + usuario + ", motorista="
+				+ ", dataInicio=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataInicio) + ", preco=" + NumberFormat.getCurrencyInstance().format(preco) + ", usuario=" + usuario + ", motorista="
 				+ motorista + "]";
 	}
 }
