@@ -1,13 +1,13 @@
 package model;
 
-public class DesenvolvedorGG extends FuncionarioGG {
+public class Desenvolvedor extends Funcionario {
 	
 
-	public DesenvolvedorGG() {
+	public Desenvolvedor() {
 		super();
 	}
 
-	public DesenvolvedorGG(String nome, double salario) {
+	public Desenvolvedor(String nome, double salario) {
 		super(nome, salario);
 	}
 

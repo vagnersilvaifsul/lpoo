@@ -1,14 +1,14 @@
 package model;
 
-public class GerenteGG extends FuncionarioGG implements InvestidorGG{
+public class Gerente extends Funcionario implements Investidor {
 	private String ticker;
 	private int quantidade;
 
-	public GerenteGG() {
+	public Gerente() {
 		super();
 	}
 
-	public GerenteGG(String nome, double salario, String ticker, int quantidade) {
+	public Gerente(String nome, double salario, String ticker, int quantidade) {
 		super(nome, salario);
 		this.ticker = ticker;
 		this.quantidade = quantidade;

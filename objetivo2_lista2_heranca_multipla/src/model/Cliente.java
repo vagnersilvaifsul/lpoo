@@ -1,16 +1,16 @@
 package model;
 
-public class ClienteGG implements InvestidorGG{
+public class Cliente implements Investidor {
 	private int id;
 	private String nome;
 	private String sobrenome;
 	private String ticker;
 	private int quantidade;
 	
-	public ClienteGG() {
+	public Cliente() {
 		super();
 	}
-	public ClienteGG(int id, String nome, String sobrenome, String ticker, int quantidade) {
+	public Cliente(int id, String nome, String sobrenome, String ticker, int quantidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
