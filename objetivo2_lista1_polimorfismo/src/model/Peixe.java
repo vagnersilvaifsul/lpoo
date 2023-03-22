@@ -1,25 +1,25 @@
 package model;
 
-public class PassaroG extends AnimalG {
+public class Peixe extends Animal {
 	
 	private double z = 0.0;
-	
-	public PassaroG() {
+
+	public Peixe() {
 		super();
 	}
 
-	public PassaroG(double x, double y, double z) {
+	public Peixe(double x, double y, double z) {
 		super(x, y);
 		this.z = z;
 	}
 	
-	public PassaroG(double x, double y) {
+	public Peixe(double x, double y) {
 		super(x, y);
 	}
 
 	@Override
 	public void desenhar() {
-		System.out.print("\nDesenhou um Passaro.");
+		System.out.print("\nDesenhou um Peixe.");
 	}
 	
 	public void mover(double x, double y, double z) {
@@ -29,7 +29,7 @@ public class PassaroG extends AnimalG {
 
 	@Override
 	public String toString() {
-		return "\nPassaroG [ x=" + x + ", y=" + y + ", z=" + z + "]";
+		return "\nPeixeG [ x=" + x + ", y=" + y + ", z=" + z + "]";
 	}
 
 }

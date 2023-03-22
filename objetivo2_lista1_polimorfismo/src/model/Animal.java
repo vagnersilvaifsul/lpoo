@@ -1,14 +1,14 @@
 package model;
 
-public abstract class AnimalG {
+public abstract class Animal {
 	protected double x = 0.0;
 	protected double y = 0.0;
 	
-	public AnimalG() {
+	public Animal() {
 		super();
 	}
 
-	public AnimalG(double x, double y) {
+	public Animal(double x, double y) {
 		super();
 		this.x = x;
 		this.y = y;

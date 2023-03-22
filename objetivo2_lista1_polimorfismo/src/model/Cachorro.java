@@ -1,12 +1,12 @@
 package model;
 
-public class CachorroG extends AnimalG {
+public class Cachorro extends Animal {
 	
-	public CachorroG() {
+	public Cachorro() {
 		super();
 	}
 
-	public CachorroG(double x, double y) {
+	public Cachorro(double x, double y) {
 		super(x, y);
 	}
 

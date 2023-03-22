@@ -3,25 +3,25 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.AnimalG;
-import model.CachorroG;
-import model.PassaroG;
-import model.PeixeG;
+import model.Animal;
+import model.Cachorro;
+import model.Passaro;
+import model.Peixe;
 
 public class GameAnimalController {
 
 	public static void main(String[] args) {
 		//a
-		PeixeG pei1 = new PeixeG(1.0, 1.0);
-		PeixeG pei2 = new PeixeG(1.0, 1.0);
-		PeixeG pei3 = new PeixeG(1.0, 1.0);
-		CachorroG cah1 = new CachorroG(2.0, 2.0);
-		CachorroG cah2 = new CachorroG(2.0, 2.0);
-		CachorroG cah3 = new CachorroG(2.0, 2.0);
-		PassaroG pas1 = new PassaroG(3.0, 3.0);
-		PassaroG pas2 = new PassaroG(3.0, 3.0);
-		PassaroG pas3 = new PassaroG(3.0, 3.0);
-		List<AnimalG> animais = new ArrayList<>();
+		Peixe pei1 = new Peixe(1.0, 1.0);
+		Peixe pei2 = new Peixe(1.0, 1.0);
+		Peixe pei3 = new Peixe(1.0, 1.0);
+		Cachorro cah1 = new Cachorro(2.0, 2.0);
+		Cachorro cah2 = new Cachorro(2.0, 2.0);
+		Cachorro cah3 = new Cachorro(2.0, 2.0);
+		Passaro pas1 = new Passaro(3.0, 3.0);
+		Passaro pas2 = new Passaro(3.0, 3.0);
+		Passaro pas3 = new Passaro(3.0, 3.0);
+		List<Animal> animais = new ArrayList<>();
 		animais.add(pei1);
 		animais.add(pei2);
 		animais.add(pei3);
@@ -43,9 +43,9 @@ public class GameAnimalController {
 		});
 		
 		//c
-		System.out.print("\n\n(Resposta c) Animais da classe CachorroG movidos para a coordenada x=8.0 e y=8.0");
+		System.out.print("\n\n(Resposta c) Animais da classe Cachorro movidos para a coordenada x=8.0 e y=8.0");
 		animais.forEach(a -> {
-			if(a instanceof CachorroG) {
+			if(a instanceof Cachorro) {
 				a.mover(8.0, 8.0);
 				a.desenhar();
 				System.out.print(a);
@@ -53,15 +53,15 @@ public class GameAnimalController {
 		});
 		
 		//d
-		System.out.print("\n\n(Resposta d) Animais da classe PeixeG e PassaroG movidos para a coordenada x=5.0, y=5.0, z=5.0");
+		System.out.print("\n\n(Resposta d) Animais da classe Peixe e Passaro movidos para a coordenada x=5.0, y=5.0, z=5.0");
 		animais.forEach(a -> {
-			if(a instanceof PeixeG) {
-				((PeixeG) a).mover(5.0, 5.0, 5.0);
+			if(a instanceof Peixe) {
+				((Peixe) a).mover(5.0, 5.0, 5.0);
 				a.desenhar();
 				System.out.print(a);
-			} else if(a instanceof PassaroG) {
-				if(a instanceof PassaroG) {
-					((PassaroG) a).mover(5.0, 5.0, 5.0);
+			} else if(a instanceof Passaro) {
+				if(a instanceof Passaro) {
+					((Passaro) a).mover(5.0, 5.0, 5.0);
 					a.desenhar();
 					System.out.print(a);
 				}
