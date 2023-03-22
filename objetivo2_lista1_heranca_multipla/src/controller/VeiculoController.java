@@ -10,7 +10,7 @@ import model.Caminhao;
 import model.Carro;
 import model.Veiculo;
 
-public class VeiculoControllerG {
+public class VeiculoController {
 	public static void main(String[] args) {
 		// 1
 		// a int numeroDeEixos, String propulsao, String marca, String modelo, int
@@ -62,7 +62,7 @@ public class VeiculoControllerG {
 		veiculos.add(cm5);
 
 		// a
-		veiculos.sort(Comparator.comparing(Veiculo::getAnoFabricacao));
+		veiculos.sort(Comparator.comparing(Veiculo::getAnoFabricacao).reversed());
 		System.out.print("\n\nLista de VEÍCULOS cadastrados (por ano de fabricação): " + veiculos);
 
 		// b
