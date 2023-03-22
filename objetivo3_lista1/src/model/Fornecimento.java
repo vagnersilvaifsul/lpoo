@@ -2,19 +2,21 @@ package model;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class Fornecimento {
-	private Calendar data;
+	private LocalDateTime data;
 	private double total;
 	private Fornecedor fornecedor;
-	private ProdutoO3L1 produto;
+	private Produto produto;
 
 	public Fornecimento() {
 		super();
 	}
 
-	public Fornecimento(Calendar data, double total, Fornecedor fornecedor, ProdutoO3L1 produto) {
+	public Fornecimento(LocalDateTime data, double total, Fornecedor fornecedor, Produto produto) {
 		super();
 		this.data = data;
 		this.total = total;
@@ -22,11 +24,11 @@ public class Fornecimento {
 		this.produto = produto;
 	}
 
-	public Calendar getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Calendar data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
 
@@ -46,27 +48,17 @@ public class Fornecimento {
 		this.fornecedor = fornecedor;
 	}
 
-	public ProdutoO3L1 getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
 
-	public void setProduto(ProdutoO3L1 produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 
 	@Override
 	public String toString() {
-		return "\n\nFornecimento [data=" + calendarToString(data) + ", total=" + NumberFormat.getCurrencyInstance().format(total) + ", fornecedor=" + fornecedor + ", produto=" + produto
+		return "\n\nFornecimento [data=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(data) + ", total=" + NumberFormat.getCurrencyInstance().format(total) + ", fornecedor=" + fornecedor + ", produto=" + produto
 				+ "]";
 	}
-
-	// métodos utilitários para conversão de Calendar para String formatada
-	private static String calendarToString(Calendar data) {
-		if (data != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY HH:mm");
-			return sdf.format(data.getTime());
-		}
-		return "00/00/0000 00:00";
-	}
-
 }

@@ -1,20 +1,22 @@
 package model;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-public class FuncionarioO3L1 {
+public class Funcionario {
 	private long id;
 	private String cpf;
 	private String nome;
 	private String sobrenome;
-	private Calendar dataNascimento;
+	private LocalDate dataNascimento;
 
-	public FuncionarioO3L1() {
+	public Funcionario() {
 		super();
 	}
 
-	public FuncionarioO3L1(long id, String cpf, String nome, String sobrenome, Calendar dataNascimento) {
+	public Funcionario(long id, String cpf, String nome, String sobrenome, LocalDate dataNascimento) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
@@ -55,27 +57,17 @@ public class FuncionarioO3L1 {
 		this.sobrenome = sobrenome;
 	}
 
-	public Calendar getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
 	@Override
 	public String toString() {
-		return "\nFuncionarioL1 [id=" + id + ", cpf=" + cpf + ", nome=" + nome + ", sobrenome=" + sobrenome
-				+ ", dataNascimento=" + calendarToString(dataNascimento) + "]";
+		return "\nFuncionario [id=" + id + ", cpf=" + cpf + ", nome=" + nome + ", sobrenome=" + sobrenome
+				+ ", dataNascimento=" + DateTimeFormatter.ofPattern("dd/MM/yyyy").format(dataNascimento) + "]";
 	}
-
-	// métodos utilitários para conversão de Calendar para String formatada
-	private static String calendarToString(Calendar data) {
-		if (data != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
-			return sdf.format(data.getTime());
-		}
-		return "00/00/0000 00:00";
-	}
-
 }

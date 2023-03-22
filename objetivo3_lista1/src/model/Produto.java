@@ -2,18 +2,18 @@ package model;
 
 import java.text.NumberFormat;
 
-public class ProdutoO3L1 {
+public class Produto {
 	private long codigo;
 	private String nome;
 	private int quantidade;
 	private double preco;
 	private Fornecedor fornecedor;
 
-	public ProdutoO3L1() {
+	public Produto() {
 		super();
 	}
 
-	public ProdutoO3L1(long codigo, String nome, int quantidade, double preco, Fornecedor fornecedor) {
+	public Produto(long codigo, String nome, int quantidade, double preco, Fornecedor fornecedor) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -64,7 +64,7 @@ public class ProdutoO3L1 {
 
 	@Override
 	public String toString() {
-		return "\nProdutoL1 [codigo=" + codigo + ", nome=" + nome + ", quantidade=" + quantidade + ", preco=" + NumberFormat.getCurrencyInstance().format(preco) + "]";
+		return "\nProduto [codigo=" + codigo + ", nome=" + nome + ", quantidade=" + quantidade + ", preco=" + NumberFormat.getCurrencyInstance().format(preco) + "]";
 	}
 
 }

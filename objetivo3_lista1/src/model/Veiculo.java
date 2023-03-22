@@ -1,17 +1,17 @@
 package model;
 
-public class VeiculoO3L1 {
+public class Veiculo {
 	private long id;
 	private String tipo;
 	private String placa;
 	private int anoFabricacao;
 	private Motorista motorista;
 	
-	public VeiculoO3L1() {
+	public Veiculo() {
 		super();
 	}
 
-	public VeiculoO3L1(long id, String tipo, String placa, int anoFabricacao) {
+	public Veiculo(long id, String tipo, String placa, int anoFabricacao) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
@@ -61,7 +61,7 @@ public class VeiculoO3L1 {
 
 	@Override
 	public String toString() {
-		return "\nVeiculoL1 [id=" + id + ", tipo=" + tipo + ", placa=" + placa + ", anoFabricacao=" + anoFabricacao
+		return "\nVeiculo [id=" + id + ", tipo=" + tipo + ", placa=" + placa + ", anoFabricacao=" + anoFabricacao
 				+ ", motorista=" + motorista + "]";
 	}
 

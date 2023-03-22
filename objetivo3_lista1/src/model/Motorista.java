@@ -9,13 +9,13 @@ public class Motorista {
 	private String email;
 	private String telefone;
 	private List<Corrida> corridas = new ArrayList<>();
-	private VeiculoO3L1 veiculo;
+	private Veiculo veiculo;
 	
 	public Motorista() {
 		super();
 	}
 
-	public Motorista(long id, String nome, String email, String telefone, VeiculoO3L1 veiculo) {
+	public Motorista(long id, String nome, String email, String telefone, Veiculo veiculo) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -64,11 +64,11 @@ public class Motorista {
 		this.corridas = corridas;
 	}
 
-	public VeiculoO3L1 getVeiculo() {
+	public Veiculo getVeiculo() {
 		return veiculo;
 	}
 
-	public void setVeiculo(VeiculoO3L1 veiculo) {
+	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
 	}
 

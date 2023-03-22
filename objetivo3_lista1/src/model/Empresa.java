@@ -7,7 +7,7 @@ public class Empresa {
 	private String cnpj;
 	private String razaoSocial;
 	private String nomeFantasia;
-	private List<FuncionarioO3L1> funcionarios = new ArrayList<>();
+	private List<Funcionario> funcionarios = new ArrayList<>();
 	
 	public Empresa() {
 		super();
@@ -44,11 +44,11 @@ public class Empresa {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public List<FuncionarioO3L1> getFuncionarios() {
+	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
 
-	public void setFuncionarios(List<FuncionarioO3L1> funcionarios) {
+	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 
