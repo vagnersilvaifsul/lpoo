@@ -1,6 +1,6 @@
 package controller;
 
-public class TratamentoExcecoesV {
+public class TratamentoExcecoes {
 
 	public static void main(String[] args) {
 
@@ -80,14 +80,14 @@ class MinhaExcecao extends Exception {
 }
 
 //Classe utilizada para demonstrar o NullPointerException
-class Conta4V {
+class Conta {
 	private Double saldo = 0.0;
 
-	public Conta4V() {
+	public Conta() {
 		super();
 	}
 
-	public Conta4V(Double saldo) {
+	public Conta(Double saldo) {
 		super();
 		this.saldo = saldo;
 	}
