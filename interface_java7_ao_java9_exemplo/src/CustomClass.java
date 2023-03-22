@@ -4,6 +4,11 @@ public class CustomClass implements CustomInterface{
         System.out.println("Hello World");
     }
 
+//    @Override
+//    public void method2() {
+//        System.out.println("sobreescreve o comportamento default method2");
+//    }
+
     public static void main(String[] args) {
         CustomInterface instance = new CustomClass();
         //chamada de um método padrão da interface (note que ele teve que ser sobreescrito na classe)
