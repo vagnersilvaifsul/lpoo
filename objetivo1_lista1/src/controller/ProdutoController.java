@@ -17,7 +17,7 @@ public class ProdutoController {
 		
 		//constrói instâncias da classe
 		Produto produto1 = new Produto(); //utilizando o construtor padrão
-		Produto produto2 = new Produto(2, "Feijão", 8.50, 2000); //utilizando o construtor parametrizado
+		Produto produto2 = new Produto(2, "Feijão", "desc Feijão", 8.50, 2000); //utilizando o construtor parametrizado
 		
 		//imprime essas instâncias
 		System.out.println("Produtos criados com os contrutores padrão e parametrizado");
@@ -47,9 +47,9 @@ public class ProdutoController {
 		
 		//2	
 		//para desenvolver o que foi solicitado no item 2, a classe de modelo recebeu mais um atributo, o id
-		Produto produto3 = new Produto(3, "Batata", 2.00, 6000);
-		Produto produto4 = new Produto(4, "Cenoura", 2.50, 1000);
-		Produto produto5 = new Produto(4, "Cenoura", 2.50, 1000);
+		Produto produto3 = new Produto(3, "Batata", "desc Batata",2.00, 6000);
+		Produto produto4 = new Produto(4, "Cenoura", "desc Cenoura", 2.50, 1000);
+		Produto produto5 = new Produto(4, "Cenoura", "desc Cenoura", 2.50, 1000);
 		
 		//coleção do tipo List
 		List<Produto> produtosList = new ArrayList<>();

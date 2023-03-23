@@ -5,6 +5,7 @@ import java.text.NumberFormat;
 public class Produto {
 	private int id;
 	private String nome;
+	private String descricao;
 	private double valor;
 	private int estoque;
 	
@@ -13,18 +14,16 @@ public class Produto {
 		
 	}
 
-	public Produto(int id, String nome, double valor, int estoque) {
-		super();
+	public Produto(int id, String nome, String descricao, double valor, int estoque) {
 		this.id = id;
 		this.nome = nome;
+		this.descricao = descricao;
 		this.valor = valor;
 		this.estoque = estoque;
 	}
 
 	//métodos acessores
-	public String getNome() {
-		return nome;
-	}
+
 
 	public int getId() {
 		return id;
@@ -34,8 +33,20 @@ public class Produto {
 		this.id = id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public double getValor() {
@@ -51,15 +62,17 @@ public class Produto {
 	}
 
 	public void setEstoque(int estoque) {
-		int novoEstoque = this.estoque + estoque;
-		if(novoEstoque > 0) {
-			this.estoque = estoque;
-		}
+		this.estoque = estoque;
 	}
 
 	@Override
 	public String toString() {
-		return "\nProduto_Lista1 [id=" + id + ", nome=" + nome + ", valor=" + NumberFormat.getCurrencyInstance().format(valor) + ", estoque=" + estoque + "]";
+		return "\nProduto{" +
+			"id=" + id +
+			", nome='" + nome + '\'' +
+			", descricao='" + descricao + '\'' +
+			", valor=" + valor +
+			", estoque=" + estoque +
+			'}';
 	}
-
 }
