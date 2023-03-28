@@ -90,7 +90,11 @@ public class FuncionarioController {
 		System.out.println("Cálculo com acumulador e forEach (Programação imperativa)");
 		System.out.println(NumberFormat.getCurrencyInstance().format(total_folha_com_bonus));
 		System.out.println("Cálculo com programação funcional (Streams do Projeto Lambda do Java)");
-		System.out.println(NumberFormat.getCurrencyInstance().format(funcionarios.stream().mapToDouble(f -> f.getSalario() + f.getBonus()).sum()));
+		System.out.println(
+			NumberFormat.getCurrencyInstance().format(
+				funcionarios.stream()
+					.mapToDouble(f -> f.getSalario() + f.getBonus())
+					.sum()));
 		
 		//cáculo da folha salarial sem bônus
 		funcionarios.forEach(f -> {
@@ -100,7 +104,10 @@ public class FuncionarioController {
 		System.out.println("Cálculo com acumulador e forEach (Programação imperativa)");
 		System.out.println(NumberFormat.getCurrencyInstance().format(total_folha_sem_bonus));
 		System.out.println("Cálculo com programação funcional (Streams do Projeto Lambda do Java)");
-		System.out.println(NumberFormat.getCurrencyInstance().format(funcionarios.stream().mapToDouble(f -> f.getSalario()).sum()));
+		System.out.println(NumberFormat.getCurrencyInstance().format(
+			funcionarios.stream()
+				.mapToDouble(f -> f.getSalario())
+				.sum()));
 		
 		//cáculo do valor do bônus e do salário bruto de cada funcionário
 		System.out.print("\n\n******* Salário bruto, bônus e salário de cada funcionário *******");
@@ -126,7 +133,8 @@ public class FuncionarioController {
 		System.out.println("Cálculo com programação funcional (Streams do Projeto Lambda do Java)");
 		System.out.println(
 			NumberFormat.getCurrencyInstance().format(
-				funcionarios.stream().mapToDouble(f -> {
+				funcionarios.stream()
+					.mapToDouble(f -> {
 					f.setSalario(f.getSalario() + (f.getSalario() * 0.05));
 					return f.getSalario() + f.getBonus();
 				}).sum()

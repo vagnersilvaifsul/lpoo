@@ -1,13 +1,13 @@
 package model;
 
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Locacao {
 	private Integer id;
-	private Calendar dataLocacao;
-	private Calendar dataDevolucao;
+	private LocalDateTime dataLocacao;
+	private LocalDateTime dataDevolucao;
 	private Integer quilometragem;
 	private double valorCalcao;
 	private double valorLocacao;
@@ -17,7 +17,7 @@ public class Locacao {
 		super();
 	}
 
-	public Locacao(Integer id, Calendar dataLocacao, Calendar dataDevolucao, Integer quilometragem,
+	public Locacao(Integer id, LocalDateTime dataLocacao, LocalDateTime dataDevolucao, Integer quilometragem,
 				   Double valorCalcao, Double valorLocacao, Boolean devolvido) {
 		super();
 		this.id = id;
@@ -37,19 +37,19 @@ public class Locacao {
 		this.id = id;
 	}
 
-	public String getDataLocacao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
-		return calendarToString(dataLocacao);
+	public LocalDateTime getDataLocacao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
+		return dataLocacao;
 	}
 
-	public void setDataLocacao(Calendar dataLocacao) {
+	public void setDataLocacao(LocalDateTime dataLocacao) {
 		this.dataLocacao = dataLocacao;
 	}
 
-	public String getDataDevolucao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
-		return calendarToString(dataDevolucao);
+	public LocalDateTime getDataDevolucao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
+		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(Calendar dataDevolucao) {
+	public void setDataDevolucao(LocalDateTime dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
@@ -87,19 +87,9 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-		return "\nLocacao_Lista2 [id=" + id + ", dataLocacao e horaLocacao=" + calendarToString(dataLocacao)
-				+ ", dataDevolucao e horaDevolucao=" + calendarToString(dataDevolucao) + ", quilometragem="
+		return "\nLocacao [id=" + id + ", dataLocacao e horaLocacao=" + dataLocacao == null ? DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataLocacao) : null
+				+ ", dataDevolucao e horaDevolucao=" + dataDevolucao == null ? DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataDevolucao) : null+ ", quilometragem="
 				+ quilometragem + ", valorCalcao=" + NumberFormat.getCurrencyInstance().format(valorCalcao) + ", valorLocacao=" + NumberFormat.getCurrencyInstance().format(valorLocacao) + ", devolvido="
 				+ devolvido + "]";
 	}
-	
-	//métodos utilitários para conversão de Calendar para String formatada
-	private static String calendarToString(Calendar data) {
-		if(data != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY HH:mm");
-			return sdf.format(data.getTime());
-		}
-		return "00/00/0000 00:00";
-	}
-
 }

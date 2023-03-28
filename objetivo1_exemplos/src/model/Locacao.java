@@ -1,22 +1,26 @@
 package model;
 
-import java.util.Calendar;
+import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Locacao {
-	private Calendar dataLocacao;
-	private Calendar dataDevolucao;
+	private Integer id;
+	private LocalDateTime dataLocacao;
+	private LocalDateTime dataDevolucao;
 	private Integer quilometragem;
-	private Double valorCalcao;
-	private Double valorLocacao;
+	private double valorCalcao;
+	private double valorLocacao;
 	private Boolean devolvido;
 	
 	public Locacao() {
 		super();
 	}
 
-	public Locacao(Calendar dataLocacao, Calendar dataDevolucao, Integer quilometragem, Double valorCalcao,
-			Double valorLocacao, Boolean devolvido) {
+	public Locacao(Integer id, LocalDateTime dataLocacao, LocalDateTime dataDevolucao, Integer quilometragem,
+                   Double valorCalcao, Double valorLocacao, Boolean devolvido) {
 		super();
+		this.id = id;
 		this.dataLocacao = dataLocacao;
 		this.dataDevolucao = dataDevolucao;
 		this.quilometragem = quilometragem;
@@ -25,19 +29,27 @@ public class Locacao {
 		this.devolvido = devolvido;
 	}
 
-	public Calendar getDataLocacao() {
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getDataLocacao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
 		return dataLocacao;
 	}
 
-	public void setDataLocacao(Calendar dataLocacao) {
+	public void setDataLocacao(LocalDateTime dataLocacao) {
 		this.dataLocacao = dataLocacao;
 	}
 
-	public Calendar getDataDevolucao() {
+	public LocalDateTime getDataDevolucao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(Calendar dataDevolucao) {
+	public void setDataDevolucao(LocalDateTime dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
@@ -65,7 +77,7 @@ public class Locacao {
 		this.valorLocacao = valorLocacao;
 	}
 
-	public Boolean getDevolvido() {
+	public Boolean isDevolvido() {
 		return devolvido;
 	}
 
@@ -75,9 +87,9 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-		return "Locacao [dataLocacao=" + dataLocacao + ", dataDevolucao=" + dataDevolucao + ", quilometragem="
-				+ quilometragem + ", valorCalcao=" + valorCalcao + ", valorLocacao=" + valorLocacao + ", devolvido="
+		return "\nLocacao [id=" + id + ", dataLocacao e horaLocacao=" + dataLocacao == null ? DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataLocacao) : null
+				+ ", dataDevolucao e horaDevolucao=" + dataDevolucao == null ? DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataDevolucao) : null+ ", quilometragem="
+				+ quilometragem + ", valorCalcao=" + NumberFormat.getCurrencyInstance().format(valorCalcao) + ", valorLocacao=" + NumberFormat.getCurrencyInstance().format(valorLocacao) + ", devolvido="
 				+ devolvido + "]";
 	}
-	
 }

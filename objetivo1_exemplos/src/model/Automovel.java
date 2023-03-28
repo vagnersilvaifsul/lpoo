@@ -1,6 +1,6 @@
 package model;
 
-public class Veiculo {
+public class Automovel {
 	//atributos
 	private String renavan;
 	private String placa;
@@ -11,12 +11,12 @@ public class Veiculo {
 	private String chassi;
 	private Double valor_locacao;
 	
-	public Veiculo() {
+	public Automovel() {
 		super();
 	}
 
-	public Veiculo(String renavan, String placa, String cor, Integer num_rodas, String combustivel,
-			Integer quilometragem, String chassi, Double valor_locacao) {
+	public Automovel(String renavan, String placa, String cor, Integer num_rodas, String combustivel,
+					 Integer quilometragem, String chassi, Double valor_locacao) {
 		super();
 		this.renavan = renavan;
 		this.placa = placa;

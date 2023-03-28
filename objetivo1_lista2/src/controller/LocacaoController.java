@@ -1,9 +1,9 @@
 package controller;
 
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class LocacaoController {
 		
 		//constrói instâncias da classe
 		Locacao locacao1 = new Locacao(); //utilizando o construtor padrão
-		Locacao locacao2 = new Locacao(2, new GregorianCalendar(2021, 2, 10, 10, 00), new GregorianCalendar(2021, 2, 17, 18, 00), 10000, 0.00, 180.00, true); //utilizando o construtor parametrizado
+		Locacao locacao2 = new Locacao(2, LocalDateTime.of(2021, 5, 10, 10, 1), LocalDateTime.of(2021, 5, 12, 8, 0), 10000, 0.00, 180.00, true); //utilizando o construtor parametrizado
 		
 		/*
 		 * Nota: Calendar trabalha com meses de 0-11, logo, indice 2 significa mês 3 ou março. Do Java 8 em diante tem outras
@@ -33,7 +33,7 @@ public class LocacaoController {
 		System.out.print("\nAlterando e imprimindo as alterações utilizando os métodos acessores, getters e setters");
 		System.out.println("\nInstância de Modelo");
 		locacao1.setId(1);
-		locacao1.setDataLocacao(new GregorianCalendar(2021, 2, 10, 10, 00));
+		locacao1.setDataLocacao(LocalDateTime.of(2021, 2, 10, 10, 0));
 		locacao1.setDataDevolucao(null);
 		locacao1.setQuilometragem(10000);
 		locacao1.setValorCalcao(0.0);
@@ -48,7 +48,7 @@ public class LocacaoController {
 		System.out.println(locacao1.isDevolvido());
 		
 		System.out.println("\nInstância de Modelo");
-		locacao2.setDataLocacao(new GregorianCalendar(2021, 2, 22, 14, 00));
+		locacao2.setDataLocacao(LocalDateTime.of(2021, 2, 22, 14, 0));
 		locacao2.setDataDevolucao(null);
 		locacao2.setQuilometragem(22000);
 		locacao2.setValorCalcao(0.0);
@@ -64,9 +64,9 @@ public class LocacaoController {
 		
 		//2	
 		//para desenvolver o que foi solicitado no item 2, a classe de modelo recebeu mais um atributo, o id
-		Locacao locacao3 = new Locacao(3, new GregorianCalendar(2021, 2, 3, 15, 00), new GregorianCalendar(2021, 2, 23, 10, 00), 30000, 0.00, 130.00, true);
-		Locacao locacao4 = new Locacao(4, new GregorianCalendar(2021, 2, 4, 16, 00), new GregorianCalendar(2021, 2, 24, 18, 00), 40000, 0.00, 140.00, true);
-		Locacao locacao5 = new Locacao(4, new GregorianCalendar(2021, 2, 4, 16, 00), new GregorianCalendar(2021, 2, 24, 18, 00), 40000, 0.00, 140.00, true);
+		Locacao locacao3 = new Locacao(3, LocalDateTime.of(2021, 2, 3, 15, 0), LocalDateTime.of(2021, 2, 23, 10, 0), 30000, 0.00, 130.00, true);
+		Locacao locacao4 = new Locacao(4, LocalDateTime.of(2021, 2, 4, 16, 0), LocalDateTime.of(2021, 2, 24, 18, 0), 40000, 0.00, 140.00, true);
+		Locacao locacao5 = new Locacao(4, LocalDateTime.parse("2011-02-12T16:54"), LocalDateTime.parse("2011-02-24T18:05"), 40000, 0.00, 140.00, true);
 		
 		//coleção do tipo List
 		List<Locacao> locacaoList = new ArrayList<>();
