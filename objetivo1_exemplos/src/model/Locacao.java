@@ -87,9 +87,9 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-		return "\nLocacao [id=" + id + ", dataLocacao e horaLocacao=" + dataLocacao == null ? DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataLocacao) : null
-				+ ", dataDevolucao e horaDevolucao=" + dataDevolucao == null ? DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataDevolucao) : null+ ", quilometragem="
-				+ quilometragem + ", valorCalcao=" + NumberFormat.getCurrencyInstance().format(valorCalcao) + ", valorLocacao=" + NumberFormat.getCurrencyInstance().format(valorLocacao) + ", devolvido="
-				+ devolvido + "]";
+		return "\nLocacao [id=" + id + ", dataLocacao e horaLocacao=" + dataLocacao
+			+ ", dataDevolucao e horaDevolucao=" + dataDevolucao + ", quilometragem="
+			+ quilometragem + ", valorCalcao=" + NumberFormat.getCurrencyInstance().format(valorCalcao) + ", valorLocacao=" + NumberFormat.getCurrencyInstance().format(valorLocacao) + ", devolvido="
+			+ devolvido + "]";
 	}
 }
