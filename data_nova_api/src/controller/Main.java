@@ -1,5 +1,6 @@
 package controller;
 
+import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
@@ -29,7 +30,7 @@ import java.time.format.DateTimeFormatter;
  *  categorias: a dos computadores e a dos humanos.
  *
  *  ++++ ATENÇÃO ++++
- *  A API de datas, java.time, possuir um grande conjunto de métodos, logo, sufixos foram criados para facilitar
+ *  A API de datas, java.time, possui um grande conjunto de métodos, logo, sufixos foram criados para facilitar
  *  a busca pelo método mais adequado para o problema a ser resolvido, são eles (JAVA_DOC, 2022):
  *      of- método de fábrica estático (valor de)
  *      parse- método de fábrica estático focado na análise (converte de um tipo para outro)
@@ -39,7 +40,7 @@ import java.time.format.DateTimeFormatter;
  *      plus- adiciona uma quantidade a um objeto
  *      minus- subtrai uma quantidade de um objeto
  *      to- converte este objeto para outro tipo
- *      at- combina este objeto com outro, comodate.atTime(time)
+ *      at- combina este objeto com outro, como date.atTime(time)
  *
  *  As principais classes para representar datas e horas são:
  *      Para Computadores
@@ -62,7 +63,7 @@ public class Main {
         /**
          * ++++ Datas para computadores ++++
          * Para um computador, o tempo é um número que cresce a cada instante. No Java, historicamente era utilizado um
-         * long que representava os milissegundos desde 01/01/1970 às 00:00:00. Na javq.time, a classe Instant é utilizada
+         * long que representava os milissegundos desde 01/01/1970 às 00:00:00. Na java.time, a classe Instant é utilizada
          * para representar esse número, agora com precisão de nanossegundos.
          */
         System.out.println("\n++++ Datas para computadores ++++");
@@ -70,6 +71,7 @@ public class Main {
         /*  Se você quiser apenas o tempo em como um long (data e hora atual do sistema), pode utilizar a classe System */
         System.out.println("--------- Exemplo de uso de System.currentTimeMillis() como TIMESTAMP (data e hora atual do sistema como um Long em ms) --------- ");
         System.out.println("Timestamp UTC Zero offset: " + System.currentTimeMillis()); //note que é o equivalente a Instant.now().toEpochMilli()
+        System.out.println("Em decimal isto é " + DecimalFormat.getCurrencyInstance().format(System.currentTimeMillis()));
 
         //Instant +++++++++++++++++++++++++++
         /* Retorna a data e hora atual em nanosegundos */
@@ -96,6 +98,7 @@ public class Main {
         //Hora do Sistema com o ZoneId
         System.out.println("\n--------- Exemplo de uso do Instant para pegar a data/hora do sistema no ZoneId --------- ");
         Instant now = Instant.now(); //timestamp em UTC+0 ou GMT
+        System.out.println("now= " + now);
         LocalDateTime dataHoraSaoPaulo = LocalDateTime.ofInstant(now, ZoneId.of("America/Sao_Paulo"));
         System.out.println("America/Sao_Paulo: " + dataHoraSaoPaulo);
         LocalDateTime dataHoraLondres = LocalDateTime.ofInstant(now, ZoneId.of("Europe/London"));
@@ -180,7 +183,8 @@ public class Main {
         System.out.println("\n--------- Outro exemplo de uso do Period (distância entre dois LocalDate) --------- ");
         LocalDate homemNoEspaco = LocalDate.of(1961, Month.APRIL, 12);
         LocalDate homemNaLua = LocalDate.of(1969, Month.MAY, 25);
-        periodo = Period.between(homemNoEspaco, homemNaLua); System.out.println(periodo);
+        periodo = Period.between(homemNoEspaco, homemNaLua);
+        System.out.println(periodo);
         System.out.printf("Saída formatada: %s anos, %s mês e %s dias", periodo.getYears(), periodo.getMonths(), periodo.getDays() );
 
 
@@ -201,7 +205,7 @@ public class Main {
         System.out.println(horarioDeEntrada); //14:00
 
         //LocalDateTime +++++++++++++++++++++++++++
-        /*  A classe LocalDateTime serve para representar uma data e hora específicas. Podemos representar uma data e hora de
+        /*  A classe LocalDateTime serve para representar uma data e hora específica. Podemos representar uma data e hora de
             uma prova importante ou de uma audiência em um tribunal.
          */
         System.out.println("\n\n--------- Exemplo de uso do LocalDateTime (data e hora atual) --------- ");

@@ -1,7 +1,7 @@
 public class CustomClass implements CustomInterface{
     @Override
-    public void method() {
-        System.out.println("Hello World");
+    public void method1() {
+        System.out.println("Hello World method1");
     }
 
 //    @Override
@@ -12,7 +12,7 @@ public class CustomClass implements CustomInterface{
     public static void main(String[] args) {
         CustomInterface instance = new CustomClass();
         //chamada de um método padrão da interface (note que ele teve que ser sobreescrito na classe)
-        instance.method();
+        instance.method1();
         //chamada de um método default da interface (não foi necessário sobreescrever o método da interface)
         instance.method2();
         //chamada de um método static da interface ((não foi necessário sobreescrever o método da interface
