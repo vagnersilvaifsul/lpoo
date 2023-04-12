@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import model.Cliente3V;
-import model.ItemPedido3V;
-import model.Pedido3V;
-import model.Produto3V;
+import model.Cliente;
+import model.ItemPedido;
+import model.Pedido;
+import model.Produto;
 
 public class ClientePedidoController {
 	public static void main(String[] args) {
 		//cadastra o cliente no sistema
-		Cliente3V cliente1 = new Cliente3V(
+		Cliente cliente1 = new Cliente(
 				1L, 
 				"Ana", 
 				"da Silva", 
@@ -23,17 +23,17 @@ public class ClientePedidoController {
 				" cadastrado com sucesso.");
 		
 		//Adiciona um produto no sistema
-		Produto3V produto1 = new Produto3V(1L, "Arroz", "5kg Ceolin", 18.5, true);
+		Produto produto1 = new Produto(1L, "Arroz", "5kg Ceolin", 18.5, true);
 		
 		//Adiciona um produto no Pedido (Cria um ItemPedido)
-		ItemPedido3V item = new ItemPedido3V
+		ItemPedido item = new ItemPedido
 				(1L, 2, (2 * produto1.getValor()), true, produto1);
 		//Lista de Itens do Pedido
-		List<ItemPedido3V> itens = new ArrayList<>();
+		List<ItemPedido> itens = new ArrayList<>();
 		itens.add(item);
 		
 		//cadastra um pedido para o cliente
-		Pedido3V pedido1 = new Pedido3V(
+		Pedido pedido1 = new Pedido(
 				1L, 
 				"a vista", 
 				"aberto", 

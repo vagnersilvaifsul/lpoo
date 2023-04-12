@@ -3,17 +3,17 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Time3V {
+public class Time {
 	private Long id;
 	private String nome;
 	private String uf;
-	private List<Atleta3V>  atletas = new ArrayList<>();
+	private List<Atleta>  atletas = new ArrayList<>();
 	
-	public Time3V() {
+	public Time() {
 		super();
 	}
 
-	public Time3V(Long id, String nome, String uf, List<Atleta3V> atletas) {
+	public Time(Long id, String nome, String uf, List<Atleta> atletas) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -45,11 +45,11 @@ public class Time3V {
 		this.uf = uf;
 	}
 
-	public List<Atleta3V> getAtletas() {
+	public List<Atleta> getAtletas() {
 		return atletas;
 	}
 
-	public void setAtletas(List<Atleta3V> atletas) {
+	public void setAtletas(List<Atleta> atletas) {
 		this.atletas = atletas;
 	}
 

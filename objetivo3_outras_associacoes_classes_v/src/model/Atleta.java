@@ -2,18 +2,18 @@ package model;
 
 import java.util.Calendar;
 
-public class Atleta3V {
+public class Atleta {
 	private Long id;
 	private String cpf;
 	private String nome;
 	private String sobrenome;
 	private Calendar dataNascimento;
 	
-	public Atleta3V() {
+	public Atleta() {
 		super();
 	}
 
-	public Atleta3V(Long id, String cpf, String nome, String sobrenome, Calendar dataNascimento) {
+	public Atleta(Long id, String cpf, String nome, String sobrenome, Calendar dataNascimento) {
 		super();
 		this.id = id;
 		this.cpf = cpf;

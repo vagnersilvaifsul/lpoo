@@ -3,21 +3,21 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente3V {
+public class Cliente {
 	//atributos
 	private Long id;
 	private String nome;
 	private String sobrenome;
 	private Boolean situacao;
 	//ligação entre as classes Cliente x Pedido
-	private List<Pedido3V> pedidos = new ArrayList<>();
+	private List<Pedido> pedidos = new ArrayList<>();
 	
 	//construtores
-	public Cliente3V() {
+	public Cliente() {
 		super();
 	}	
 
-	public Cliente3V(Long id, String nome, String sobrenome, Boolean situacao, List<Pedido3V> pedidos) {
+	public Cliente(Long id, String nome, String sobrenome, Boolean situacao, List<Pedido> pedidos) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -26,7 +26,7 @@ public class Cliente3V {
 		this.pedidos = pedidos;
 	}
 	
-	public Cliente3V(Long id, String nome, String sobrenome, Boolean situacao) {
+	public Cliente(Long id, String nome, String sobrenome, Boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -68,11 +68,11 @@ public class Cliente3V {
 		this.situacao = situacao;
 	}
 
-	public List<Pedido3V> getPedidos() {
+	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
 
-	public void setPedidos(List<Pedido3V> pedidos) {
+	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
 	

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class Pedido3V {
+public class Pedido {
 	private Long id;
 	private String formaPagamento;
 	private String estado;
@@ -13,16 +13,16 @@ public class Pedido3V {
 	private Double totalPedido;
 	private Boolean situacao;
 	//ligação entre as classes Pedido x Cliente
-	Cliente3V cliente;
+	Cliente cliente;
 	//composição com a classe ItemPedido
-	List<ItemPedido3V> itens = new ArrayList<>();
+	List<ItemPedido> itens = new ArrayList<>();
 	
-	public Pedido3V() {
+	public Pedido() {
 		super();
 	}
 
-	public Pedido3V(Long id, String formaPagamento, String estado, Calendar dataCriacao, Calendar dataModificacao,
-			Double totalPedido, Boolean situacao, Cliente3V cliente, List<ItemPedido3V> itens) {
+	public Pedido(Long id, String formaPagamento, String estado, Calendar dataCriacao, Calendar dataModificacao,
+				  Double totalPedido, Boolean situacao, Cliente cliente, List<ItemPedido> itens) {
 		super();
 		this.id = id;
 		this.formaPagamento = formaPagamento;
@@ -91,19 +91,19 @@ public class Pedido3V {
 		this.situacao = situacao;
 	}
 
-	public Cliente3V getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente3V cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
-	public List<ItemPedido3V> getItens() {
+	public List<ItemPedido> getItens() {
 		return itens;
 	}
 
-	public void setItens(List<ItemPedido3V> itens) {
+	public void setItens(List<ItemPedido> itens) {
 		this.itens = itens;
 	}
 

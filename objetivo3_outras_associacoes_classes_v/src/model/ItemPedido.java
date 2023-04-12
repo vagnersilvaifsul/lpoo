@@ -1,18 +1,18 @@
 package model;
 
-public class ItemPedido3V {
+public class ItemPedido {
 	private Long id;
 	private Integer quantidade;
 	private Double totalItem;
 	private Boolean situacao;
 	//composição com a classe Produto
-	private Produto3V produto;
+	private Produto produto;
 	
-	public ItemPedido3V() {
+	public ItemPedido() {
 		super();
 	}
 
-	public ItemPedido3V(Long id, Integer quantidade, Double totalItem, Boolean situacao, Produto3V produto) {
+	public ItemPedido(Long id, Integer quantidade, Double totalItem, Boolean situacao, Produto produto) {
 		super();
 		this.id = id;
 		this.quantidade = quantidade;
@@ -53,11 +53,11 @@ public class ItemPedido3V {
 		this.situacao = situacao;
 	}
 
-	public Produto3V getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto3V produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 

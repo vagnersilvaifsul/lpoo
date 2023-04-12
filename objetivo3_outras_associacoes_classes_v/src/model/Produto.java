@@ -1,6 +1,6 @@
 package model;
 
-public class Produto3V {
+public class Produto {
 
 	private Long id;
 	private String nome;
@@ -8,11 +8,11 @@ public class Produto3V {
 	private Double valor;
 	private Boolean situacao;
 	
-	public Produto3V() {
+	public Produto() {
 		super();
 	}
 
-	public Produto3V(Long id, String nome, String descricao, Double valor, Boolean situacao) {
+	public Produto(Long id, String nome, String descricao, Double valor, Boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
