@@ -224,6 +224,11 @@ public class Main {
         System.out.print("\nSaída formatada: ");
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
 
+        System.out.println("\n\n--------- Exemplo de uso do LocalDateTime a partir de uma String (data e hora específica na construção) --------- ");
+        aberturaDaCopa = LocalDateTime.parse("01/06/2023 17:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+        System.out.println("Saída da data: ");
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
+
         System.out.println("\n--------- Lista de Timezones disponíveis --------- ");
         System.out.println(ZoneId.getAvailableZoneIds());
 
