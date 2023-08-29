@@ -1,6 +1,6 @@
 package model;
 
-//Como a Questão 2 especializa os Desenvolvedores, esta classe deveria ser marcada com abstract.
+//Como a Questão 2 especializa os Gerentes, esta classe deveria ser marcada com abstract.
 //Isso não foi feito para poder manter a resposta da Questão 1.
 public class Gerente extends Funcionario {
 	

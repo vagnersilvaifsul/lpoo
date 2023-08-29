@@ -4,10 +4,6 @@ import java.text.NumberFormat;
 
 public class DesenvolvedorSenior extends Desenvolvedor {
 
-	public DesenvolvedorSenior() {
-		super();
-	}
-
 	public DesenvolvedorSenior(String nome, double salario) {
 		super(nome, salario);
 	}
