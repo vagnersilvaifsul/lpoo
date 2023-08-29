@@ -42,6 +42,7 @@ public class Conta {
 	
 	public void atualiza(double taxa) {
 		this.saldo += this.saldo * (taxa/100);
+//		this.saldo = this.saldo + this.saldo * (taxa/100);
 		System.out.println("Saldo atualizado pela taxa. Saldo atual=" + this.saldo);
 	}
 

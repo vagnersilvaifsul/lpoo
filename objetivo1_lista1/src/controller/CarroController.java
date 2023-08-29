@@ -81,7 +81,7 @@ public class CarroController {
 		//pesquisando na coleção (método filter)
 		System.out.println();
 		System.out.print("Localizando o carro pela chave de pesquisa (id=3) na coleção do tipo Map...");
-		System.out.println(carrosMap.get(3));
+		System.out.println(carrosMap.get(carro3.getId()));
 		
 		//ordenando a coleçao do tipo Map (operação proibida, pois mudaria o conteúdo indexado pela função hash)
 

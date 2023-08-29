@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Desenvolvedor extends Funcionario {
+//Como a Questão 2 especializa os Desenvolvedores, esta classe deveria ser marcada com abstract.
+//Isso não foi feito para poder manter a resposta da Questão 1.
+public class Desenvolvedor extends Funcionario {
 	
 	public Desenvolvedor() {
 		super();
@@ -10,7 +12,15 @@ public abstract class Desenvolvedor extends Funcionario {
 		super(nome, salario);
 	}
 
+	//Na Questão 2 poderia ser marcado como abstract, deixando para as classes especializadas resolver esse cálculo
 	@Override
-	public abstract double getBonus();	
+	public double getBonus(){
+		return getSalario() * 0.05;
+	}
+
+	@Override
+	public String toString() {
+		return "\nDesenvolvedor{Nome=" + super.getNome() + " Salário=" + super.getSalario() + "}";
+	}
 	
 }
