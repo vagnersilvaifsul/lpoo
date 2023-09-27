@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainController extends JFrame implements Runnable, ActionListener{
+public class MainController extends JFrame  implements Runnable, ActionListener{
 
     public void run() {
         // Invoked on the event dispatching thread.

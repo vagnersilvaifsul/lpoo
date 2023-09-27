@@ -22,7 +22,7 @@ public class FuncionarioController {
 		Desenvolvedor dev5 = new Desenvolvedor("Júlia", 2500.00);
 		Desenvolvedor dev6 = new Desenvolvedor("Paula", 2500.00);
 		System.out.print("\n\nDesenvolvedores criados: ");
-		System.out.print(dev1 + "" +  dev2 + "" + dev3 + "" + dev4 + "" + dev5 + "" + dev6);
+		System.out.print(dev1 + "" +  dev2 + dev3 + dev4 + dev5 + dev6);
 		
 		//String nome, double salario, String ticker, int quantidade
 		Gerente ger1 = new Gerente("Ana", 4500.00, "ALUP11", 500);
@@ -32,7 +32,7 @@ public class FuncionarioController {
 		Gerente ger5 = new Gerente("Paulo", 6500.00, "ALUP11", 1000);
 		Gerente ger6 = new Gerente("Cris", 6500.00, "ALUP11", 2000);
 		System.out.print("\n\nGerentes criados: ");
-		System.out.print(ger1 + "" +  ger2 + "" + ger3 + "" + ger4 + "" + ger5 + "" + ger6);
+		System.out.print(ger1 + "" +  ger2 + ger3 + ger4 + ger5 + ger6);
 		
 		//int id, String nome, String sobrenome, String ticker, int quantidade
 		Cliente cli1 = new Cliente(1, "João", "Dias", "ALUP11", 500);
@@ -42,7 +42,7 @@ public class FuncionarioController {
 		Cliente cli5 = new Cliente(5, "Maria", "Terra", "ALUP11", 1000);
 		Cliente cli6 = new Cliente(6, "Pedro", "Santos", "ALUP11", 2000);
 		System.out.print("\n\nClientes criados: ");
-		System.out.print(cli1 + "" +  cli2 + "" + cli3 + "" + cli4 + "" + cli5 + "" + cli6);
+		System.out.print(cli1 + "" +  cli2 + cli3 + cli4 + cli5 + cli6);
 		
 		
 		//b
