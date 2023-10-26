@@ -18,10 +18,10 @@ public class GenericProcedureController {
 	}
 
 	/* 
+	 * Este método substitui os métodos específicos apresentados, entre comentários, entre as linhas 32 e 71.
 	 * Nota: O compilador vai fazer a operação de Erasure. Isto é traduz o tipo genérico para substituir os tipos reais.
 	 * */
-	// generic method printArray ... Entretando, usando nosso conhecimento de herança, poderia ter criado um método genérico assim
-	public static <T> void printArray(T[] inputArray) {
+	private static <T> void printArray(T[] inputArray) {
 		// display array elements
 		for (T element : inputArray)
 			System.out.printf("%s ", element);
