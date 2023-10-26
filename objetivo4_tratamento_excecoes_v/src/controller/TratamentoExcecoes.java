@@ -1,5 +1,10 @@
 package controller;
 
+import exceptions.MinhaExcecao;
+import model.Conta;
+
+import java.util.InputMismatchException;
+
 public class TratamentoExcecoes {
 
 	public static void main(String[] args) {
@@ -8,7 +13,7 @@ public class TratamentoExcecoes {
 		//System.out.println(10/0);
 
 		// NullPointerException (Ponteiro Nulo)
-//		Conta4V conta1 = null;//new Conta4V();
+//		Conta conta1 = null;//new Conta4V();
 //		System.out.println(conta1.toString());
 
 		// analisando a Pilha de exceção
@@ -22,10 +27,10 @@ public class TratamentoExcecoes {
 
 	private static void comportamento2() {
 		// Divisão por Zero
-		System.out.println(10/0); //lança a exceção
-		System.out.println("Executou todas as chamadas.");
+//		System.out.println(10/0); //lança a exceção
+//		System.out.println("Executou todas as chamadas.");
 
-//		InputMismatchException exception = new InputMismatchException();
+//		InputMismatchException exception = new InputMismatchException("Menssagem de exceção");
 //		throw exception;
 
 		
@@ -37,19 +42,6 @@ public class TratamentoExcecoes {
 
 	}
 
-	// Exemplo de Tipo prórpio de Exceção
-	// lança uma exceção verificada de uma classe criada pelo programador
-	private static void mythrowException() {
-		try { //try-catch é um único comando, deve vir juntos
-			System.out.println("Tentou executar o bloco try, mas lança a MinhaExcecao");
-			throw new MinhaExcecao(); // gera a exceção
-		} catch (MinhaExcecao e) { // pega a exceção lançada no bloco try
-			//e.printStackTrace(); //imprime a stack de exceção
-		} finally { // executa em qualquer caso, seja resultado da execução do try ou do catch
-			System.err.println("Finally executado em mythrowException()");
-		}
-	}
-
 	// lança uma exceção verificada.
 	/*
 	 * Segundo Deitel (2010), todas as classes que são herdadas da classe Exception,
@@ -59,50 +51,30 @@ public class TratamentoExcecoes {
 	private static void throwException() {
 		// throw an exception and immediately catch it
 		try {
-			
-		} catch (Exception exception) { // catch exception thrown in try
+			// Divisão por Zero
+			//System.out.println("qualquer coisa");
+			System.out.println(10/0); //lança a exceção
+		} catch (Exception e) { // catch exception thrown in try
 			System.err.println("Exceção tratata no bloco catch de throwException()");
-			throw exception; // rethrow for further processing
+			e.printStackTrace();
 		} finally { // executes regardless of what occurs in try...catch
-			System.err.println("Finally executado em  throwException()");
+			System.out.println("Finally executado em  throwException()");
 		}
 
 		// code here would not be reached; would cause compilation errors
 
 	}
 
+	// Exemplo de Tipo prórpio de Exceção
+	// lança uma exceção verificada de uma classe criada pelo programador
+	private static void mythrowException() {
+		try {
+			throw new MinhaExcecao("Estoque insuficiente"); // gera a exceção
+		} catch (MinhaExcecao e) {
+			e.printStackTrace();
+		} finally { // executes regardless of what occurs in try...catch
+			System.out.println("Finally executado em  throwException()");
+		}
+	}
+
 }// fim classe TratamentoExcecoesV
-
-class MinhaExcecao extends Exception {
-	public MinhaExcecao() {
-		super("Meu problema ... forcei um na minha classe");
-	}
-}
-
-//Classe utilizada para demonstrar o NullPointerException
-class Conta {
-	private Double saldo = 0.0;
-
-	public Conta() {
-		super();
-	}
-
-	public Conta(Double saldo) {
-		super();
-		this.saldo = saldo;
-	}
-
-	public Double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
-	}
-
-	@Override
-	public String toString() {
-		return "\nConta [saldo=" + saldo + "]";
-	}
-
-}
