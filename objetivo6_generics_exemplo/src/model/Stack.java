@@ -18,7 +18,7 @@ public class Stack<T>
    public Stack(int capacity)
    {
       int initCapacity = capacity > 0 ? capacity : 10; // validate
-      elements = new ArrayList<T>(initCapacity); // create ArrayList
+      elements = new ArrayList<>(initCapacity); // create ArrayList
    }
 
    // push element onto stack
