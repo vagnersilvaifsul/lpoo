@@ -1,5 +1,0 @@
-Antes da programação funcional, você normalmente determinava o que queria alcançar e, então, especificava os passos precisos para realizar essa tarefa (Na programação Imperativa você especifica "O Como" alcancar o que você quer alcançar).
-Usar um loop para iterar por uma coleção de elementos é conhecido como iteração externa e requer acesso sequencial aos elementos. Essa iteração também requer variáveis mutáveis.
-Na programação funcional, você especifica o que quer alcançar em uma tarefa, mas não como realizar isso (Na funcional você especifica apenas "O que" quer alcançar).
-Deixar a biblioteca determinar como iterar por uma coleção de elementos é conhecido como iteração interna. A iteração interna é mais fácil de paralelizar.
-A programação funcional focaliza a imutabilidade — não modifica a origem de dados que é processada ou qualquer outro estado do programa.
