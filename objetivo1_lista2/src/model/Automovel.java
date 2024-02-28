@@ -3,16 +3,17 @@ package model;
 import java.text.NumberFormat;
 
 public class Automovel {
-	//atributos
+	//Atributos
 	private String renavan;
 	private String placa;
 	private String cor;
-	private Integer num_rodas;
+	private int num_rodas;
 	private String combustivel;
-	private Integer quilometragem;
+	private int quilometragem;
 	private String chassi;
 	private double valor_locacao;
-	
+
+	//Métodos construtores
 	public Automovel() {
 		super();
 	}
@@ -30,70 +31,62 @@ public class Automovel {
 		this.valor_locacao = valor_locacao;
 	}
 
-	public String getRenavan() {
-		return renavan;
-	}
-
-	public void setRenavan(String renavan) {
-		this.renavan = renavan;
-	}
-
-	public String getPlaca() {
-		return placa;
-	}
-
-	public void setPlaca(String placa) {
+	public Automovel(String placa, String cor) {
 		this.placa = placa;
-	}
-
-	public String getCor() {
-		return cor;
-	}
-
-	public void setCor(String cor) {
 		this.cor = cor;
 	}
 
-	public Integer getNum_rodas() {
+	//Métodos Acessores (de acesso)
+	public String getRenavan() {
+		return renavan;
+	}
+	public void setRenavan(String renavan) {
+		this.renavan = renavan;
+	}
+	public String getPlaca() {
+		return placa;
+	}
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+	public String getCor() {
+		return cor;
+	}
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+	public int getNum_rodas() {
 		return num_rodas;
 	}
-
-	public void setNum_rodas(Integer num_rodas) {
+	public void setNum_rodas(int num_rodas) {
 		this.num_rodas = num_rodas;
 	}
-
 	public String getCombustivel() {
 		return combustivel;
 	}
-
 	public void setCombustivel(String combustivel) {
 		this.combustivel = combustivel;
 	}
-
-	public Integer getQuilometragem() {
+	public int getQuilometragem() {
 		return quilometragem;
 	}
-
-	public void setQuilometragem(Integer quilometragem) {
+	public void setQuilometragem(int quilometragem) {
 		this.quilometragem = quilometragem;
 	}
-
 	public String getChassi() {
 		return chassi;
 	}
-
 	public void setChassi(String chassi) {
 		this.chassi = chassi;
 	}
-
-	public String getValor_locacao() {
-		return NumberFormat.getCurrencyInstance().format(valor_locacao);
+	public double getValor_locacao() {
+		return valor_locacao;
 	}
-
 	public void setValor_locacao(double valor_locacao) {
 		this.valor_locacao = valor_locacao;
 	}
 
+	//Converte o Objeto em String
 	@Override
 	public String toString() {
 		return "\nVeiculo [renavan=" + renavan + ", placa=" + placa + ", cor=" + cor + ", num_rodas=" + num_rodas

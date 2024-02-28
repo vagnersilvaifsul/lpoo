@@ -116,14 +116,15 @@ public class CarroController {
 		//Pesquisa por força bruta
 		for(Carro carro : carrosList){
 			if(carro.getId() == 3){
-				System.out.println("\nResultado da pesquisa pelo carro de id=3");
+				System.out.print("\nResultado da pesquisa pelo carro de id=3");
+				System.out.print(carro);
 			}
 		}
 
 		//2h
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
-		System.out.print("Localizando o carro pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
+		System.out.print("\nLocalizando o carro pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
 		Carro carroFind = carrosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
 		System.out.println(carroFind);
 

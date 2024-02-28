@@ -105,14 +105,15 @@ public class FuncionarioController {
 		//Pesquisa por força bruta
 		for(Funcionario funcionario : funcionarioList){
 			if(funcionario.getId() == 3){
-				System.out.println("\nResultado da pesquisa pelo Funcionario de id=3");
+				System.out.print("\nResultado da pesquisa pelo Funcionario de id=3");
+				System.out.print(funcionario);
 			}
 		}
 
 		//2h
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
-		System.out.print("Localizando o Funcionario pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
+		System.out.print("\nLocalizando o Funcionario pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
 		Funcionario FuncionarioFind = funcionarioList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
 		System.out.println(FuncionarioFind);
 

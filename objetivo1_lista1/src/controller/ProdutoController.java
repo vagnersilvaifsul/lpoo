@@ -129,14 +129,15 @@ public class ProdutoController {
 		//Pesquisa por força bruta
 		for(Produto produto : produtoList){
 			if(produto.getId() == 3){
-				System.out.println("\nResultado da pesquisa pelo Produto de id=3");
+				System.out.print("\nResultado da pesquisa pelo Produto de id=3");
+				System.out.print(produto);
 			}
 		}
 
 		//2h
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
-		System.out.print("Localizando o Produto pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
+		System.out.print("\nLocalizando o Produto pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
 		Produto ProdutoFind = produtoList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
 		System.out.println(ProdutoFind);
 

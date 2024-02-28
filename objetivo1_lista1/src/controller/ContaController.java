@@ -93,14 +93,15 @@ public class ContaController {
 		//Pesquisa por força bruta
 		for(Conta conta : contaList){
 			if(conta.getId() == 3){
-				System.out.println("\nResultado da pesquisa pelo Conta de id=3");
+				System.out.print("\nResultado da pesquisa pelo Conta de id=3");
+				System.out.print(conta);
 			}
 		}
 
 		//2h
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
-		System.out.print("Localizando o Conta pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
+		System.out.print("\nLocalizando o Conta pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
 		Conta ContaFind = contaList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
 		System.out.println(ContaFind);
 

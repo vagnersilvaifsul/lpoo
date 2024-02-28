@@ -2,24 +2,23 @@ package model;
 
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Locacao {
-	private Integer id;
+	//Atributos
+	private int id;
 	private LocalDateTime dataLocacao;
 	private LocalDateTime dataDevolucao;
-	private Integer quilometragem;
+	private int quilometragem;
 	private double valorCalcao;
 	private double valorLocacao;
-	private Boolean devolvido;
-	
+	private boolean devolvido;
+
+	//Métodos construtores
 	public Locacao() {
 		super();
 	}
-
 	public Locacao(Integer id, LocalDateTime dataLocacao, LocalDateTime dataDevolucao, Integer quilometragem,
 				   Double valorCalcao, Double valorLocacao, Boolean devolvido) {
-		super();
 		this.id = id;
 		this.dataLocacao = dataLocacao;
 		this.dataDevolucao = dataDevolucao;
@@ -28,60 +27,52 @@ public class Locacao {
 		this.valorLocacao = valorLocacao;
 		this.devolvido = devolvido;
 	}
+	public Locacao(Integer id, Boolean devolvido) {
+		this.id = id;
+		this.devolvido = devolvido;
+	}
 
-	public Integer getId() {
+	//Métodos Acessores (de acesso)
+	public int getId() {
 		return id;
 	}
-
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-
-	public LocalDateTime getDataLocacao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
+	public LocalDateTime getDataLocacao() {
 		return dataLocacao;
 	}
-
 	public void setDataLocacao(LocalDateTime dataLocacao) {
 		this.dataLocacao = dataLocacao;
 	}
-
-	public LocalDateTime getDataDevolucao() { //note que o retorno desse get não é um calendar (já facilitou para o controller)
+	public LocalDateTime getDataDevolucao() {
 		return dataDevolucao;
 	}
-
 	public void setDataDevolucao(LocalDateTime dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
-
-	public Integer getQuilometragem() {
+	public int getQuilometragem() {
 		return quilometragem;
 	}
-
-	public void setQuilometragem(Integer quilometragem) {
+	public void setQuilometragem(int quilometragem) {
 		this.quilometragem = quilometragem;
 	}
-
-	public Double getValorCalcao() {
+	public double getValorCalcao() {
 		return valorCalcao;
 	}
-
-	public void setValorCalcao(Double valorCalcao) {
+	public void setValorCalcao(double valorCalcao) {
 		this.valorCalcao = valorCalcao;
 	}
-
-	public Double getValorLocacao() {
+	public double getValorLocacao() {
 		return valorLocacao;
 	}
-
-	public void setValorLocacao(Double valorLocacao) {
+	public void setValorLocacao(double valorLocacao) {
 		this.valorLocacao = valorLocacao;
 	}
-
-	public Boolean isDevolvido() {
+	public boolean isDevolvido() {
 		return devolvido;
 	}
-
-	public void setDevolvido(Boolean devolvido) {
+	public void setDevolvido(boolean devolvido) {
 		this.devolvido = devolvido;
 	}
 
