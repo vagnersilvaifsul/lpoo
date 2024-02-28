@@ -3,13 +3,14 @@ package model;
 import java.text.NumberFormat;
 
 public class Produto {
+	//Atributos
 	private int id;
 	private String nome;
 	private String descricao;
 	private double valor;
 	private int estoque;
 	
-	//métodos constutores
+	//Métodos constutores
 	public Produto() {
 		
 	}
@@ -22,9 +23,12 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
-	//métodos acessores
+	public Produto(int id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
 
-
+	//Métodos Acessores (de acesso)
 	public int getId() {
 		return id;
 	}
@@ -65,6 +69,7 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
+	//Converte o Objeto em String
 	@Override
 	public String toString() {
 		return "\nProduto{" +

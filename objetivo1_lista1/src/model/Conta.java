@@ -1,9 +1,11 @@
 package model;
 
 public class Conta {
+	//Atributos
 	private int id;
 	private double saldo;
 
+	//Métodos Construtores
 	public Conta() {
 		super();
 	}
@@ -14,6 +16,11 @@ public class Conta {
 		this.saldo = saldo;
 	}
 
+	public Conta(double saldo) {
+		this.saldo = saldo;
+	}
+
+	//Métodos Acessores (de acesso)
 	public int getId() {
 		return id;
 	}
@@ -46,6 +53,7 @@ public class Conta {
 		System.out.println("Saldo atualizado pela taxa. Saldo atual=" + this.saldo);
 	}
 
+	//Converte o Objeto em String
 	@Override
 	public String toString() {
 		return "\nConta [id=" + id + ", saldo=" + saldo + "]";

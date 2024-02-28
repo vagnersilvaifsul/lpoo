@@ -3,10 +3,12 @@ package model;
 import java.text.NumberFormat;
 
 public class Funcionario {
+	//Atributos
 	private int id;
 	private String nome;
 	private double salario;
-	
+
+	//Métodos Construtores
 	public Funcionario() {
 		super();
 	}
@@ -18,6 +20,12 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
+	public Funcionario(int id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
+
+	//Métodos Acessores (de acesso)
 	public int getId() {
 		return id;
 	}
@@ -42,6 +50,7 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
+	//Converte o Objeto em String
 	@Override
 	public String toString() {
 		return "\nFuncionario [id=" + id + ", nome=" + nome + ", salario=" + NumberFormat.getCurrencyInstance().format(salario) + "]";

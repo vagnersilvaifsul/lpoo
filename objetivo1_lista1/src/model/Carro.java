@@ -1,15 +1,16 @@
 package model;
 
 public class Carro {
+	//Atributos
 	private int id;
 	private String marca;
 	private String modelo;
 	private int anoFabricacao;
-	
+
+	//Métodos construtores
 	public Carro() {
 		super();
 	}
-
 	public Carro(int id, String marca, String modelo, int anoFabricacao) {
 		super();
 		this.id = id;
@@ -17,7 +18,13 @@ public class Carro {
 		this.modelo = modelo;
 		this.anoFabricacao = anoFabricacao;
 	}
+	public Carro(int id, String marca, String modelo) {
+		this.id = id;
+		this.marca = marca;
+		this.modelo = modelo;
+	}
 
+	//Métodos Acessores (de acesso)
 	public int getId() {
 		return id;
 	}
@@ -50,6 +57,7 @@ public class Carro {
 		this.anoFabricacao = anoFabricacao;
 	}
 
+	//Converte o Objeto em String
 	@Override
 	public String toString() {
 		return "\nCarro [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", anoFabricacao=" + anoFabricacao + "]";
