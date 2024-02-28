@@ -1,9 +1,7 @@
 package controller;
 
-import java.text.NumberFormat;
 import java.util.*;
 
-import model.Funcionario;
 import model.Funcionario;
 
 public class FuncionarioController {
@@ -17,7 +15,7 @@ public class FuncionarioController {
 
 		//1c-ii
 		//constrói duas instâncias da classe utilizando o construtor parametrizado que contém todos os atributos como parâmetro
-		Funcionario funcionario3 = new Funcionario(2, "Ana", 3000.00); //utilizando o construtor parametrizado
+		Funcionario funcionario3 = new Funcionario(3, "Ana", 3000.00); //utilizando o construtor parametrizado
 		Funcionario funcionario4 = new Funcionario(4, "Rafael",4000.00); //utilizando o construtor parametrizado
 
 		//1c-iii
@@ -122,6 +120,7 @@ public class FuncionarioController {
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("Localizando o Funcionario pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
+		funcionarioList.sort(Comparator.comparing(Funcionario::getId)); //ordena ascendente, conforme exigido na documentação
 		funcionarioList.get(
 			Collections.binarySearch(
 				funcionarioList,

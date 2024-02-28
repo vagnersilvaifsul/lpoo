@@ -3,7 +3,6 @@ package controller;
 import java.util.*;
 
 import model.Carro;
-import model.Funcionario;
 
 public class CarroController {
 	public static void main(String[] args) {
@@ -132,6 +131,7 @@ public class CarroController {
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("Localizando o carro pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
+		carrosList.sort(Comparator.comparing(Carro::getId)); //ordena ascendente, conforme exigido na documentação
 		carrosList.get(
 			Collections.binarySearch(
 				carrosList,

@@ -1,9 +1,7 @@
 package controller;
 
-import java.text.NumberFormat;
 import java.util.*;
 
-import model.Produto;
 import model.Produto;
 
 
@@ -146,6 +144,7 @@ public class ProdutoController {
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("Localizando o Produto pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
+		produtoList.sort(Comparator.comparing(Produto::getId)); //ordena ascendente, conforme exigido na documentação
 		produtoList.get(
 			Collections.binarySearch(
 				produtoList,
