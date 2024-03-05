@@ -12,7 +12,6 @@ public class Carro {
 		super();
 	}
 	public Carro(int id, String marca, String modelo, int anoFabricacao) {
-		super();
 		this.id = id;
 		this.marca = marca;
 		this.modelo = modelo;
