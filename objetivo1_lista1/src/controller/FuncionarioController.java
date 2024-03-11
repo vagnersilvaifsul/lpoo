@@ -114,22 +114,22 @@ public class FuncionarioController {
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
 		System.out.print("\nLocalizando o Funcionario pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
-		Funcionario FuncionarioFind = funcionarioList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
-		System.out.println(FuncionarioFind);
+		Funcionario funcionarioFind = funcionarioList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
+		System.out.println(funcionarioFind);
 
 		//2h
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("Localizando o Funcionario pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
 		funcionarioList.sort(Comparator.comparing(Funcionario::getId)); //ordena ascendente, conforme exigido na documentação
-		funcionarioList.get(
+		funcionarioFind = funcionarioList.get(
 			Collections.binarySearch(
 				funcionarioList,
 				new Funcionario(3, "nao importa o valor"),
 				Comparator.comparing(Funcionario::getId)
 			)
 		);
-		System.out.println(FuncionarioFind);
+		System.out.println(funcionarioFind);
 
 		//----------------
 		//2a ao h para coleção do tipo Map

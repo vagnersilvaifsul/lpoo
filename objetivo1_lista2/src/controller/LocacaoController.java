@@ -161,22 +161,22 @@ public class LocacaoController {
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
 		System.out.print("\nLocalizando o Locacao pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
-		Locacao LocacaoFind = locacaosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
-		System.out.println(LocacaoFind);
+		Locacao locacaoFind = locacaosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
+		System.out.println(locacaoFind);
 
 		//2h
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("Localizando o Locacao pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
 		locacaosList.sort(Comparator.comparing(Locacao::getId)); //ordena ascendente, conforme exigido na documentação
-		locacaosList.get(
+		locacaoFind = locacaosList.get(
 			Collections.binarySearch(
 				locacaosList,
 				locacao3,
 				Comparator.comparing(Locacao::getId)
 			)
 		);
-		System.out.println(LocacaoFind);
+		System.out.println(locacaoFind);
 
 		//----------------
 		//2a ao h para coleção do tipo Map

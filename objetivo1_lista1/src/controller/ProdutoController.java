@@ -138,22 +138,22 @@ public class ProdutoController {
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
 		System.out.print("\nLocalizando o Produto pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
-		Produto ProdutoFind = produtoList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
-		System.out.println(ProdutoFind);
+		Produto produtoFind = produtoList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
+		System.out.println(produtoFind);
 
 		//2h
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("Localizando o Produto pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
 		produtoList.sort(Comparator.comparing(Produto::getId)); //ordena ascendente, conforme exigido na documentação
-		produtoList.get(
+		produtoFind = produtoList.get(
 			Collections.binarySearch(
 				produtoList,
 				new Produto(3, "nao importa o valor"),
 				Comparator.comparing(Produto::getId)
 			)
 		);
-		System.out.println(ProdutoFind);
+		System.out.println(produtoFind);
 
 		//----------------
 		//2a ao h para coleção do tipo Map

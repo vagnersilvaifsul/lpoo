@@ -133,14 +133,14 @@ public class CarroController {
 		System.out.println();
 		System.out.print("Localizando o carro pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
 		carrosList.sort(Comparator.comparing(Carro::getId)); //ordena ascendente, conforme exigido na documentação
-		carrosList.get(
+		System.out.println(
+			carrosList.get(
 			Collections.binarySearch(
 				carrosList,
 				new Carro(3, "nao importa o valor", "nao importa o valor"),
 				Comparator.comparing(Carro::getId)
 			)
-		);
-		System.out.println(carroFind);
+		));
 
 		//----------------
 		//2a ao h para coleção do tipo Map

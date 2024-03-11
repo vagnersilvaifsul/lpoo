@@ -94,22 +94,22 @@ public class ModeloController {
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
 		System.out.print("\nLocalizando o Modelo pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
-		Modelo ModeloFind = modelosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
-		System.out.println(ModeloFind);
+		Modelo modeloFind = modelosList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
+		System.out.println(modeloFind);
 
 		//2h
 		//Método utilizando o método binarySearch da classe Collections
 		System.out.println();
 		System.out.print("\nLocalizando o Modelo pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
 		modelosList.sort(Comparator.comparing(Modelo::getId)); //ordena ascendente, conforme exigido na documentação
-		modelosList.get(
+		modeloFind = modelosList.get(
 			Collections.binarySearch(
 				modelosList,
 				modelo3,
 				Comparator.comparing(Modelo::getId)
 			)
 		);
-		System.out.println(ModeloFind);
+		System.out.println(modeloFind);
 
 		//----------------
 		//2a ao h para coleção do tipo Map
