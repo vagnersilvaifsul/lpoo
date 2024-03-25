@@ -2,7 +2,7 @@ package model;
 
 import java.text.NumberFormat;
 
-public class DesenvolvedorJunior extends Desenvolvedor {
+public class DesenvolvedorJunior extends Desenvolvedor { //Questão 2b
 
 	public DesenvolvedorJunior(String nome, double salario) {
 		super(nome, salario);
@@ -11,7 +11,7 @@ public class DesenvolvedorJunior extends Desenvolvedor {
 	@Override
 	public double getBonus() {
 		return getSalario() * 0.05;
-	}
+	} //Questão 2b
 
 	@Override
 	public String toString() {

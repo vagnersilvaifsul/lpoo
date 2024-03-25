@@ -16,24 +16,28 @@ import model.GerenteGeral;
 public class FuncionarioController {
 
 	public static void main(String[] args) {
-		//Questão 1
+		//Questão 1c
 		Desenvolvedor d1 = new Desenvolvedor();
 		Desenvolvedor d2 = new Desenvolvedor("Silvia", 1000.00);
 		Gerente g1 = new Gerente();
 		Gerente g2 = new Gerente("Ana", 3000.00);
-		System.out.println("******** Questão 1 ********");
-		System.out.print("Funcionário criados:");
-		System.out.println(d1 + "" + d2 + "" + g1 + "" + g2);
 
+		//Questão 1d
+		System.out.println("******** Questão 1c ********");
+		System.out.print("Funcionário criados:");
+		System.out.println(d1 + "" + d2 + " " + g1 + " " + g2);
+
+		//Questão 1e
 		//altera o estado dos objetos criados com o construtor padrão (o parametrizado já inicializa com valores válidos)
 		d1.setNome("Tiago");
 		d1.setSalario(1000.00);
 		g1.setNome("Rafael");
 		g1.setSalario(3000.00);
 		System.out.print("\nFuncionário depois de alterá-los com getters e setters:");
-		System.out.println(d1 + "" + d2 + "" + g1 + "" + g2);
+		System.out.println(d1 + " " + d2 + " " + g1 + " " + g2);
 
-		//coleção de funcionários na questão 1
+
+		//Questão 1f
 		System.out.print("\nBônus de cada funcionário:");
 		System.out.print(d1);
 		System.out.println(" Bônus= " + d1.getBonus());
@@ -46,14 +50,15 @@ public class FuncionarioController {
 
 
 		//Respostas as questões discursivas
-		//1. Não é possível criar instâncias da classe Funcionario porque ela é abastrata.
-		//2. Nas classes de modelo, onde o domínio do problema está sendo modelado. No controller se
+		//1g.i Não é possível criar instâncias da classe Funcionario porque ela é abstrata.
+		//1g.ii Nas classes de modelo, Gerente e Desenvolvedor, onde o domínio do problema está sendo modelado. No controller se
 		//evita colocar regras de negócios do domínio do problema.
 
 
 		//Questão 2
 		System.out.println("\n\n******** Questão 2 ********");
 
+		//Questão 2b (cria os objetos)
 		//cria os gerentes
 		Gerente ger1 = new GerenteGeral("Ana Júlia", 6500.00);
 		Gerente ger2 = new GerenteDesenvolvimento("Rafael", 4500.00);
@@ -79,9 +84,13 @@ public class FuncionarioController {
 		Desenvolvedor dev16 = new DesenvolvedorJunior("Roberto", 1800.00);
 		Desenvolvedor dev17 = new DesenvolvedorJunior("Clara", 1800.00);
 		Desenvolvedor dev18 = new DesenvolvedorJunior("Mel", 1800.00);
-		
-		//adiciona os funcionários a uma coleção do tipo List, assim facilita os cáculos
-		List<Funcionario> funcionarios = new ArrayList<>();
+
+		/*
+			Note que o tipo de dado manipulado é o tipo da superclasse, Funcionario, pois
+			a coleção deve aceitar qualquer tipo específico, como Gerente e Desenvolvedor e suas especializações.
+		 */
+		List<Funcionario> funcionarios = new ArrayList<>(); //Questão 2a
+		//Questão 2b
 		funcionarios.add(ger1);
 		funcionarios.add(ger2);
 		funcionarios.add(dev1);
@@ -103,7 +112,8 @@ public class FuncionarioController {
 		funcionarios.add(dev17);
 		funcionarios.add(dev18);
 		System.out.print("Funionários cadastrados na empresa\n" + funcionarios);
-		
+
+		//Questão 2c
 		//cáculo da folha salarial com bônus
 		double total_folha_com_bonus = 0.0;
 		for (Funcionario funcionario : funcionarios) {
@@ -118,7 +128,8 @@ public class FuncionarioController {
 				funcionarios.stream()
 					.mapToDouble(f -> f.getSalario() + f.getBonus())
 					.sum()));
-		
+
+		//Questão 2d
 		//cáculo da folha salarial sem bônus
 		double total_folha_sem_bonus = 0.0;
 		for (Funcionario funcionario : funcionarios) {
@@ -132,7 +143,8 @@ public class FuncionarioController {
 			funcionarios.stream()
 				.mapToDouble(f -> f.getSalario())
 				.sum()));
-		
+
+		//Questão 2e
 		//cáculo do valor do bônus e do salário bruto de cada funcionário
 		System.out.print("\n\n******* Salário bruto, bônus e salário de cada funcionário *******");
 		funcionarios.forEach(f -> {
@@ -144,7 +156,8 @@ public class FuncionarioController {
 			System.out.println("Salário bruto= " + NumberFormat.getCurrencyInstance().format(salarioBruto));
 			
 		});
-		
+
+		//Questão 2f
 		//cálculo do salário com o reajuste de 5%
 		total_folha_com_bonus = 0.0;
 		for(Funcionario f : funcionarios){

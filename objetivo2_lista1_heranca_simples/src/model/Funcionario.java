@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Funcionario {
+public abstract class Funcionario { //Questão 1a
 	private String nome;
 	private double salario;
 	
