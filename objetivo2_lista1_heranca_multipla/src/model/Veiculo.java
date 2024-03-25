@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Veiculo {
+public abstract class Veiculo { //Questão 1a
 	private int numeroDeEixos;
 	private String propulsao;
 	private String marca;

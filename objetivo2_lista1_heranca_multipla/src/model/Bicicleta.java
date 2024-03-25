@@ -1,6 +1,6 @@
 package model;
 
-public class Bicicleta extends Veiculo {
+public class Bicicleta extends Veiculo { //Questão 1a
 
 	private int tamanhoRoda;
 	private String chassi; //de int para string na implementação

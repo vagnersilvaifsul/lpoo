@@ -1,6 +1,6 @@
 package model;
 
-public class Carro extends Veiculo implements Automovel {
+public class Carro extends Veiculo implements Automovel { //Questão 1a
 
 	private int capacidadePortaMalas;
 	private String renavam;
