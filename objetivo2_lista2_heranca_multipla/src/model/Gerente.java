@@ -1,6 +1,6 @@
 package model;
 
-public class Gerente extends Funcionario implements Investidor {
+public class Gerente extends Funcionario implements Investidor { //Questão 1a
 	private String ticker;
 	private int quantidade;
 

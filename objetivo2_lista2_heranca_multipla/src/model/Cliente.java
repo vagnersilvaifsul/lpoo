@@ -1,6 +1,6 @@
 package model;
 
-public class Cliente implements Investidor {
+public class Cliente implements Investidor { //Questão 1a
 	private int id;
 	private String nome;
 	private String sobrenome;

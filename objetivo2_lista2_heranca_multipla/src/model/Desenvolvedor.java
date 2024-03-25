@@ -1,6 +1,6 @@
 package model;
 
-public class Desenvolvedor extends Funcionario {
+public class Desenvolvedor extends Funcionario { //Questão 1a
 	
 
 	public Desenvolvedor() {
