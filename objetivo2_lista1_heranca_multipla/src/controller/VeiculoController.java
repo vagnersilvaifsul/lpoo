@@ -80,6 +80,7 @@ public class VeiculoController {
 
 		//2f
 		System.out.print("\n\nLista de VEÍCULOS que a placa começa por I ou i: ");
+		veiculos.sort(Comparator.comparing(Veiculo::getAnoFabricacao)); //reordena em ordem crescente
 		veiculos.forEach(v -> {
 			if (v instanceof Automovel) {
 				if( ((Automovel) v).getPlaca().startsWith("I") || ((Automovel) v).getPlaca().startsWith("i") ) {

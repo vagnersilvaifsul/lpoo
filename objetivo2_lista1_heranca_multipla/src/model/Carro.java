@@ -64,7 +64,7 @@ public class Carro extends Veiculo implements Automovel { //Questão 1a
 
 	@Override
 	public String toString() {
-		return "\nCarroG [Capacidade do Porta Malas=" + capacidadePortaMalas + ", Renavam=" + renavam + ", Chassi=" + chassi
+		return "\nCarro [Capacidade do Porta Malas=" + capacidadePortaMalas + ", Renavam=" + renavam + ", Chassi=" + chassi
 				+ ", Placa=" + placa + ", Numero de Eixos=" + getNumeroDeEixos() + ", Propulsao="
 				+ getPropulsao() + ", Marca=" + getMarca() + ", Modelo=" + getModelo()
 				+ ", Ano de Fabricacao=" + getAnoFabricacao() + "]";

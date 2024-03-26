@@ -59,7 +59,7 @@ public class Caminhao extends Veiculo implements Automovel { //Questão 1a
 
 	@Override
 	public String toString() {
-		return "\nCaminhaoG [Capacidade de Carga=" + capacidadeDeCarga + ", Renavam=" + renavam + ", Chassi=" + chassi
+		return "\nCaminhao [Capacidade de Carga=" + capacidadeDeCarga + ", Renavam=" + renavam + ", Chassi=" + chassi
 				+ ", Placa=" + placa + ", Numero de Eixos=" + getNumeroDeEixos() + ", Propulsao="
 				+ getPropulsao() + ", Marca=" + getMarca() + ", Modelo=" + getModelo()
 				+ ", Ano de Fabricacao=" + getAnoFabricacao() + "]";
