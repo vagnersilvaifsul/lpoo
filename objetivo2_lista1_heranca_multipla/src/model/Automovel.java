@@ -6,7 +6,7 @@ package model;
 	e Caminhao, mas não capartilha com Bicicleta (pois, a Bicicleta não é um Automóvel).
  */
 public interface Automovel { //Questão 1a
-	//os métodos em uma interface são, por natureza, públicos e abstratos (até o JDK 8)
+	//os métodos em uma interface são, por natureza, públicos e abstratos (até o JDK 7)
 	String getRenavam();
 	void setRenavam(String renavam);
 	String getChassi();
