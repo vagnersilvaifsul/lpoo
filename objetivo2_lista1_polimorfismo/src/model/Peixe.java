@@ -14,7 +14,7 @@ public class Peixe extends Animal { //1a
 	}
 
 	public Peixe(double x, double y, double z) {
-		super(x, y); //reutiliza o construtor com dois argumentos da superclasse
+		super(x, y);
 		this.z = z;
 	}
 
