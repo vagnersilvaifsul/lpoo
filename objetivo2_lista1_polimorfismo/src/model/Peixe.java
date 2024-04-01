@@ -4,6 +4,9 @@ public class Peixe extends Animal { //1a
 	
 	private double z = 0.0;
 
+	/*
+		Ter mais de um contrutor é um tipo de polimorfismo, o de Sobrecarga (ou Overloading).
+	 */
 	public Peixe() {}
 	
 	public Peixe(double x, double y) {

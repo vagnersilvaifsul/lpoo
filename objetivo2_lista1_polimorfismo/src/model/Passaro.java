@@ -3,7 +3,10 @@ package model;
 public class Passaro extends Animal { //1a
 	
 	private double z = 0.0;
-	
+
+	/*
+		Ter mais de um contrutor é um tipo de polimorfismo, o de Sobrecarga (ou Overloading).
+	 */
 	public Passaro() {}
 	public Passaro(double x, double y) {
 		super(x, y);

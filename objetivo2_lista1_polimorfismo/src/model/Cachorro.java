@@ -1,7 +1,10 @@
 package model;
 
 public class Cachorro extends Animal { //1a
-	
+
+	/*
+		Ter mais de um contrutor é um tipo de polimorfismo, o de Sobrecarga (ou Overloading).
+	 */
 	public Cachorro() {}
 
 	public Cachorro(double x, double y) {
