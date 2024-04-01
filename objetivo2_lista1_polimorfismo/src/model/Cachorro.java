@@ -1,13 +1,11 @@
 package model;
 
-public class Cachorro extends Animal {
+public class Cachorro extends Animal { //1a
 	
-	public Cachorro() {
-		super();
-	}
+	public Cachorro() {}
 
 	public Cachorro(double x, double y) {
-		super(x, y);
+		super(x, y); //reutiliza o construtor com dois argumentos da superclasse
 	}
 
 	@Override
@@ -17,7 +15,7 @@ public class Cachorro extends Animal {
 
 	@Override
 	public String toString() {
-		return "\nCachorroG [x=" + x + ", y=" + y + "]";
+		return "\nCachorro [x=" + x + ", y=" + y + "]";
 	}
 
 }

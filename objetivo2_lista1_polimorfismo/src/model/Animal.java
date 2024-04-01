@@ -1,15 +1,12 @@
 package model;
 
-public abstract class Animal {
+public abstract class Animal { //1a
 	protected double x = 0.0;
 	protected double y = 0.0;
 	
-	public Animal() {
-		super();
-	}
+	public Animal() {}
 
 	public Animal(double x, double y) {
-		super();
 		this.x = x;
 		this.y = y;
 	}

@@ -1,20 +1,18 @@
 package model;
 
-public class Peixe extends Animal {
+public class Peixe extends Animal { //1a
 	
 	private double z = 0.0;
 
-	public Peixe() {
-		super();
-	}
-
-	public Peixe(double x, double y, double z) {
-		super(x, y);
-		this.z = z;
-	}
+	public Peixe() {}
 	
 	public Peixe(double x, double y) {
 		super(x, y);
+	}
+
+	public Peixe(double x, double y, double z) {
+		super(x, y); //reutiliza o construtor com dois argumentos da superclasse
+		this.z = z;
 	}
 
 	@Override
@@ -23,13 +21,13 @@ public class Peixe extends Animal {
 	}
 	
 	public void mover(double x, double y, double z) {
-		super.mover(x, y);
+		super.mover(x, y); //reutiliza o método mover que está na superclasse
 		this.z = z;
 	}
 
 	@Override
 	public String toString() {
-		return "\nPeixeG [ x=" + x + ", y=" + y + ", z=" + z + "]";
+		return "\nPeixe [ x=" + x + ", y=" + y + ", z=" + z + "]";
 	}
 
 }
