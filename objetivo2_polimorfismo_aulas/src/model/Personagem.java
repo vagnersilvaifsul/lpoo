@@ -4,11 +4,11 @@ public abstract class Personagem {
 
     protected double x=0, y=0;
 
-    //a sobrecarga dos construtores permite a criação polimórfica de instâncias
+    //Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
     public Personagem() {
     }
 
-    //a sobrecarga dos construtores permite a criação polimórfica de instâncias
+    //Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
     public Personagem(double x, double y) {
         this.x = x;
         this.y = y;

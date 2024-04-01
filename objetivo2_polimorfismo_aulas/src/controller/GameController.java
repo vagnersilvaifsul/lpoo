@@ -11,8 +11,7 @@ import model.Tanque;
 public class GameController {
 	
 	public static void main(String[] args) {
-		//1a. forma de se fazer polimorfismo
-		//Note que cada personagem é criado com um tipo diferente de construtor
+		//Utiliza o Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
 	    Aviao aviao1 = new Aviao();
 	    Aviao aviao2 = new Aviao(1,1,1);
 	    Navio navio1 = new Navio();
@@ -20,9 +19,6 @@ public class GameController {
 	    Tanque tanque1 = new Tanque();
 	    Tanque tanque2 = new Tanque(3,3);
 
-	    //2a. forma de se fazer polimorfismo
-	    //Note que o tipo de List é Personagem, isto é, a superclasse do diagrama UML
-	    //Note que List é uma interface que ArrayList implementa, logo, ela está acima na hierarquia. Aqui também se está usando o tipo genérico, 4a.forma de se fazer Polimorfismo 
 	    List<Personagem> personagens = new ArrayList<>();
 	    personagens.add(aviao1);
 	    personagens.add(aviao2);
@@ -34,13 +30,13 @@ public class GameController {
 	    System.out.println(personagens);
 
 	    personagens.forEach((p) -> {
-	        p.desenhar(); //uma chamada, vários comportamentos em tempo de execução (usa a sobrescrita para isso, a 3a.forma de se fazer Polimorfismo)
+	        p.desenhar(); //utiliza o Polimorfismo Universal - Paramétrico (ou sobreescrita)
 	        if(p instanceof Aviao){ //chama um comportamento que só tem na subclasse (Exemplo do uso de instanceof)
 	            ((Aviao)p).mover(2, 2, 2); //faz downcasting, isto é, sai de Personagem para Avião, e chama um comportamento da subclasse
 	        } else if(p instanceof Navio){
-	        	p.mover(4,4);
+	        	p.mover(4,4); //utiliza o Polimorfismo Universal - Paramétrico (ou sobreescrita)
 	        } else if(p instanceof Tanque) {
-	        	p.mover(6,6);
+	        	p.mover(6,6); //utiliza o Polimorfismo Universal - Paramétrico (ou sobreescrita)
 	        }
 	    });
 	    System.out.println("\nNova posição dos Personagens:");

@@ -4,21 +4,21 @@ public class Peixe extends Animal { //1a
 	
 	private double z = 0.0;
 
-	/*
-		Ter mais de um contrutor é um tipo de polimorfismo, o de Sobrecarga (ou Overloading).
-	 */
+	//Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
 	public Peixe() {}
-	
+
+	//Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
 	public Peixe(double x, double y) {
 		super(x, y);
 	}
 
+	//Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
 	public Peixe(double x, double y, double z) {
 		super(x, y);
 		this.z = z;
 	}
 
-	@Override
+	@Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
 	public void desenhar() {
 		System.out.print("\nDesenhou um Peixe.");
 	}
@@ -28,7 +28,7 @@ public class Peixe extends Animal { //1a
 		this.z = z;
 	}
 
-	@Override
+	@Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
 	public String toString() {
 		return "\nPeixe [ x=" + x + ", y=" + y + ", z=" + z + "]";
 	}

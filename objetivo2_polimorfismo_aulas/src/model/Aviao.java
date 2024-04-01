@@ -4,22 +4,18 @@ public class Aviao extends Personagem {
 
     private double z=0;
 
-    //a sobrecarga dos construtores permite a criação polimórfica de instâncias
+    //Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
     public Aviao() {
         super();
     }
 
-    //a sobrecarga dos construtores permite a criação polimórfica de instâncias
+    //Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
     public Aviao(double x, double y, double z) {
         super(x, y);
         this.z = z;
     }
 
-    /*
-        Sobrescreve o comportamento abstrato da superclasse. Note que
-        aqui o comportemento é concreto, isto é, ele foi definido.
-     */
-    @Override
+    @Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
     public void desenhar(){
         System.out.println("\nDesenhou um Aviao.");
     }
@@ -33,10 +29,7 @@ public class Aviao extends Personagem {
         this.z = z;
     }
 
-    /*
-        Sobrescreve o comportamento da superclasse Personagem ou Object.
-     */
-    @Override
+    @Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
     public String toString() {
         return "\nAviao{" +
                 "  x=" + x +
