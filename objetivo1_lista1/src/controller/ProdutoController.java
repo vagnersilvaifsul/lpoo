@@ -1,8 +1,8 @@
 package controller;
 
-import java.util.*;
-
 import model.Produto;
+
+import java.util.*;
 
 
 public class ProdutoController {
@@ -71,7 +71,7 @@ public class ProdutoController {
 		produto6.setValor(9.90);
 		produto6.setEstoque(400);
 
-		
+
 		//1c-vi
 		System.out.println(produto1.getId());
 		System.out.println(produto1.getNome());
@@ -105,7 +105,7 @@ public class ProdutoController {
 		System.out.println(produto6.getDescricao());
 		System.out.println(produto6.getValor());
 		System.out.println(produto6.getEstoque());
-		
+
 		//---------------- Respostas da Questão 2 ----------------
 		//2a ao h para coleção do tipo List
 		//coleção do tipo List
