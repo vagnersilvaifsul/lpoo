@@ -33,8 +33,8 @@ public class Conta {
 		return saldo;
 	}
 
-	public void deposita(double saldo) {
-		this.saldo = saldo;
+	public void deposita(double valor) {
+		this.saldo = valor;
 	}
 	
 	public void saca(double valor) {
