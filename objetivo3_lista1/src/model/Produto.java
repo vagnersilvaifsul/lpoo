@@ -1,33 +1,36 @@
 package model;
 
-import java.text.NumberFormat;
+import java.math.BigDecimal;
+import java.util.List;
 
 public class Produto {
-	private long codigo;
+	private String sku;
 	private String nome;
-	private int quantidade;
-	private double preco;
-	private Fornecedor fornecedor;
+	private String descricao;
+	private Integer quantidade;
+	private BigDecimal precoDeCompra;
+	private BigDecimal precoDeVenda;
+	private List<Fornecedor> fornecedores;
 
 	public Produto() {
-		super();
 	}
 
-	public Produto(long codigo, String nome, int quantidade, double preco, Fornecedor fornecedor) {
-		super();
-		this.codigo = codigo;
+	public Produto(String sku, String nome, String descricao, Integer quantidade, BigDecimal precoDeCompra, BigDecimal precoDeVenda, List<Fornecedor> fornecedores) {
+		this.sku = sku;
 		this.nome = nome;
+		this.descricao = descricao;
 		this.quantidade = quantidade;
-		this.preco = preco;
-		this.fornecedor = fornecedor;
+		this.precoDeCompra = precoDeCompra;
+		this.precoDeVenda = precoDeVenda;
+		this.fornecedores = fornecedores;
 	}
 
-	public long getCodigo() {
-		return codigo;
+	public String getSku() {
+		return sku;
 	}
 
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setSku(String sku) {
+		this.sku = sku;
 	}
 
 	public String getNome() {
@@ -38,33 +41,56 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public int getQuantidade() {
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public double getPreco() {
-		return preco;
+	public BigDecimal getPrecoDeCompra() {
+		return precoDeCompra;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setPrecoDeCompra(BigDecimal precoDeCompra) {
+		this.precoDeCompra = precoDeCompra;
 	}
 
-	public Fornecedor getFornecedor() {
-		return fornecedor;
+	public BigDecimal getPrecoDeVenda() {
+		return precoDeVenda;
 	}
 
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
+	public void setPrecoDeVenda(BigDecimal precoDeVenda) {
+		this.precoDeVenda = precoDeVenda;
+	}
+
+	public List<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(List<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
 	}
 
 	@Override
 	public String toString() {
-		return "\nProduto [codigo=" + codigo + ", nome=" + nome + ", quantidade=" + quantidade + ", preco=" + NumberFormat.getCurrencyInstance().format(preco) + "]";
+		return "\nProduto{" +
+			"sku='" + sku + '\'' +
+			", nome='" + nome + '\'' +
+			", descricao='" + descricao + '\'' +
+			", quantidade=" + quantidade +
+			", precoDeCompra=" + precoDeCompra +
+			", precoDeVenda=" + precoDeVenda +
+			", fornecedores=" + fornecedores +
+			'}';
 	}
-
 }

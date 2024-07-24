@@ -5,19 +5,22 @@ import java.util.List;
 
 public class Fornecedor {
 	private String cnpj;
-	private String contato;
-	private String nome;
+	private String razaoSocial;
+	private String nomeFantasia;
+	private String email;
+	private String telefone;
 	private List<Produto> produtos = new ArrayList<>();
-	
+
 	public Fornecedor() {
-		super();
 	}
 
-	public Fornecedor(String cnpj, String contato, String nome) {
-		super();
+	public Fornecedor(String cnpj, String razaoSocial, String nomeFantasia, String email, String telefone, List<Produto> produtos) {
 		this.cnpj = cnpj;
-		this.contato = contato;
-		this.nome = nome;
+		this.razaoSocial = razaoSocial;
+		this.nomeFantasia = nomeFantasia;
+		this.email = email;
+		this.telefone = telefone;
+		this.produtos = produtos;
 	}
 
 	public String getCnpj() {
@@ -28,20 +31,36 @@ public class Fornecedor {
 		this.cnpj = cnpj;
 	}
 
-	public String getContato() {
-		return contato;
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
 
-	public void setContato(String contato) {
-		this.contato = contato;
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeFantasia() {
+		return nomeFantasia;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public List<Produto> getProdutos() {
@@ -54,9 +73,13 @@ public class Fornecedor {
 
 	@Override
 	public String toString() {
-		return "\nFornecedor [cnpj=" + cnpj + ", contato=" + contato + ", nome=" + nome + "]";
+		return "\nFornecedor{" +
+			"cnpj='" + cnpj + '\'' +
+			", razaoSocial='" + razaoSocial + '\'' +
+			", nomeFantasia='" + nomeFantasia + '\'' +
+			", email='" + email + '\'' +
+			", telefone='" + telefone + '\'' +
+			", produtos=" + produtos +
+			'}';
 	}
-	
-	
-	
 }

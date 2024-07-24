@@ -1,24 +1,21 @@
 package model;
 
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 public class Fornecimento {
 	private LocalDateTime data;
-	private double total;
+	private Integer quantidade;
+	private BigDecimal total;
 	private Fornecedor fornecedor;
 	private Produto produto;
 
 	public Fornecimento() {
-		super();
 	}
 
-	public Fornecimento(LocalDateTime data, double total, Fornecedor fornecedor, Produto produto) {
-		super();
+	public Fornecimento(LocalDateTime data, Integer quantidade, BigDecimal total, Fornecedor fornecedor, Produto produto) {
 		this.data = data;
+		this.quantidade = quantidade;
 		this.total = total;
 		this.fornecedor = fornecedor;
 		this.produto = produto;
@@ -32,11 +29,19 @@ public class Fornecimento {
 		this.data = data;
 	}
 
-	public double getTotal() {
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public BigDecimal getTotal() {
 		return total;
 	}
 
-	public void setTotal(double total) {
+	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
 
@@ -58,7 +63,12 @@ public class Fornecimento {
 
 	@Override
 	public String toString() {
-		return "\n\nFornecimento [data=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(data) + ", total=" + NumberFormat.getCurrencyInstance().format(total) + ", fornecedor=" + fornecedor + ", produto=" + produto
-				+ "]";
+		return "\nFornecimento{" +
+			"data=" + data +
+			", quantidade=" + quantidade +
+			", total=" + total +
+			", produto=" + produto +
+			'}'
+			+ "\n";
 	}
 }
