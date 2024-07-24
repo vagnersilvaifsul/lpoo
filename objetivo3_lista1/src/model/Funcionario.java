@@ -1,9 +1,7 @@
 package model;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 public class Funcionario {
 	private long id;
@@ -13,11 +11,9 @@ public class Funcionario {
 	private LocalDate dataNascimento;
 
 	public Funcionario() {
-		super();
 	}
 
 	public Funcionario(long id, String cpf, String nome, String sobrenome, LocalDate dataNascimento) {
-		super();
 		this.id = id;
 		this.cpf = cpf;
 		this.nome = nome;

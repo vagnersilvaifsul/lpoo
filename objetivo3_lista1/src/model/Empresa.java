@@ -10,11 +10,9 @@ public class Empresa {
 	private List<Funcionario> funcionarios = new ArrayList<>();
 	
 	public Empresa() {
-		super();
 	}
 
 	public Empresa(String cnpj, String razaoSocial, String nomeFantasia) {
-		super();
 		this.cnpj = cnpj;
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
