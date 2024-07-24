@@ -11,11 +11,9 @@ public class Usuario {
 	private List<Corrida> corridas = new ArrayList<>();
 	
 	public Usuario() {
-		super();
 	}
 	
 	public Usuario(long id, String nome, String email, String telefone) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;

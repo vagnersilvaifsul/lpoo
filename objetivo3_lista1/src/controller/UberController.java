@@ -1,47 +1,59 @@
 package controller;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.GregorianCalendar;
+import java.util.List;
 
-import model.Corrida;
-import model.Motorista;
-import model.Usuario;
-import model.Veiculo;
+import model.*;
 
 public class UberController {
 	
 	public static void main(String[] args) {
-		//d
+		//a
 		Usuario u = new Usuario(1L, "Ana Dias", "ana@email.com", "5395551234");
-		Veiculo v = new Veiculo(1L, "Chevrolet Onix Plus", "III4321", 2021);
-		Motorista m = new Motorista(1L, "Rafael Silva", "rafa@email.com", "5395557654", v);
+		Motorista m = new Motorista(1L, "Rafael Silva", "rafa@email.com", "5395557654");
+		Veiculo v = new Veiculo(1L, "III-1234", "d4rf6Ter#D", "Chevrolet", "Onix", 2023, m);
 		
-		Corrida c1 = new Corrida(1L, "Pix", "token Pix AcsTRDHF", LocalDateTime.of(2021, 5, 10, 10, 01), 25.00, u, m);
-		Corrida c2 = new Corrida(1L, "Pix", "token Pix mKJH43eF", LocalDateTime.of(2021, 2, 19, 22, 01), 25.00, u, m);
-		
-		//parte 1
-		System.out.print("\n***** Corridas por Usuário");
-		u.getCorridas().add(c1);
-		u.getCorridas().add(c2);
-		u.getCorridas().sort(Comparator.comparing(Corrida::getDataInicio).reversed());
-		System.out.println(u.getCorridas());
-		
-		//parte 2
-		System.out.print("\n***** Corridas por motorista");
-		m.getCorridas().add(c1);
-		m.getCorridas().add(c2);
-		m.getCorridas().sort(Comparator.comparing(Corrida::getDataInicio).reversed());
-		System.out.println(m.getCorridas());
-		
-		
-		//parte 3
-		System.out.print("\n***** Total das corridas do motorista " + m.getNome() + "= ");
-		System.out.println(NumberFormat.getCurrencyInstance().format(
-			m.getCorridas().stream()
-				.mapToDouble(c -> c.getPreco())
-				.sum()));
+		Corrida c1 = new Corrida(1L, new BigDecimal("25.00"), LocalDateTime.of(2024, 2, 10, 10, 1), LocalDateTime.of(2024, 5, 10, 10, 20), FormaDePagamento.cartaoDeCredito, Situacao.Faturada, u, m);
+		Corrida c2 = new Corrida(2L, new BigDecimal("45.00"), LocalDateTime.of(2024, 8, 10, 8, 0), LocalDateTime.of(2024, 8, 10, 9, 15), FormaDePagamento.cartaoDeCredito, Situacao.Faturada, u, m);
+
+		//b
+		List<Corrida> corridas = new ArrayList<>();
+		corridas.add(c1);
+		corridas.add(c2);
+		corridas.sort(Comparator.comparing(Corrida::getValor).reversed());
+		System.out.print("\nTodas as corridas do usuário (ordem decrescente, critério valor da corrida) " + u.getNome());
+		for (Corrida corrida : corridas) {
+			if(corrida.getUsuario().equals(u)){
+				System.out.println(corrida);
+				System.out.print("----------------");
+			}
+		}
+
+		//c
+		corridas.sort(Comparator.comparing(Corrida::getDataInicio));
+		System.out.print("\n\nTodas as corridas do motorista (ordem crescente, critério data de início da corrida) " + m.getNome());
+		for (Corrida corrida : corridas) {
+			if(corrida.getMotorista().equals(m)){
+				System.out.println(corrida);
+				System.out.print("----------------");
+			}
+		}
+
+		//d
+		BigDecimal totalDasCorridas = BigDecimal.ZERO;
+		for (Corrida corrida : corridas) {
+			if(corrida.getMotorista().equals(m)){
+				totalDasCorridas = totalDasCorridas.add(corrida.getValor());
+			}
+		}
+		System.out.print("\n\nTotal de todas as corridas do motorista "
+			+ m.getNome()
+			+ " = "
+			+ NumberFormat.getCurrencyInstance().format(totalDasCorridas));
 
 	}
 }

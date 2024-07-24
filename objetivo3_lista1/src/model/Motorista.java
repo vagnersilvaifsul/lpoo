@@ -12,16 +12,13 @@ public class Motorista {
 	private Veiculo veiculo;
 	
 	public Motorista() {
-		super();
 	}
 
-	public Motorista(long id, String nome, String email, String telefone, Veiculo veiculo) {
-		super();
+	public Motorista(long id, String nome, String email, String telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
-		this.veiculo = veiculo;
 	}
 
 	public long getId() {

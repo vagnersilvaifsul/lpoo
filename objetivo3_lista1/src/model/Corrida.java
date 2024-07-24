@@ -1,32 +1,28 @@
 package model;
 
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 public class Corrida {
-	private long id;
-	private String tipoPagamento;
-	private String detalhesPagamento;
+	private Long id;
+	private BigDecimal valor;
 	private LocalDateTime dataInicio;
-	private double preco;
+	private LocalDateTime dataFim;
+	private FormaDePagamento formaDePagamento;
+	private Situacao situacao;
 	private Usuario usuario;
 	private Motorista motorista;
 
 	public Corrida() {
-		super();
 	}
 
-	public Corrida(long id, String tipoPagamento, String detalhesPagamento, LocalDateTime dataInicio, double preco,
-			Usuario usuario, Motorista motorista) {
-		super();
+	public Corrida(long id, BigDecimal valor, LocalDateTime dataInicio, LocalDateTime dataFim, FormaDePagamento formaDePagamento, Situacao situacao, Usuario usuario, Motorista motorista) {
 		this.id = id;
-		this.tipoPagamento = tipoPagamento;
-		this.detalhesPagamento = detalhesPagamento;
+		this.valor = valor;
 		this.dataInicio = dataInicio;
-		this.preco = preco;
+		this.dataFim = dataFim;
+		this.formaDePagamento = formaDePagamento;
+		this.situacao = situacao;
 		this.usuario = usuario;
 		this.motorista = motorista;
 	}
@@ -39,20 +35,12 @@ public class Corrida {
 		this.id = id;
 	}
 
-	public String getTipoPagamento() {
-		return tipoPagamento;
+	public BigDecimal getValor() {
+		return valor;
 	}
 
-	public void setTipoPagamento(String tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
-	}
-
-	public String getDetalhesPagamento() {
-		return detalhesPagamento;
-	}
-
-	public void setDetalhesPagamento(String detalhesPagamento) {
-		this.detalhesPagamento = detalhesPagamento;
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
 	}
 
 	public LocalDateTime getDataInicio() {
@@ -63,12 +51,28 @@ public class Corrida {
 		this.dataInicio = dataInicio;
 	}
 
-	public double getPreco() {
-		return preco;
+	public LocalDateTime getDataFim() {
+		return dataFim;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setDataFim(LocalDateTime dataFim) {
+		this.dataFim = dataFim;
+	}
+
+	public FormaDePagamento getFormaDePagamento() {
+		return formaDePagamento;
+	}
+
+	public void setFormaDePagamento(FormaDePagamento formaDePagamento) {
+		this.formaDePagamento = formaDePagamento;
+	}
+
+	public Situacao getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
 	}
 
 	public Usuario getUsuario() {
@@ -89,8 +93,15 @@ public class Corrida {
 
 	@Override
 	public String toString() {
-		return "\n\nCorrida [id=" + id + ", tipoPagamento=" + tipoPagamento + ", detalhesPagamento=" + detalhesPagamento
-				+ ", dataInicio=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataInicio) + ", preco=" + NumberFormat.getCurrencyInstance().format(preco) + ", usuario=" + usuario + ", motorista="
-				+ motorista + "]";
+		return "\nCorrida{" +
+			"id=" + id +
+			", valor=" + valor +
+			", dataInicio=" + dataInicio +
+			", dataFim=" + dataFim +
+			", formaDePagamento=" + formaDePagamento +
+			", situacao=" + situacao +
+			", usuario=" + usuario +
+			", motorista=" + motorista +
+			'}';
 	}
 }

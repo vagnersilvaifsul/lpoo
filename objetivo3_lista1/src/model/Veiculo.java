@@ -1,38 +1,33 @@
 package model;
 
 public class Veiculo {
-	private long id;
-	private String tipo;
+	private Long id;
 	private String placa;
-	private int anoFabricacao;
+	private String renavam;
+	private String fabricante;
+	private String modelo;
+	private Integer anoDeFabricacao;
 	private Motorista motorista;
-	
+
 	public Veiculo() {
-		super();
 	}
 
-	public Veiculo(long id, String tipo, String placa, int anoFabricacao) {
-		super();
+	public Veiculo(Long id, String placa, String renavam, String fabricante, String modelo, Integer anoDeFabricacao, Motorista motorista) {
 		this.id = id;
-		this.tipo = tipo;
 		this.placa = placa;
-		this.anoFabricacao = anoFabricacao;
+		this.renavam = renavam;
+		this.fabricante = fabricante;
+		this.modelo = modelo;
+		this.anoDeFabricacao = anoDeFabricacao;
+		this.motorista = motorista;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 	public String getPlaca() {
@@ -43,12 +38,36 @@ public class Veiculo {
 		this.placa = placa;
 	}
 
-	public int getAnoFabricacao() {
-		return anoFabricacao;
+	public String getRenavam() {
+		return renavam;
 	}
 
-	public void setAnoFabricacao(int anoFabricacao) {
-		this.anoFabricacao = anoFabricacao;
+	public void setRenavam(String renavam) {
+		this.renavam = renavam;
+	}
+
+	public String getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public Integer getAnoDeFabricacao() {
+		return anoDeFabricacao;
+	}
+
+	public void setAnoDeFabricacao(Integer anoDeFabricacao) {
+		this.anoDeFabricacao = anoDeFabricacao;
 	}
 
 	public Motorista getMotorista() {
@@ -61,8 +80,14 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return "\nVeiculo [id=" + id + ", tipo=" + tipo + ", placa=" + placa + ", anoFabricacao=" + anoFabricacao
-				+ ", motorista=" + motorista + "]";
+		return "\nVeiculo{" +
+			"id=" + id +
+			", placa='" + placa + '\'' +
+			", renavam='" + renavam + '\'' +
+			", fabricante='" + fabricante + '\'' +
+			", modelo='" + modelo + '\'' +
+			", anoDeFabricacao=" + anoDeFabricacao +
+			", motorista=" + motorista +
+			'}';
 	}
-
 }
