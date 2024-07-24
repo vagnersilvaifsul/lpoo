@@ -10,11 +10,9 @@ public class Aluno {
 	private List<Disciplina> disciplinas = new ArrayList<>();	
 	
 	public Aluno() {
-		super();
 	}
 
 	public Aluno(long matricula, String nome, String sobrenome) {
-		super();
 		this.matricula = matricula;
 		this.nome = nome;
 		this.sobrenome = sobrenome;

@@ -114,7 +114,8 @@ public class FuncionarioController {
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
 		System.out.print("\nLocalizando o Funcionario pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
-		Funcionario funcionarioFind = funcionarioList.stream().filter(c -> c.getId() == 3).findAny().orElse(null);
+		Funcionario funcionarioFind = funcionarioList.stream().filter(c -> c.getId() == 3)
+			.findAny().orElse(null);
 		System.out.println(funcionarioFind);
 
 		//2h

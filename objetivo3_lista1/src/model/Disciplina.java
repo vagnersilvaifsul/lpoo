@@ -5,11 +5,9 @@ public class Disciplina {
 	private String nome;
 	
 	public Disciplina() {
-		super();
 	}
 
 	public Disciplina(long codigo, String nome) {
-		super();
 		this.codigo = codigo;
 		this.nome = nome;
 	}
