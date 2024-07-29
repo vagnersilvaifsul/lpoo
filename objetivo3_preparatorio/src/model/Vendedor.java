@@ -1,18 +1,23 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vendedor extends Funcionario{
     private Double taxaDeComisao;
     private Regiao regiao;
 
+    //associações
+    List<Pedido> pedidos = new ArrayList<>();
+
     public Vendedor() {
     }
 
-    public Vendedor(Long matricula, String nomeCompleto, String email, String telefone, BigDecimal salario, Regiao regiao, Double taxaDeComisao) {
+    public Vendedor(Long matricula, String nomeCompleto, String email, String telefone, BigDecimal salario, Double taxaDeComisao, Regiao regiao) {
         super(matricula, nomeCompleto, email, telefone, salario);
-        this.regiao = regiao;
         this.taxaDeComisao = taxaDeComisao;
+        this.regiao = regiao;
     }
 
     public Double getTaxaDeComisao() {
@@ -31,11 +36,20 @@ public class Vendedor extends Funcionario{
         this.regiao = regiao;
     }
 
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     @Override
     public String toString() {
         return "\nVendedor{" +
             "taxaDeComisao=" + taxaDeComisao +
             ", regiao=" + regiao +
+            ", pedidos=" + pedidos +
             ", matricula=" + matricula +
             ", nomeCompleto='" + nomeCompleto + '\'' +
             ", email='" + email + '\'' +

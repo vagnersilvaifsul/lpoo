@@ -13,16 +13,18 @@ public class Pedido {
 
     //associacões
     List<Item> itens = new ArrayList<>();
+    Vendedor vendedor = new Vendedor();
 
     public Pedido() {
     }
 
-    public Pedido(String numero, LocalDateTime data, BigDecimal total, Estado estado, List<Item> itens) {
+    public Pedido(String numero, LocalDateTime data, BigDecimal total, Estado estado, List<Item> itens, Vendedor vendedor) {
         this.numero = numero;
         this.data = data;
         this.total = total;
         this.estado = estado;
         this.itens = itens;
+        this.vendedor = vendedor;
     }
 
     public String getNumero() {
@@ -65,6 +67,14 @@ public class Pedido {
         this.itens = itens;
     }
 
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
     @Override
     public String toString() {
         return "\nPedido{" +
@@ -73,6 +83,7 @@ public class Pedido {
             ", total=" + total +
             ", estado=" + estado +
             ", itens=" + itens +
+            ", vendedor=" + vendedor +
             '}';
     }
 }
