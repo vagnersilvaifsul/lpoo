@@ -132,13 +132,16 @@ public class Objetivo3PreparatorioController {
             //faz nada aqui
         } finally { //sempre apresenta o estoque atualizado
             System.out.println("Estoque atualizado:");
-            System.out.println("""
-                Note que o arroz não baixou o estoque, pois foi emitida a exceção EstoqueInsufiente.
-                Já o feijão, que tem estoque suficiente, foi baixado o estoque.""");
+            System.out.print(
+                """
+                    Note que o arroz não baixou o estoque, pois foi emitida a exceção EstoqueInsufiente.
+                    Já o feijão, que tem estoque suficiente, foi baixado o estoque.
+                """
+            );
             itens.forEach(i -> System.out.print(i.getProduto()));
             System.out.println();
         }
-        //aqui continuaria o restante do algoritmo para realiza um Pedido
+        //aqui continuaria o restante do algoritmo para realiza um Pedido. Porém, a exceção para a execução do programa.
     }
 
     private static void baixarEstoque(List<Item> itens){
