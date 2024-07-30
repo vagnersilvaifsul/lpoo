@@ -28,9 +28,9 @@ public class Objetivo3PreparatorioController {
         //cria o carrinho
         List<Item> itens = new ArrayList<>();
         //adiciona os itens ao carrinho
-        Item i1 = new Item(10, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(10L)), Situacao.ativo, arroz);
+        Item i1 = new Item(10, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(10)), Situacao.ativo, arroz);
         itens.add(i1);
-        Item i2 = new Item(10, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(10L)), Situacao.ativo, feijao);
+        Item i2 = new Item(10, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(10)), Situacao.ativo, feijao);
         //fecha o pedido e baixa o estoque
         itens.add(i2);
         BigDecimal acumTotalCarrinho = BigDecimal.ZERO;
@@ -50,9 +50,9 @@ public class Objetivo3PreparatorioController {
         //segundo pedido
         itens.clear(); //limpa o carrinho
         //adiciona os itens ao carrinho
-        i1 = new Item(15, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(15L)), Situacao.ativo, arroz);
+        i1 = new Item(15, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.ativo, arroz);
         itens.add(i1);
-        i2 = new Item(15, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(15L)), Situacao.ativo, feijao);
+        i2 = new Item(15, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.ativo, feijao);
         //fecha o pedido e baixa o estoque
         itens.add(i2);
         acumTotalCarrinho = BigDecimal.ZERO; //zera o acumulador
@@ -111,7 +111,9 @@ public class Objetivo3PreparatorioController {
 
         //i
         System.out.println("\n\n********** i **********");
-        //Fiz um outro método para baixar o estoque e lançar a exceção
+        /*
+            Por questão didática, aqui foi implementado outro método que baixa o estoque, onde pode ser lançada uma exceção.
+         */
         //Repeti os passos para emissão de um pedido
         itens.clear(); //limpa o carrinho
         //adiciona os itens ao carrinho
@@ -129,7 +131,10 @@ public class Objetivo3PreparatorioController {
         } catch (EstoqueInsufiente e) {
             //faz nada aqui
         } finally { //sempre apresenta o estoque atualizado
-            System.out.print("Estoque atualizado: ");
+            System.out.println("Estoque atualizado:");
+            System.out.println("""
+                Note que o arroz não baixou o estoque, pois foi emitida a exceção EstoqueInsufiente.
+                Já o feijão, que tem estoque suficiente, foi baixado o estoque.""");
             itens.forEach(i -> System.out.print(i.getProduto()));
             System.out.println();
         }
@@ -137,7 +142,13 @@ public class Objetivo3PreparatorioController {
     }
 
     private static void baixarEstoque(List<Item> itens){
-        itens.forEach(i -> i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade()));
+        itens.forEach(i -> {
+            if(i.getProduto().getEstoque() >= i.getQuantidade()) { //se tem estoque faz a baixa
+                i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
+            }else {
+                System.out.println("Não foi possível baixar o estoque, quantidade insuficiente.");
+            }
+        });
     }
 
     private static void atualizaEstoque(Fornecimento fornecimento){
