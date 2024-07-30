@@ -13,6 +13,10 @@ import java.util.UUID;
 public class Objetivo3PreparatorioController {
 
     public static void main(String[] args) {
+        //a está refletida nos pacotes do projeto
+
+        //b está no pacote model
+
         //c
         System.out.println("********** c **********");
         //primeiro pedido
@@ -33,8 +37,11 @@ public class Objetivo3PreparatorioController {
         for(Item i : itens) {
             acumTotalCarrinho =acumTotalCarrinho.add(i.getTotal());
         }
+        //baixa o estoque
         baixarEstoque(itens);
+        //registra o pedido
         Pedido p1 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.aberto, itens, v1);
+        //exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p1.getNumero() + " ----------");
         System.out.println(p1);
 
@@ -52,8 +59,11 @@ public class Objetivo3PreparatorioController {
         for(Item i : itens) {
             acumTotalCarrinho =acumTotalCarrinho.add(i.getTotal());
         }
+        //baixa o estoque
         baixarEstoque(itens);
+        //registra o pedido
         Pedido p2 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.aberto, itens, v1);
+        //exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p2.getNumero() + " ----------");
         System.out.println(p2);
 
@@ -61,19 +71,19 @@ public class Objetivo3PreparatorioController {
         //lista com os pedidos realizados
         System.out.println("\n\n********** e **********");
         List<Pedido> pedidos = new ArrayList<>(List.of(p1, p2));
-        System.out.println(pedidos);
+        System.out.println("Pedidos registrados na coleção.");
 
         //f
         System.out.println("\n\n********** f **********");
-        System.out.println("------ Relatório de Vendas ------");
+        System.out.print("\n------ Relatório de Vendas ------");
         double totalDasVendas = pedidos.stream() //1. crie um fluxo para a coleção
             .mapToDouble(p -> p.getTotal().doubleValue()) //2. passe cada objeto para double
             .sum(); //3. some e devolva o resultado
-        System.out.println(pedidos);
-        System.out.println("Total das Vendas= " + NumberFormat.getCurrencyInstance().format(totalDasVendas));
+        pedidos.forEach(System.out::println);
+        System.out.println("=====> Total das Vendas= " + NumberFormat.getCurrencyInstance().format(totalDasVendas));
 
         //g
-        System.out.println("\n\n********** f **********");
+        System.out.println("\n\n********** g **********");
         System.out.println("------ Fornecimento de produtos ------");
         //registra o fornecimento de arroz
         Fornecimento fn1 = new Fornecimento(LocalDateTime.now(), 100, arroz.getPrecoDeCusto().multiply(BigDecimal.valueOf(100)), arroz, f1);
@@ -90,14 +100,14 @@ public class Objetivo3PreparatorioController {
 
         //h
         System.out.println("\n\n********** h **********");
-        System.out.println("------ Relatório de Fornecimentos de Produtos ------");
+        System.out.print("------ Relatório de Fornecimentos de Produtos ------");
         //cria a coleção com os fornecimentos
         List<Fornecimento> fornecimentos = new ArrayList<>(List.of(fn1, fn2));
         double totalDosFornecimentos = fornecimentos.stream() //1. crie um fluxo para a coleção
             .mapToDouble(p -> p.getTotal().doubleValue()) //2. passe cada objeto para double
             .sum(); //3. some e devolva o resultado
-        System.out.println(fornecimentos);
-        System.out.println("Total dos Fornecimentos= " + NumberFormat.getCurrencyInstance().format(totalDosFornecimentos));
+        fornecimentos.forEach(System.out::println);
+        System.out.println("=====> Total dos Fornecimentos= " + NumberFormat.getCurrencyInstance().format(totalDosFornecimentos));
 
         //i
         System.out.println("\n\n********** i **********");

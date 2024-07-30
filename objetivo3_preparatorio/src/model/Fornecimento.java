@@ -70,7 +70,6 @@ public class Fornecimento {
             ", quantidade=" + quantidade +
             ", total=" + total +
             ", produto=" + produto +
-            ", fornecedor=" + fornecedor +
             '}';
     }
 }
