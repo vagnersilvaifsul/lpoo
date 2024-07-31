@@ -129,7 +129,7 @@ public class Objetivo3PreparatorioController {
         try {
             baixarEstoqueComException(itens); //vai lança a exceção aqui, antes de registrar um pedido
         } catch (EstoqueInsufiente e) {
-            //faz nada aqui
+            e.printStackTrace();
         } finally { //sempre apresenta o estoque atualizado
             System.out.println("Estoque atualizado:");
             System.out.print(
@@ -160,14 +160,10 @@ public class Objetivo3PreparatorioController {
 
     private static void baixarEstoqueComException(List<Item> itens) throws EstoqueInsufiente{ //o throws orienta o chamador a tratar com try-cath
         itens.forEach(i -> {
-            try{
-                if(i.getProduto().getEstoque() >= i.getQuantidade()){ //se tem estoque faz a baixa
-                    i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
-                } else { //senão, lança uma exceção
-                    throw new EstoqueInsufiente("Estoque insuficiente de " + i.getProduto().getNome());
-                }
-            }catch (EstoqueInsufiente e){
-                e.printStackTrace(); //imprime a pilha de exceção
+            if(i.getProduto().getEstoque() >= i.getQuantidade()){ //se tem estoque faz a baixa
+                i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
+            } else { //senão, lança uma exceção
+                throw new EstoqueInsufiente("Estoque insuficiente de " + i.getProduto().getNome());
             }
         });
     }
