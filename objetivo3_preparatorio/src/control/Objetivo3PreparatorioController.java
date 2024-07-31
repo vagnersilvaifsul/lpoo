@@ -126,10 +126,10 @@ public class Objetivo3PreparatorioController {
         for(Item i : itens) {
             acumTotalCarrinho =acumTotalCarrinho.add(i.getTotal());
         }
-        try {
+        try { //tenta executar
             baixarEstoqueComException(itens); //vai lança a exceção aqui, antes de registrar um pedido
-        } catch (EstoqueInsufiente e) {
-            e.printStackTrace();
+        } catch (EstoqueInsufiente e) { //se lançar uma exceção a captura aqui
+            e.printStackTrace(); //imprime a pilha de exceção
         } finally { //sempre apresenta o estoque atualizado
             System.out.println("Estoque atualizado:");
             System.out.print(
