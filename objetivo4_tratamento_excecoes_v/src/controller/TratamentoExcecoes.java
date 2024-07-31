@@ -19,7 +19,9 @@ public class TratamentoExcecoes {
 			6. O que é Exceção NÃO Verificada em tempo de projeto? (São as exceções filhas de RuntimeException, ou de tempo de execução, também conhecidas como Exceções NÃO Verificadas pelo compilador.)
 			7. Posso criar minhas próprias classes de exceção? (Sim, basta extender Exception ou RuntimeException, ou qualquer classe filha de Exception ou RuntimeException do SDK do Java)
 			8. O que acontece com a execução da aplicação quando é lançada uma exceção (no Java)? (A execução da aplicação é interrompida.)
-			9. Qual o papel do comando try-catch e o try-catch-finally
+			9. Qual o papel do comando try-catch e o try-catch-finally? Tratar exceções verificadas (obrigatório) ou exceções não verificadas (opcional).
+			10. Qual o papel da cláusula throws? Indicar que um método lança determinada exceção em seu bloco interno.
+			11. Qual o papel da cláusula throw? Lançar uma exceção, como, new MinhaExcecao("Uma mensagem aqui");
 		 */
 		/*
 		 	Segundo Deitel (2010), todas as classes que são herdadas da classe Exception,
@@ -74,15 +76,18 @@ public class TratamentoExcecoes {
 		Observe que a classe MinhaExcecaoNaoVerificada extende RuntimeException.
 	 */
 	private static void mythrowExceptionNaoVerificada() {
-		throw new MinhaExcecaoNaoVerificada("Minha Exceção NÃO Verificada foi lançada."); // gera a exceção
+		throw new MinhaExcecaoNaoVerificada("Minha Exceção NÃO Verificada foi lançada."); // a cláusula throw lança a exceção
 	}
 
 	// lança uma Exceção VERIFICADA
 	/*
 		Observe que a classe MinhaExcecaoVerificada extende Exception.
+		Observe que o método mythrowExceptionVerificada() é acompanhado pela cláusula throws. Essa cláudula indica
+		que esse método lança exceção da classe MinhaExcecaoVerificada em seu corpo.
+		Um detalhe importante. A cláusula throws pode indicar mais de uma exceção, basta separá-las por vírgula.
 	 */
 	private static void mythrowExceptionVerificada() throws MinhaExcecaoVerificada {
-		throw new MinhaExcecaoVerificada("Minha EXCEÇÃO VERIFICADA foi lançada."); // gera a exceção
+		throw new MinhaExcecaoVerificada("Minha EXCEÇÃO VERIFICADA foi lançada."); // a cláusula throw lança a exceção
 	}
 
 }// fim classe TratamentoExcecoesV
