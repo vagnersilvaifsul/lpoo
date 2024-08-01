@@ -18,10 +18,11 @@ public class TratamentoExcecoes {
 			5. O que é Exceção Verificda em tempo de projeto? (São as exceções filhas de Exception, também conhecidas como EXCEÇÕES VERIFICADAS pelo compilador.)
 			6. O que é Exceção NÃO Verificada em tempo de projeto? (São as exceções filhas de RuntimeException, ou de tempo de execução, também conhecidas como Exceções NÃO Verificadas pelo compilador.)
 			7. Posso criar minhas próprias classes de exceção? (Sim, basta extender Exception ou RuntimeException, ou qualquer classe filha de Exception ou RuntimeException do SDK do Java)
-			8. O que acontece com a execução da aplicação quando é lançada uma exceção (no Java)? (A execução da aplicação é interrompida.)
+			8. O que acontece com a execução da aplicação quando é lançada uma exceção (no Java)? (A execução da aplicação é interrompida. Mas, no Java, há casos que ela pode continuar em excecução, depende de como se trata a esceção.)
 			9. Qual o papel do comando try-catch e o try-catch-finally? Tratar exceções verificadas (obrigatório) ou exceções não verificadas (opcional).
-			10. Qual o papel da cláusula throws? Indicar que um método lança determinada exceção em seu bloco interno.
-			11. Qual o papel da cláusula throw? Lançar uma exceção, como, new MinhaExcecao("Uma mensagem aqui");
+			10. Qual o papel da cláusula throws? Indicar que um método lança determinada exceção em seu bloco interno (basta separar as exceções por vírgula para indicar mais de uma).
+			11. Qual o papel da cláusula throw? Lançar uma exceção, como, new MinhaExcecao("Uma mensagem aqui").
+			12. É possível capturar mais de uma exceção em um bloco try-catch? Sim, inserindo duas clásulas catch após um bloco try, ou utilizando o | para separar os argumentos do catch
 		 */
 		/*
 		 	Segundo Deitel (2010), todas as classes que são herdadas da classe Exception,
@@ -45,16 +46,27 @@ public class TratamentoExcecoes {
 	}
 
 	private static void medodo1() {
-		metodo2(); //chamada o metodo2, e empilha o medodo1() na Pilha de Execução
+//		metodo2(); //chamada o metodo2, e empilha o medodo1() na Pilha de Execução
 
 		//lança uma Exceção NÃO Verificada
 //		mythrowExceptionNaoVerificada(); //chama o método para testar esse tipo de exceção
 
 		//lança uma Exceção VERIFICADA
+		//Resposta a questão 9: demonstra o uso do try-catch-finally
 //        try {
 //            mythrowExceptionVerificada(); //chama o método para testar esse tipo de exceção
 //        } catch (MinhaExcecaoVerificada e) {
 //            e.printStackTrace();
+//        } finally {
+//			System.out.println("O código que estiver no bloco finally sempre é executado. Independernte se houve ou não exceção.");
+//		}
+
+		//Resposta a questão 12: demonstra a captura de mais de uma exceção que pode ser lançada em um mesmo bloco try
+//        try {
+//			mythrowExceptionNaoVerificada(); //chama o método para testar esse tipo de exceção
+//			mythrowExceptionVerificada(); //chama o método para testar esse tipo de exceção
+//        } catch (MinhaExcecaoVerificada | MinhaExcecaoNaoVerificada e) {
+//            throw e.printStackTrace();
 //        } finally {
 //			System.out.println("O código que estiver no bloco finally sempre é executado. Independernte se houve ou não exceção.");
 //		}
@@ -71,22 +83,22 @@ public class TratamentoExcecoes {
 
 	}
 
-	// lança uma Exceção NÃO verificada
+	// Resposta a questão 6: lança uma Exceção NÃO verificada
 	/*
 		Observe que a classe MinhaExcecaoNaoVerificada extende RuntimeException.
 	 */
 	private static void mythrowExceptionNaoVerificada() {
-		throw new MinhaExcecaoNaoVerificada("Minha Exceção NÃO Verificada foi lançada."); // a cláusula throw lança a exceção
+		throw new MinhaExcecaoNaoVerificada("Minha Exceção NÃO Verificada foi lançada."); // //Resposta a questão 11: a cláusula throw lança a exceção
 	}
 
-	// lança uma Exceção VERIFICADA
+	// Resposta a questão 5:lança uma Exceção VERIFICADA
 	/*
 		Observe que a classe MinhaExcecaoVerificada extende Exception.
 		Observe que o método mythrowExceptionVerificada() é acompanhado pela cláusula throws. Essa cláudula indica
 		que esse método lança exceção da classe MinhaExcecaoVerificada em seu corpo.
 		Um detalhe importante. A cláusula throws pode indicar mais de uma exceção, basta separá-las por vírgula.
 	 */
-	private static void mythrowExceptionVerificada() throws MinhaExcecaoVerificada {
+	private static void mythrowExceptionVerificada() throws MinhaExcecaoVerificada { //Resposta a questão 10
 		throw new MinhaExcecaoVerificada("Minha EXCEÇÃO VERIFICADA foi lançada."); // a cláusula throw lança a exceção
 	}
 
