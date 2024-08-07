@@ -97,7 +97,7 @@ public class Main {
 
         //Hora do Sistema com o ZoneId
         System.out.println("\n--------- Exemplo de uso do Instant para pegar a data/hora do sistema no ZoneId --------- ");
-        Instant now = Instant.now(); //timestamp em UTC+0 ou GMT
+        Instant now = Instant.now(); //timestamp em UTC+0
         System.out.println("now= " + now);
         LocalDateTime dataHoraSaoPaulo = LocalDateTime.ofInstant(now, ZoneId.of("America/Sao_Paulo"));
         System.out.println("America/Sao_Paulo: " + dataHoraSaoPaulo);
@@ -218,6 +218,7 @@ public class Main {
         System.out.println("Saída da data: ");
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa)); // 01/06/2023 17:00 (uso de máscara)
 
+
         //Period +++++++++++++++++++++++++++
         /*  Para calcularmos a duração entre dois LocalDate, devemos utilizar um Period, que já trata anos bissextos e outros
             detalhes.
@@ -232,6 +233,12 @@ public class Main {
         periodo = Period.between(homemNoEspaco, homemNaLua);
         System.out.println(periodo); // P8Y1M13D
         System.out.printf("Saída formatada: %s anos, %s mês e %s dias", periodo.getYears(), periodo.getMonths(), periodo.getDays() ); //8 anos, 1 mês e 13 dias
+
+
+        //ZonedDateTime +++++++++++++++++++++++++++
+        //É uma representação imutável de uma data e hora com um fuso horário.
+        ZonedDateTime zoneDateTime = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("America/Sao_Paulo"));
+        System.out.println(zoneDateTime); // 2024-08-07T14:48:19.876234-03:00[America/Sao_Paulo]
 
 
         //Lista de Timezones +++++++++++++++++++++++++++
