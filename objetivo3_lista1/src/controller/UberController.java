@@ -17,7 +17,7 @@ public class UberController {
 		Motorista m = new Motorista(1L, "Rafael Silva", "rafa@email.com", "5395557654");
 		Veiculo v = new Veiculo(1L, "III-1234", "d4rf6Ter#D", "Chevrolet", "Onix", 2023, m);
 		
-		Corrida c1 = new Corrida(1L, new BigDecimal("25.00"), LocalDateTime.of(2024, 2, 10, 10, 1), LocalDateTime.of(2024, 5, 10, 10, 20), FormaDePagamento.cartaoDeCredito, Situacao.Faturada, u, m);
+		Corrida c1 = new Corrida(1L, BigDecimal.valueOf(25.00), LocalDateTime.of(2024, 2, 10, 10, 1), LocalDateTime.of(2024, 5, 10, 10, 20), FormaDePagamento.cartaoDeCredito, Situacao.Faturada, u, m);
 		Corrida c2 = new Corrida(2L, new BigDecimal("45.00"), LocalDateTime.of(2024, 8, 10, 8, 0), LocalDateTime.of(2024, 8, 10, 9, 15), FormaDePagamento.cartaoDeCredito, Situacao.Faturada, u, m);
 
 		//b

@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
  *  Rerefência: JAVA_DOC. Documentação oficial do JDK 18. https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/time/package-summary.html. Acesso em, outubro de 2022.
  *
  *  A partir do Java 8 o JDK começou a contar com uma nova API para manipulação de datas, o java.time.
- *  Esta é a "A API principal para datas, horas, instantes e durações". (JAVA_DOC, 2022)
+ *  Esta é "A API principal para datas, horas, instantes e durações". (JAVA_DOC, 2022)
  *
  *  "As classes definidas aqui representam os principais conceitos de data e hora, incluindo instantes, durações, datas,
  *  horas, fusos horários e períodos. Eles são baseados no sistema de calendário ISO, que é o calendário mundial de
@@ -62,9 +62,9 @@ public class Main {
 
         /**
          * ++++ Datas para computadores ++++
-         * Para um computador, o tempo é um número que cresce a cada instante. No Java, historicamente era utilizado um
-         * long que representava os milissegundos desde 01/01/1970 às 00:00:00. Na java.time, a classe Instant é utilizada
-         * para representar esse número, agora com precisão de nanossegundos.
+         * Para um computador, o tempo é um número que cresce a cada instante. No Java é utilizado um Long que representa os
+         * milissegundos desde 01/01/1970 às 00:00:00. Na java.time, a classe Instant é utilizada para representar esse número,
+         * agora com precisão de nanossegundos.
          */
         System.out.println("\n++++ Datas para computadores ++++");
         //System
@@ -125,6 +125,8 @@ public class Main {
         System.out.println(duracaoEmMilissegundos + "ms");
 
 
+        /* --------------------------------------------------------------------------------------------------- */
+
         /**
          * ++++ Datas para humanos ++++
          * Já para um humano, há uma divisão do tempo em anos, meses, dias, semanas, horas, minutos, segundos e por
@@ -135,14 +137,15 @@ public class Main {
          * e manipuladas de forma precisa, ao contrário do que acontecia ao usarmos Date ou Calendar (A partir de java.time
          * procure descontinuar o uso de java.util.Date e java.util.Calendar).
          */
+
         //LocalDate +++++++++++++++++++++++++++
         /* Representa uma data, ou seja, um período de 24 horas, com dia, mês, e ano. */
         System.out.println("\n\n++++ Datas para humanos ++++");
         System.out.println("--------- Exemplo de uso do LocalDate (data do sistema, sem a hora) --------- ");
         LocalDate hoje = LocalDate.now();
-        System.out.print("Saída padrão: " + hoje); //2022-10-21 (formato ISO-8601)
+        System.out.print("Saída padrão: " + hoje); // 2022-10-21 (formato ISO-8601)
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(hoje));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(hoje)); // 21/10/2022 (formato Brasileiro)
 
         /*
             Um LocalDate serve para representarmos, por exemplo, a data de emissão do nosso RG, em que não nos importa as horas
@@ -150,42 +153,27 @@ public class Main {
          */
         System.out.println("\n\n--------- Exemplo de uso do LocalDate com uma data específica --------- ");
         LocalDate emissaoRG = LocalDate.of(2022, 10, 20);
-        System.out.print("Saída padrão: " + emissaoRG);
+        System.out.print("Saída padrão: " + emissaoRG); // 2022-10-20
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG)); // 20/10/2022
 
         System.out.println("\n\n--------- Exemplo de uso do LocalDate a partir de uma data específica, com o uso do Enum Month --------- ");
         emissaoRG = LocalDate.of(2022, Month.OCTOBER, 20);
-        System.out.print("Saída padrão: " + emissaoRG);
+        System.out.print("Saída padrão: " + emissaoRG); // 2022-10-20
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG)); // 20/10/2022
 
         System.out.println("\n\n--------- Exemplo de uso do LocalDate a partir de uma String (data específica) --------- ");
         emissaoRG = LocalDate.parse("2022-10-20");
-        System.out.print("Saída padrão: " + emissaoRG);
+        System.out.print("Saída padrão: " + emissaoRG); // 2022-10-20
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG)); // 20/10/2022
         //ou
         System.out.println("ou");
         emissaoRG = LocalDate.parse("20/10/2022", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        System.out.print("Saída padrão: " + emissaoRG);
+        System.out.print("Saída padrão: " + emissaoRG); // 2022-10-20
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG));
-
-        //Period +++++++++++++++++++++++++++
-        /*  Para calcularmos a duração entre dois LocalDate, devemos utilizar um Period, que já trata anos bissextos e outros
-            detalhes.
-         */
-        System.out.println("\n\n--------- Exemplo de uso do Period (distância entre dois LocalDate) --------- ");
-        Period periodo = Period.between(hoje, emissaoRG);
-        System.out.println(periodo);
-
-        System.out.println("\n--------- Outro exemplo de uso do Period (distância entre dois LocalDate) --------- ");
-        LocalDate homemNoEspaco = LocalDate.of(1961, Month.APRIL, 12);
-        LocalDate homemNaLua = LocalDate.of(1969, Month.MAY, 25);
-        periodo = Period.between(homemNoEspaco, homemNaLua);
-        System.out.println(periodo);
-        System.out.printf("Saída formatada: %s anos, %s mês e %s dias", periodo.getYears(), periodo.getMonths(), periodo.getDays() );
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(emissaoRG)); // 20/10/2022
 
 
         //LocalTime +++++++++++++++++++++++++++
@@ -194,7 +182,7 @@ public class Main {
          */
         System.out.println("\n\n--------- Exemplo de uso do LocalTime (hora atual do sistema, sem a data) --------- ");
         LocalTime horarioDeEntrada = LocalTime.now();
-        System.out.println(horarioDeEntrada);//imprime a hora atual do sistema (em nanosegundos)
+        System.out.println(horarioDeEntrada);//imprime a hora atual do sistema (em nanosegundos), exemplo: 08:21:23.325032
 
         System.out.println("\n\n--------- Exemplo de uso do LocalTime a partir de uma hora específica (hora específica, sem a data) --------- ");
         horarioDeEntrada = LocalTime.of(14, 0);
@@ -203,6 +191,7 @@ public class Main {
         System.out.println("\n\n--------- Exemplo de uso do LocalTime a partir de uma String (hora específica, sem a data) --------- ");
         horarioDeEntrada = LocalTime.parse("14:00");
         System.out.println(horarioDeEntrada); //14:00
+
 
         //LocalDateTime +++++++++++++++++++++++++++
         /*  A classe LocalDateTime serve para representar uma data e hora específica. Podemos representar uma data e hora de
@@ -216,19 +205,36 @@ public class Main {
         LocalDateTime aberturaDaCopa = LocalDateTime.of(2014, Month.JUNE, 12, 17, 0);
         System.out.print("Saída padrão: " + aberturaDaCopa); //2014-06-12T17:00 (formato ISO-8601)
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa)); // 12/06/2014 17:00 (uso de máscara)
 
         System.out.println("\n\n--------- Exemplo de uso do LocalDateTime a partir de uma String (data e hora específica) --------- ");
         aberturaDaCopa = LocalDateTime.parse("2014-06-12T17:00");
         System.out.print("Saída padrão: " + aberturaDaCopa); //2014-06-12T17:00 (formato ISO-8601)
         System.out.print("\nSaída formatada: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa)); // 12/06/2014 17:00 (uso de máscara)
 
         System.out.println("\n\n--------- Exemplo de uso do LocalDateTime a partir de uma String (data e hora específica na construção) --------- ");
         aberturaDaCopa = LocalDateTime.parse("01/06/2023 17:00", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         System.out.println("Saída da data: ");
-        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(aberturaDaCopa)); // 01/06/2023 17:00 (uso de máscara)
 
+        //Period +++++++++++++++++++++++++++
+        /*  Para calcularmos a duração entre dois LocalDate, devemos utilizar um Period, que já trata anos bissextos e outros
+            detalhes.
+         */
+        System.out.println("\n\n--------- Exemplo de uso do Period (distância entre dois LocalDate) --------- ");
+        Period periodo = Period.between(hoje, emissaoRG);
+        System.out.println(periodo); // P-1Y-9M-18D
+
+        System.out.println("\n--------- Outro exemplo de uso do Period (distância entre dois LocalDate) --------- ");
+        LocalDate homemNoEspaco = LocalDate.of(1961, Month.APRIL, 12);
+        LocalDate homemNaLua = LocalDate.of(1969, Month.MAY, 25);
+        periodo = Period.between(homemNoEspaco, homemNaLua);
+        System.out.println(periodo); // P8Y1M13D
+        System.out.printf("Saída formatada: %s anos, %s mês e %s dias", periodo.getYears(), periodo.getMonths(), periodo.getDays() ); //8 anos, 1 mês e 13 dias
+
+
+        //Lista de Timezones +++++++++++++++++++++++++++
         System.out.println("\n--------- Lista de Timezones disponíveis --------- ");
         System.out.println(ZoneId.getAvailableZoneIds());
 
