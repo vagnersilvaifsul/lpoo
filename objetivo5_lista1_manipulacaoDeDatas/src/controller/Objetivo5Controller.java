@@ -48,5 +48,22 @@ public class Objetivo5Controller {
         LocalDate hoje = LocalDate.now();
         Period periodo = Period.between(dataIndependencia, hoje);
         System.out.println(periodo);
+
+        //g
+        System.out.println("\n\n************ g ************");
+        Instant inicio = Instant.parse("2024-08-07T21:50:41Z");
+        Instant fim = Instant.parse("2024-08-07T21:50:44Z");
+        Duration duracao = Duration.between(inicio, fim);
+        System.out.println(duracao.getSeconds() + " segundos");
+
+        //h
+        System.out.println("\n\n************ h ************");
+        String dataHoraEnviada = "12/06/2014 17:00";
+        LocalDateTime dataHora = LocalDateTime.parse(dataHoraEnviada, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataHora));
+
+        //i TODO: fazer esse item do exercício
+        System.out.println("\n\n************ i ************");
+        System.out.println("Em desenvolvimento");
     }
 }
