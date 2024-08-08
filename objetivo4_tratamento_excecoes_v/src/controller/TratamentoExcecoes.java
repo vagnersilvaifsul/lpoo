@@ -79,6 +79,7 @@ public class TratamentoExcecoes {
 
 		// Resposta a questão 2: Quando há um erro de input no terminal, por exemplo.
 //		Scanner entrada = new Scanner(System.in);
+//		System.out.println("Digite um número inteiro: ");
 //		int numero = entrada.nextInt(); //experimente colocando uma letra no lugar de um número para lançar a exceção
 
 	}
