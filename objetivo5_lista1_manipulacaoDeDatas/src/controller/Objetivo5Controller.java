@@ -1,7 +1,14 @@
 package controller;
 
+import model.Fornecedor;
+import model.Fornecimento;
+import model.Produto;
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Objetivo5Controller {
     public static void main(String[] args) {
@@ -62,8 +69,47 @@ public class Objetivo5Controller {
         LocalDateTime dataHora = LocalDateTime.parse(dataHoraEnviada, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(dataHora));
 
-        //i TODO: fazer esse item do exercício
+        //i
         System.out.println("\n\n************ i ************");
-        System.out.println("Em desenvolvimento");
+        //regitro de fornecimentos
+        Fornecedor f1 = new Fornecedor("1234320001-12", "Silva e Silva LTDA", "Tio do Arroz", "tiodoarroz@email.com", "5355551234", null);
+        Produto p1 = new Produto("12345aed", "Arroz", "Arroz Ceolin tipo 1 5kg", 0, BigDecimal.valueOf(10.0), BigDecimal.valueOf(12.0), List.of(f1));
+        //i-a - fornecimento com a data de hoje
+        Fornecimento fn1 = new Fornecimento(LocalDateTime.now(), 100, p1.getPrecoDeCompra().multiply(BigDecimal.valueOf(100)),f1, p1);
+        System.out.print("+++++ i-a +++++");
+        System.out.println(fn1);
+        //i-b - fornecimento 30 dias atrás
+        Fornecimento fn2 = new Fornecimento(LocalDateTime.now().minusDays(30L), 100, p1.getPrecoDeCompra().multiply(BigDecimal.valueOf(100)),f1, p1);
+        System.out.print("+++++ i-b +++++");
+        System.out.println(fn2);
+        //i-c - fornecimento 60 dias atrás
+        Fornecimento fn3 = new Fornecimento(LocalDateTime.now().minusDays(60L), 100, p1.getPrecoDeCompra().multiply(BigDecimal.valueOf(100)),f1, p1);
+        System.out.print("+++++ i-c +++++");
+        System.out.println(fn3);
+
+        List<Fornecimento> fornecimentos = List.of(fn1, fn2, fn3);
+        //i-d - fornecimentos detalhados dos últimos 30 dias e o total
+        System.out.println("\n\n+++++ i-d +++++");
+        System.out.print("Relatório com os fornecimentos detalhados dos últimos 30 dias");
+        Double acum = 0.0;
+        for (Fornecimento f : fornecimentos){
+            if(f.getData().isAfter(LocalDateTime.now().minusDays(31L))){
+                System.out.print(f);
+                acum += f.getTotal().doubleValue();
+            }
+        }
+        System.out.println("\nTotal Fornecido ======> " + NumberFormat.getCurrencyInstance().format(acum));
+
+        //i-e - fornecimentos detalhados dos últimos 60 dias e o total
+        System.out.println("\n\n+++++ i-e +++++");
+        System.out.print("Relatório com os fornecimentos detalhados dos últimos 60 dias");
+        acum = 0.0;
+        for (Fornecimento f : fornecimentos){
+            if(f.getData().isAfter(LocalDateTime.now().minusDays(61L))){
+                System.out.print(f);
+                acum += f.getTotal().doubleValue();
+            }
+        }
+        System.out.println("\nTotal Fornecido ======> " + NumberFormat.getCurrencyInstance().format(acum));
     }
 }
