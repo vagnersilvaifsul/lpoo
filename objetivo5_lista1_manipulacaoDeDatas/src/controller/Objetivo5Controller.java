@@ -48,9 +48,9 @@ public class Objetivo5Controller {
         LocalTime horaE = LocalTime.parse(horaString, DateTimeFormatter.ofPattern("HH:mm"));
         System.out.println(horaE);
 
-        //d
+        //f
         System.out.println("\n\n************ f ************");
-        String dataEmString = "15/09/1822";
+        String dataEmString = "07/09/1822";
         LocalDate dataIndependencia = LocalDate.parse(dataEmString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         LocalDate hoje = LocalDate.now();
         Period periodo = Period.between(dataIndependencia, hoje);
