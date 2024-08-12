@@ -1,8 +1,8 @@
 package model;
 
 public enum Regiao {
-    sul,
-    norte,
-    leste,
-    oeste,
+    Sul,
+    Norte,
+    Leste,
+    Oeste,
 }
