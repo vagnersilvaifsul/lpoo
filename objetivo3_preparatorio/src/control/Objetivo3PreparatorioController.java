@@ -21,16 +21,16 @@ public class Objetivo3PreparatorioController {
         System.out.println("********** c **********");
         //primeiro pedido
         //cria o fornecedor e os produtos
-        Vendedor v1 = new Vendedor(1L, "João da Silva", "joaosilva@email.com", "55555558765", BigDecimal.valueOf(3000.0), 5.0, Regiao.sul);
+        Vendedor v1 = new Vendedor(1L, "João da Silva", "joaosilva@email.com", "55555558765", BigDecimal.valueOf(3000.0), 5.0, Regiao.Sul);
         Fornecedor f1 = new Fornecedor("12340001-12", "Silva Jardim LTDA", "silvajardim@email.com", "5355551234", null);
         Produto arroz = new Produto(UUID.randomUUID().toString(), "Arroz", "Arroz Celin tipo 1 5kg", 100, BigDecimal.valueOf(12.0), BigDecimal.valueOf(18.9), List.of(f1));
         Produto feijao = new Produto(UUID.randomUUID().toString(), "Feijão", "Feijão Tordilho tipo 1 1kg", 100, BigDecimal.valueOf(5.0), BigDecimal.valueOf(8.9), List.of(f1));
         //cria o carrinho
         List<Item> itens = new ArrayList<>();
         //adiciona os itens ao carrinho
-        Item i1 = new Item(10, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(10)), Situacao.ativo, arroz);
+        Item i1 = new Item(10, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(10)), Situacao.Ativo, arroz);
         itens.add(i1);
-        Item i2 = new Item(10, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(10)), Situacao.ativo, feijao);
+        Item i2 = new Item(10, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(10)), Situacao.Ativo, feijao);
         //fecha o pedido e baixa o estoque
         itens.add(i2);
         BigDecimal acumTotalCarrinho = BigDecimal.ZERO;
@@ -40,7 +40,7 @@ public class Objetivo3PreparatorioController {
         //baixa o estoque
         baixarEstoque(itens);
         //registra o pedido
-        Pedido p1 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.aberto, itens, v1);
+        Pedido p1 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.Aberto, itens, v1);
         //exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p1.getNumero() + " ----------");
         System.out.println(p1);
@@ -50,9 +50,9 @@ public class Objetivo3PreparatorioController {
         //segundo pedido
         itens.clear(); //limpa o carrinho
         //adiciona os itens ao carrinho
-        i1 = new Item(15, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.ativo, arroz);
+        i1 = new Item(15, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.Ativo, arroz);
         itens.add(i1);
-        i2 = new Item(15, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.ativo, feijao);
+        i2 = new Item(15, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.Ativo, feijao);
         //fecha o pedido e baixa o estoque
         itens.add(i2);
         acumTotalCarrinho = BigDecimal.ZERO; //zera o acumulador
@@ -62,7 +62,7 @@ public class Objetivo3PreparatorioController {
         //baixa o estoque
         baixarEstoque(itens);
         //registra o pedido
-        Pedido p2 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.aberto, itens, v1);
+        Pedido p2 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.Aberto, itens, v1);
         //exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p2.getNumero() + " ----------");
         System.out.println(p2);
@@ -117,9 +117,9 @@ public class Objetivo3PreparatorioController {
         //Repeti os passos para emissão de um pedido
         itens.clear(); //limpa o carrinho
         //adiciona os itens ao carrinho
-        i1 = new Item(1500, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(1500L)), Situacao.ativo, arroz);
+        i1 = new Item(1500, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(1500L)), Situacao.Ativo, arroz);
         itens.add(i1);
-        i2 = new Item(15, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(15L)), Situacao.ativo, feijao);
+        i2 = new Item(15, feijao.getPrecoDeVenda().multiply(BigDecimal.valueOf(15L)), Situacao.Ativo, feijao);
         //fecha o pedido e baixa o estoque
         itens.add(i2);
         acumTotalCarrinho = BigDecimal.ZERO; //zera o acumulador

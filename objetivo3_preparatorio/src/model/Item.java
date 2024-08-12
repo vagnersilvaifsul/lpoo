@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Item {
     private Integer quantidade;
     private BigDecimal total;
-    private Situacao situacao = Situacao.ativo;
+    private Situacao situacao = Situacao.Ativo;
 
     //associacoes
     Produto produto;

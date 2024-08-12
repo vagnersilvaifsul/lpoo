@@ -9,7 +9,7 @@ public class Pedido {
     private String numero;
     private LocalDateTime data;
     private BigDecimal total;
-    private Estado estado = Estado.aberto;
+    private Estado estado = Estado.Aberto;
 
     //associacões
     List<Item> itens = new ArrayList<>();
