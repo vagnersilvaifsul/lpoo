@@ -1,6 +1,7 @@
 package model;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,8 +92,8 @@ public class Produto {
             ", nome='" + nome + '\'' +
             ", descricao='" + descricao + '\'' +
             ", estoque=" + estoque +
-            ", precoDeCusto=" + precoDeCusto +
-            ", precoDeVenda=" + precoDeVenda +
+            ", precoDeCusto=" + NumberFormat.getCurrencyInstance().format(precoDeCusto) +
+            ", precoDeVenda=" + NumberFormat.getCurrencyInstance().format(precoDeVenda) +
             ", fornecedores=" + fornecedores +
             '}';
     }

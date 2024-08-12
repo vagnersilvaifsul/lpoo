@@ -1,6 +1,7 @@
 package model;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class Item {
     private Integer quantidade;
@@ -56,7 +57,7 @@ public class Item {
     public String toString() {
         return "\nItem{" +
             "quantidade=" + quantidade +
-            ", total=" + total +
+            ", total=" + NumberFormat.getCurrencyInstance().format(total) +
             ", situacao=" + situacao +
             ", produto=" + produto +
             '}';

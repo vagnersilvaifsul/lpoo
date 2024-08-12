@@ -2,6 +2,7 @@ package model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Fornecimento {
     private LocalDateTime data;
@@ -66,7 +67,7 @@ public class Fornecimento {
     @Override
     public String toString() {
         return "\nFornecimento{" +
-            "data=" + data +
+            "data=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(data) +
             ", quantidade=" + quantidade +
             ", total=" + total +
             ", produto=" + produto +

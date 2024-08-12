@@ -44,6 +44,8 @@ public class Objetivo3PreparatorioController {
         //exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p1.getNumero() + " ----------");
         System.out.println(p1);
+        System.out.println("=======> Total do Pedido = "
+            + NumberFormat.getCurrencyInstance().format(acumTotalCarrinho));
 
         //d
         System.out.println("\n\n********** d **********");
@@ -66,6 +68,8 @@ public class Objetivo3PreparatorioController {
         //exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p2.getNumero() + " ----------");
         System.out.println(p2);
+        System.out.println("=======> Total do Pedido = "
+            + NumberFormat.getCurrencyInstance().format(acumTotalCarrinho));
 
         //e
         //lista com os pedidos realizados
@@ -124,7 +128,7 @@ public class Objetivo3PreparatorioController {
         itens.add(i2);
         acumTotalCarrinho = BigDecimal.ZERO; //zera o acumulador
         for(Item i : itens) {
-            acumTotalCarrinho =acumTotalCarrinho.add(i.getTotal());
+            acumTotalCarrinho = acumTotalCarrinho.add(i.getTotal());
         }
         try { //tenta executar
             baixarEstoqueComException(itens); //vai lança a exceção aqui, antes de registrar um pedido
@@ -135,7 +139,8 @@ public class Objetivo3PreparatorioController {
             System.out.print(
                 """
                     Note que o arroz não baixou o estoque, pois foi emitida a exceção EstoqueInsufiente.
-                    Já o feijão, que tem estoque suficiente, foi baixado o estoque.
+                    E o feijão, que tem estoque suficiente, também não foi baixado o estoque, pois a execução
+                    do programa parou ao encontrar estoque insuficiente no Arroz.
                 """
             );
             itens.forEach(i -> System.out.print(i.getProduto()));

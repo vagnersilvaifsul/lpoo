@@ -1,7 +1,9 @@
 package model;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,8 +81,8 @@ public class Pedido {
     public String toString() {
         return "\nPedido{" +
             "numero='" + numero + '\'' +
-            ", data=" + data +
-            ", total=" + total +
+            ", data=" + DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(data) +
+            ", total=" + NumberFormat.getCurrencyInstance().format(total) +
             ", estado=" + estado +
             ", itens=" + itens +
             ", vendedor=" + vendedor +
