@@ -1,5 +1,7 @@
 package model;
 
+import exception.EstoqueInsufiente;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -83,6 +85,30 @@ public class Produto {
 
     public void setFornecedores(List<Fornecedor> fornecedores) {
         this.fornecedores = fornecedores;
+    }
+
+    public static void baixarEstoque(List<Item> itens){
+        itens.forEach(i -> {
+            if(i.getProduto().getEstoque() >= i.getQuantidade()) { //se tem estoque faz a baixa
+                i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
+            }else {
+                System.out.println("Não foi possível baixar o estoque, quantidade insuficiente.");
+            }
+        });
+    }
+
+    public static void baixarEstoqueComException(List<Item> itens) throws EstoqueInsufiente { //o throws orienta o chamador a tratar com try-cath
+        itens.forEach(i -> {
+            if(i.getProduto().getEstoque() >= i.getQuantidade()){ //se tem estoque faz a baixa
+                i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
+            } else { //senão, lança uma exceção
+                throw new EstoqueInsufiente("Estoque insuficiente de " + i.getProduto().getNome());
+            }
+        });
+    }
+
+    public static void atualizaEstoque(Fornecimento fornecimento){
+        fornecimento.getProduto().setEstoque(fornecimento.getProduto().getEstoque() + fornecimento.getQuantidade());
     }
 
     @Override

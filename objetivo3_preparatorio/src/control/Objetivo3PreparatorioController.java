@@ -20,7 +20,7 @@ public class Objetivo3PreparatorioController {
         //c
         System.out.println("********** c **********");
         //primeiro pedido
-        //cria o fornecedor e os produtos
+        //(i) cria o fornecedor e os produtos
         Vendedor v1 = new Vendedor(1L, "João da Silva", "joaosilva@email.com", "55555558765", BigDecimal.valueOf(3000.0), 5.0, Regiao.Sul);
         Fornecedor f1 = new Fornecedor("12340001-12", "Silva Jardim LTDA", "silvajardim@email.com", "5355551234", null);
         Produto arroz = new Produto(UUID.randomUUID().toString(), "Arroz", "Arroz Celin tipo 1 5kg", 100, BigDecimal.valueOf(12.0), BigDecimal.valueOf(18.9), List.of(f1));
@@ -35,13 +35,13 @@ public class Objetivo3PreparatorioController {
         itens.add(i2);
         BigDecimal acumTotalCarrinho = BigDecimal.ZERO;
         for(Item i : itens) {
-            acumTotalCarrinho =acumTotalCarrinho.add(i.getTotal());
+            acumTotalCarrinho = acumTotalCarrinho.add(i.getTotal());
         }
-        //baixa o estoque
-        baixarEstoque(itens);
-        //registra o pedido
+        //(iii) baixa o estoque
+        Produto.baixarEstoque(itens);
+        //(ii) registra o pedido
         Pedido p1 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.Aberto, itens, v1);
-        //exibe o pedido
+        //(iv) exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p1.getNumero() + " ----------");
         System.out.println(p1);
         System.out.println("=======> Total do Pedido = "
@@ -49,7 +49,7 @@ public class Objetivo3PreparatorioController {
 
         //d
         System.out.println("\n\n********** d **********");
-        //segundo pedido
+        //(i) segundo pedido
         itens.clear(); //limpa o carrinho
         //adiciona os itens ao carrinho
         i1 = new Item(15, arroz.getPrecoDeVenda().multiply(BigDecimal.valueOf(15)), Situacao.Ativo, arroz);
@@ -61,11 +61,11 @@ public class Objetivo3PreparatorioController {
         for(Item i : itens) {
             acumTotalCarrinho =acumTotalCarrinho.add(i.getTotal());
         }
-        //baixa o estoque
-        baixarEstoque(itens);
-        //registra o pedido
+        //(iii) baixa o estoque
+        Produto.baixarEstoque(itens);
+        //(ii) registra o pedido
         Pedido p2 = new Pedido(UUID.randomUUID().toString(), LocalDateTime.now(), acumTotalCarrinho, Estado.Aberto, itens, v1);
-        //exibe o pedido
+        //(iv) exibe o pedido
         System.out.print("---------- Detalhes do Pedido " + p2.getNumero() + " ----------");
         System.out.println(p2);
         System.out.println("=======> Total do Pedido = "
@@ -78,7 +78,7 @@ public class Objetivo3PreparatorioController {
         System.out.println("Pedidos registrados na coleção.");
 
         //f
-        System.out.println("\n\n********** f **********");
+        System.out.print("\n\n********** f **********");
         System.out.print("\n------ Relatório de Vendas ------");
         double totalDasVendas = pedidos.stream() //1. crie um fluxo para a coleção
             .mapToDouble(p -> p.getTotal().doubleValue()) //2. passe cada objeto para double
@@ -92,13 +92,13 @@ public class Objetivo3PreparatorioController {
         //registra o fornecimento de arroz
         Fornecimento fn1 = new Fornecimento(LocalDateTime.now(), 100, arroz.getPrecoDeCusto().multiply(BigDecimal.valueOf(100)), arroz, f1);
         //atualiza o estoque
-        atualizaEstoque(fn1);
+        Produto.atualizaEstoque(fn1);
         System.out.print("Fornecimento registrado: ");
         System.out.println(fn1.getProduto().getNome() + ", etoque atualizado= " + fn1.getProduto().getEstoque());
         //registra o fornecimento de feijão
         Fornecimento fn2 = new Fornecimento(LocalDateTime.now(), 50, feijao.getPrecoDeCusto().multiply(BigDecimal.valueOf(50)), feijao, f1);
         //atualiza o estoque
-        atualizaEstoque(fn2);
+        Produto.atualizaEstoque(fn2);
         System.out.print("Fornecimento registrado: ");
         System.out.println(fn2.getProduto().getNome() + ", etoque atualizado= " + fn2.getProduto().getEstoque());
 
@@ -131,7 +131,7 @@ public class Objetivo3PreparatorioController {
             acumTotalCarrinho = acumTotalCarrinho.add(i.getTotal());
         }
         try { //tenta executar
-            baixarEstoqueComException(itens); //vai lança a exceção aqui, antes de registrar um pedido
+            Produto.baixarEstoqueComException(itens); //vai lança a exceção aqui, antes de registrar um pedido
         } catch (EstoqueInsufiente e) { //se lançar uma exceção a captura aqui
             e.printStackTrace(); //imprime a pilha de exceção
         } finally { //sempre apresenta o estoque atualizado
@@ -149,27 +149,4 @@ public class Objetivo3PreparatorioController {
         //aqui continuaria o restante do algoritmo para realiza um Pedido. Porém, a exceção para a execução do programa.
     }
 
-    private static void baixarEstoque(List<Item> itens){
-        itens.forEach(i -> {
-            if(i.getProduto().getEstoque() >= i.getQuantidade()) { //se tem estoque faz a baixa
-                i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
-            }else {
-                System.out.println("Não foi possível baixar o estoque, quantidade insuficiente.");
-            }
-        });
-    }
-
-    private static void atualizaEstoque(Fornecimento fornecimento){
-        fornecimento.getProduto().setEstoque(fornecimento.getProduto().getEstoque() + fornecimento.getQuantidade());
-    }
-
-    private static void baixarEstoqueComException(List<Item> itens) throws EstoqueInsufiente{ //o throws orienta o chamador a tratar com try-cath
-        itens.forEach(i -> {
-            if(i.getProduto().getEstoque() >= i.getQuantidade()){ //se tem estoque faz a baixa
-                i.getProduto().setEstoque(i.getProduto().getEstoque() - i.getQuantidade());
-            } else { //senão, lança uma exceção
-                throw new EstoqueInsufiente("Estoque insuficiente de " + i.getProduto().getNome());
-            }
-        });
-    }
 }
