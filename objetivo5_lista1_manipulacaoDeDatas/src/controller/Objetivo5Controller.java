@@ -33,8 +33,8 @@ public class Objetivo5Controller {
             pois, estes últimos consideram o horário de verão (uma espécie de deslocamento no UTC).
          */
         System.out.println("\n\n************ c ************");
-        System.out.println(instant.atZone(ZoneId.of("America/Sao_Paulo")));
-        System.out.println(instant.atZone(ZoneId.of("Europe/Paris")));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(instant.atZone(ZoneId.of("America/Sao_Paulo"))));
+        System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").format(instant.atZone(ZoneId.of("Europe/Paris"))));
 
         //d
         System.out.println("\n\n************ d ************");
