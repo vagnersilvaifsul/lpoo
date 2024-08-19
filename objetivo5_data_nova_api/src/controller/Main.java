@@ -139,7 +139,9 @@ public class Main {
          */
 
         //LocalDate +++++++++++++++++++++++++++
-        /* Representa uma data, ou seja, um período de 24 horas, com dia, mês, e ano. */
+        /* Representa uma data, ou seja, um período de 24 horas, com dia, mês, e ano.
+        *  Uma data sem hora, ou qualquer referência a um deslocamento ou fuso horário.
+        * */
         System.out.println("\n\n++++ Datas para humanos ++++");
         System.out.println("--------- Exemplo de uso do LocalDate (data do sistema, sem a hora) --------- ");
         LocalDate hoje = LocalDate.now();
@@ -179,6 +181,7 @@ public class Main {
         //LocalTime +++++++++++++++++++++++++++
         /*  Já a classe 'LocalTime' serve para representar apenas um horário, sem data específica. Podemos, por exemplo, usá-la
             para representar o horário de entrada no trabalho.
+            Um tempo sem data, ou qualquer referência a um deslocamento ou fuso horário.
          */
         System.out.println("\n\n--------- Exemplo de uso do LocalTime (hora atual do sistema, sem a data) --------- ");
         LocalTime horarioDeEntrada = LocalTime.now();
@@ -196,6 +199,7 @@ public class Main {
         //LocalDateTime +++++++++++++++++++++++++++
         /*  A classe LocalDateTime serve para representar uma data e hora específica. Podemos representar uma data e hora de
             uma prova importante ou de uma audiência em um tribunal.
+            Combina data e hora, mas ainda sem qualquer deslocamento ou fuso horário.
          */
         System.out.println("\n\n--------- Exemplo de uso do LocalDateTime (data e hora atual) --------- ");
         LocalDateTime agoraLD = LocalDateTime.now();
@@ -236,7 +240,10 @@ public class Main {
 
 
         //ZonedDateTime +++++++++++++++++++++++++++
-        //É uma representação imutável de uma data e hora com um fuso horário.
+        /*
+            É uma representação imutável de uma data e hora com um fuso horário.
+            Uma data e hora "completas" com fuso horário e deslocamento resolvido em relação a UTC-0/Greenwich.
+         */
         ZonedDateTime zoneDateTime = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("America/Sao_Paulo"));
         System.out.println(zoneDateTime); // 2024-08-07T14:48:19.876234-03:00[America/Sao_Paulo]
 
