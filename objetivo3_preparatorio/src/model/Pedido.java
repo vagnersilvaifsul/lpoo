@@ -14,8 +14,8 @@ public class Pedido {
     private Estado estado = Estado.Aberto;
 
     //associacões
-    List<Item> itens = new ArrayList<>();
-    Vendedor vendedor = new Vendedor();
+    private List<Item> itens = new ArrayList<>();
+    private Vendedor vendedor = new Vendedor();
 
     public Pedido() {
     }

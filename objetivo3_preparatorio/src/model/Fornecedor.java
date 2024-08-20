@@ -10,7 +10,7 @@ public class Fornecedor {
     private String telefone;
 
     //associações
-    List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     public Fornecedor() {
     }

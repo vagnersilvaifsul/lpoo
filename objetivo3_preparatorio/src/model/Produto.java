@@ -16,7 +16,7 @@ public class Produto {
     private BigDecimal precoDeVenda;
 
     //associacoes
-    List<Fornecedor> fornecedores = new ArrayList<>();
+    private List<Fornecedor> fornecedores = new ArrayList<>();
 
     public Produto() {
     }

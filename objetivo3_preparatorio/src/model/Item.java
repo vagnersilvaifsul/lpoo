@@ -9,7 +9,7 @@ public class Item {
     private Situacao situacao = Situacao.Ativo;
 
     //associacoes
-    Produto produto;
+    private Produto produto;
 
     public Item() {
     }

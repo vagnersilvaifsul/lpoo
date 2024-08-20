@@ -9,7 +9,7 @@ public class Vendedor extends Funcionario{
     private Regiao regiao;
 
     //associações
-    List<Pedido> pedidos = new ArrayList<>();
+    private List<Pedido> pedidos = new ArrayList<>();
 
     public Vendedor() {
     }
