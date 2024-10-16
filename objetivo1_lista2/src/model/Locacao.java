@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class Locacao {
 	//Atributos
-	private int id;
+	private int id; //atributo incluído no exercício 2
 	private LocalDateTime dataLocacao;
 	private LocalDateTime dataDevolucao;
 	private int quilometragem;
@@ -14,9 +14,16 @@ public class Locacao {
 	private boolean devolvido;
 
 	//Métodos construtores
+	/*
+		Note que é possível se utilizar da SOBRECARGA DE MÉTODO para se ter mais de uma forma de construção de objetos.
+	 */
+
+	//Construtor Padrão
 	public Locacao() {
 		super();
 	}
+
+	//Construtor Parametrizado (com TODOS os atributos da classe)
 	public Locacao(Integer id, LocalDateTime dataLocacao, LocalDateTime dataDevolucao, Integer quilometragem,
 				   Double valorCalcao, Double valorLocacao, Boolean devolvido) {
 		this.id = id;
@@ -27,12 +34,19 @@ public class Locacao {
 		this.valorLocacao = valorLocacao;
 		this.devolvido = devolvido;
 	}
+
+	//Construtor Parametrizado (com ALGUNS os atributos da classe)
 	public Locacao(Integer id, Boolean devolvido) {
 		this.id = id;
 		this.devolvido = devolvido;
 	}
 
-	//Métodos Acessores (de acesso)
+	//Métodos Acessores (com C mesmo, de acesso)
+	/*
+		Os métodos acessores funcionam como uma camada de proteção para leitura e escrita dos valores dos atributos da classe.
+		A boa prática de Engenharia de Software requer que os atributos sejam protegidos com private para as operações de leitura e escrita (ENCAPSULE).
+		Assim, somente membros da própria classe, como os getters e setters, podem ter acesso aos atibutos (gerenciam o ENCAPSULAMENTO).
+	 */
 	public int getId() {
 		return id;
 	}
@@ -76,6 +90,13 @@ public class Locacao {
 		this.devolvido = devolvido;
 	}
 
+
+	//Converte o Objeto em String
+	/*
+		O método toString() já vem no Java na classe Object. Ele é um conversor de Objeto para String.
+		O que estamos fazendo aqui é reescrevê-lo, modificando o comportamento que ele tinha na classe Object.
+		Ele é muito utilizado em operações de saída, como no console, pois, o System.out.println() requer uma string como parâmetro de saída.
+	 */
 	@Override
 	public String toString() {
 		return "\nLocacao [id=" + id + ", dataLocacao e horaLocacao=" + dataLocacao
