@@ -31,7 +31,6 @@ public class AutomovelController {
 		System.out.println(automovel6); //criado com um contrutor parametrizado, uma variação dos dois anteriores
 
 		//1c-v.	Agora utilize os métodos setters de cada classe de modelo para alterar o estado de cada objeto na memória RAM;
-		/* Para facilitar o debug do código, todos os objetos receberam os mesmos valores */
 		automovel1.setRenavan("1");
 		automovel1.setPlaca("IAA-1111");
 		automovel1.setCor("Branco");
@@ -155,10 +154,10 @@ public class AutomovelController {
 		//2f. Ordene a coleção em ordem decrescente, pelo critério id, e a imprima;
 		System.out.println();
 		automovelsList.sort(Comparator.comparing(Automovel::getRenavan).reversed());
-		System.out.println("\nColeção do tipo List em ordem decrescente, chave id");
+		System.out.println("\nColeção do tipo List em ordem decrescente, chave Renavan");
 		System.out.println(automovelsList);
 
-		//2g. Faça uma pesquisa por força bruta na coleção e retorne o objeto de id=3;
+		//2g. Faça uma pesquisa por força bruta na coleção e retorne o objeto de renavan=3;
 		//Pesquisa por força bruta
 		for(Automovel automovel : automovelsList){
 			if(automovel.getRenavan().equals("3")){
@@ -167,10 +166,10 @@ public class AutomovelController {
 			}
 		}
 
-		//2h. Faça uma pesquisa binária na coleção e retorne o objeto de id=3.
+		//2h. Faça uma pesquisa binária na coleção e retorne o objeto de renavan=3.
 		//Método utilizando o binarySearch da classe Collections
 		System.out.println();
-		System.out.print("\nLocalizando o Automovel pela chave de pesquisa (id=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
+		System.out.print("\nLocalizando o Automovel pela chave de pesquisa (renavan=3) na coleção do tipo List (método binarySearch da classe Collections) ...");
 		automovelsList.sort(Comparator.comparing(Automovel::getRenavan)); //1. Primeiro se ordena na forma crescente, conforme exigido na documentação do Java
 		System.out.println(automovelsList.get( //2. Obtém um objeto baseado no íncice dele na coleção
 				Collections.binarySearch( //3. Faz a pesquisa binária
@@ -183,7 +182,7 @@ public class AutomovelController {
 		//2h (outra forma de resolver, utilizando programação funcional)
 		//Método utilizando Fluxos para a estrutura de dados
 		System.out.println();
-		System.out.print("\nLocalizando o Automovel pela chave de pesquisa (id=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
+		System.out.print("\nLocalizando o Automovel pela chave de pesquisa (renavan=3) na coleção do tipo List (método Fluxos para a estrutura de dados) ...");
 		Automovel automovelFind = automovelsList.stream().filter(c -> c.getRenavan().equals("3")).findAny().orElse(null);
 		System.out.println(automovelFind);
 
@@ -209,7 +208,7 @@ public class AutomovelController {
 		 */
 		//pesquisando na coleção (basta entrar com a chave que o objeto já é retornado)
 		System.out.println();
-		System.out.print("Localizando o Automovel pela chave de pesquisa (id=3) na coleção do tipo Map...");
+		System.out.print("Localizando o Automovel pela chave de pesquisa (renavan=3) na coleção do tipo Map...");
 		System.out.println(automovelsMap.get(3));
 	}
 
