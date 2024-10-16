@@ -1,7 +1,5 @@
 package model;
 
-import java.text.NumberFormat;
-
 public class Cliente implements Associado{
     private String nome;
     private int qdeCotas;
