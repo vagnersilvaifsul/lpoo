@@ -1,22 +1,24 @@
 package model;
 
+import java.text.NumberFormat;
+
 public class Cliente implements Investidor { //Questão 1a
 	private int id;
 	private String nome;
 	private String sobrenome;
 	private String ticker;
-	private int quantidade;
+	private int qdeCotas;
 	
 	public Cliente() {
 		super();
 	}
-	public Cliente(int id, String nome, String sobrenome, String ticker, int quantidade) {
+	public Cliente(int id, String nome, String sobrenome, String ticker, int qdeCotas) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.ticker = ticker;
-		this.quantidade = quantidade;
+		this.qdeCotas = qdeCotas;
 	}
 	
 	public int getId() {
@@ -54,18 +56,23 @@ public class Cliente implements Investidor { //Questão 1a
 	}
 	
 	@Override
-	public int getQuantidade() {
-		return quantidade;
+	public int getQdeCotas() {
+		return qdeCotas;
 	}
 	
 	@Override
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;	
+	public void setQdeCotas(int qdeCotas) {
+		this.qdeCotas = qdeCotas;
 	}
 	@Override
 	public String toString() {
-		return "\nClienteV [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", ticker=" + ticker
-				+ ", quantidade=" + quantidade + "]";
+		return "\nCliente [" +
+			"id=" + id +
+			", nome=" + nome +
+			", sobrenome=" + sobrenome +
+			", ticker=" + ticker +
+			", quantidade de cotas=" + NumberFormat.getNumberInstance().format(qdeCotas) +
+			"]";
 	}
 	
 	

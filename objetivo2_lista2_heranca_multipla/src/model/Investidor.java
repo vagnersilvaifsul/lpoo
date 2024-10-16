@@ -9,6 +9,6 @@ public interface Investidor { //Questão 1a
 	//os métodos em uma interface são, por natureza, públicos e abstratos (até o JDK 8)
 	String getTicker();
 	void setTicker(String ticker);
-	int getQuantidade();
-	void setQuantidade(int quantidade);
+	int getQdeCotas();
+	void setQdeCotas(int qdeCotas);
 }

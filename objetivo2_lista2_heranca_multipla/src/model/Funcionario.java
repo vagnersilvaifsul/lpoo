@@ -1,15 +1,15 @@
 package model;
 
+//No diagrama UML o nome da classe está em itálico, logo, deve ser marcado como abstract
 public abstract class Funcionario { //Questão 1a
-	private String nome;
-	private double salario;
+	protected String nome;
+	protected double salario;
 	
 	public Funcionario() {
-		super();
+
 	}
 	
 	public Funcionario(String nome, double salario) {
-		super();
 		this.nome = nome;
 		this.salario = salario;
 	}
@@ -30,5 +30,6 @@ public abstract class Funcionario { //Questão 1a
 		this.salario = salaario;
 	}
 	
+	//No diagrama UML está em itálico, logo, deve ser marcado como abstract e finalizar com ;
 	public abstract double getBonus();
 }
