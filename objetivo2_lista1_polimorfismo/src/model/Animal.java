@@ -17,7 +17,12 @@ public abstract class Animal { //1a
 		this.x = x;
 		this.y = y;
 	}
-	
+
+	/*
+		Como cada Animal é desenhado diferente (tem algoritmo diferente para desenhar),
+		o método é marcado como abstract. Assim, as classes filhas irão definí-lo (colocar o algoritmo que desenha).
+		Note que cada classe filha terá o seu próprio comportamento (algoritmo) para desenhar.
+	 */
 	public abstract void desenhar();
 	
 }

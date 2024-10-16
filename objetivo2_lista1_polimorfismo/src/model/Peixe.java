@@ -14,7 +14,7 @@ public class Peixe extends Animal { //1a
 
 	//Polimorfismo Ad Hoc - Overloading (ou sobrecarga)
 	public Peixe(double x, double y, double z) {
-		super(x, y);
+		super(x, y); //reutiliza o construtor com dois argumentos da superclasse
 		this.z = z;
 	}
 
@@ -23,12 +23,12 @@ public class Peixe extends Animal { //1a
 		System.out.print("\nDesenhou um Peixe.");
 	}
 	
-	public void mover(double x, double y, double z) {
+	public void mover3D(double x, double y, double z) {
 		super.mover(x, y); //reutiliza o método mover que está na superclasse
 		this.z = z;
 	}
 
-	@Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
+	@Override //Polimorfismo Universal (ou sobreescrita)
 	public String toString() {
 		return "\nPeixe [ x=" + x + ", y=" + y + ", z=" + z + "]";
 	}

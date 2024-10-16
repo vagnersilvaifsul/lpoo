@@ -23,7 +23,7 @@ public class Passaro extends Animal { //1a
 		System.out.print("\nDesenhou um Pássaro.");
 	}
 	
-	public void mover(double x, double y, double z) {
+	public void mover3D(double x, double y, double z) {
 		super.mover(x, y); //reutiliza o método mover que está na superclasse
 		this.z = z;
 	}

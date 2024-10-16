@@ -9,12 +9,12 @@ public class Cachorro extends Animal { //1a
 		super(x, y); //reutiliza o construtor com dois argumentos da superclasse
 	}
 
-	@Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
+	@Override //Polimorfismo Universal (ou sobreescrita)
 	public void desenhar() {
 		System.out.print("\nDesenhou um Cachorro.");
 	}
 
-	@Override //Polimorfismo Universal - Paramétrico (ou sobreescrita)
+	@Override //Polimorfismo Universal (ou sobreescrita)
 	public String toString() {
 		return "\nCachorro [x=" + x + ", y=" + y + "]";
 	}
