@@ -6,25 +6,25 @@ public abstract class ContaV {
 	
 	
 	public double getSaldo() {
-		return saldo;
+		return this.saldo;
 	}
 	
 	public void deposita(double valor) {
-		saldo += saldo + valor;
+		this.saldo +=  valor;
 	}
 	
 	public void saca(double valor) {
-		double saldoAutal = saldo - valor;
+		double saldoAutal = this.saldo - valor;
 		if(saldoAutal >= 0) {
-			saldo -= valor;
+			this.saldo -= valor;
 		} else {
-			System.out.println("Não foi possível realizar o saque.");
+			System.out.println("Não foi possível realizar o saque. Saldo insuficiente.");
 		}
 	}
 	
 	public void atualiza(double taxa) {
 		if(taxa > 0) {
-			saldo += saldo * (taxa/100);
+			this.saldo += this.saldo * (taxa/100);
 		} else {
 			System.out.println("A taxa deve ser maior que ZERO.");
 		}	

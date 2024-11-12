@@ -5,14 +5,12 @@ import model.ContaCorrenteV;
 import model.ContaPoupancaSalarioV;
 import model.ContaPoupancaV;
 
-//import model.ContaV;
-
 public class ContaControllerV {
 	
 	static double total_folha=0.0;
 
 	public static void main(String[] args) {
-		//ContaV conta1 = new ContaV();
+		//ContaV conta1 = new ContaV(); //Não é possível criar instâncias (objetos) de classes marcadas como abstract
 		
 		ContaCorrenteV cc1 = new ContaCorrenteV();
 		
