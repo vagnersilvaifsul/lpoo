@@ -11,7 +11,7 @@ import model.Funcionario;
 import model.Gerente;
 import model.Investidor;
 
-public class FuncionarioController {
+public class SicrediController {
 
 	public static void main(String[] args) {
 
