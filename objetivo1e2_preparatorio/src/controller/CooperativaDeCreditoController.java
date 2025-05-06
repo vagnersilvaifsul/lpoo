@@ -77,7 +77,7 @@ public class CooperativaDeCreditoController {
         }
 
         //1i. A partir das coleções, imprima todas as contas cadastradas no sistema, ordenadas pelo critério saldo, em ordem decrescente. E, imprima todos associados que seja do tipo Associado e possua conta cadastrada no sistema, em qualquer ordem. Também faça o programa imprimir a lista de contas com maior saldo bancário.
-        System.out.print("\n\n******* Questão 1g *******");
+        System.out.print("\n\n******* Questão 1i *******");
         contas.sort(Comparator.comparing(Conta::getSaldo).reversed());
         System.out.println("\nContas ordenadas por saldo:");
         System.out.println(contas);
@@ -88,6 +88,12 @@ public class CooperativaDeCreditoController {
         for(Conta conta : contas) {
             if(conta.getSaldo() >= maxConta.getSaldo()) {
                 System.out.print(conta);
+            }
+        }
+        System.out.print("\nImprima todos associados que seja do tipo Associado e possua conta cadastrada no sistema:");
+        for(Associado associado : associados) {
+            if(associado instanceof Conta){
+                System.out.println(associado);
             }
         }
     }
