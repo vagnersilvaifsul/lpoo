@@ -2,10 +2,7 @@ package controller;
 
 import model.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class CooperativaDeCreditoController {
     public static void main(String[] args) {
@@ -66,13 +63,47 @@ public class CooperativaDeCreditoController {
         associados.sort(Comparator.comparing(Associado::getQdeCotas).reversed());
         System.out.print("\nAssociados ordenados por quantidade de cotas:");
         System.out.println(associados);
-        System.out.print("\nAssociados com o maior número de cotas:");
+        System.out.print("\nAssociados com o maior número de cotas (método por programação funcional):");
         Associado maxAssociado = associados.stream()
                 .max(Comparator.comparing(Associado::getQdeCotas))
                 .get();
         for(Associado associado : associados) {
             if(associado.getQdeCotas() >= maxAssociado.getQdeCotas()) {
                 System.out.print(associado);
+            }
+        }
+
+        /*
+            Outras duas técnicas são possíveis para resolver "Associados com o maior número de cotas". Veja abaixo.
+            Note que a abordagem Imperativa consome mais linhas de programação, enquanto o método orientado a objetos,
+            com a utilização da classe utilitária Collections, consome menos linhas de programação.
+            Se você observar o método anterior (acima), por abordagem de programação funcional, verá que também consome menos
+            linhas de programação. Neste exemplo, coincidiu de o método oritentado a objetos utilizar a mesma quantidade
+            de linhas para solucionar o problema, mas, na maioria dos casos, o método funcional consome menos linhas
+            de programação.
+         */
+        //1. Pelo método imperativo de programação
+        double maxQdeCotas = 0.0;
+        for(Associado a : associados){
+            if(maxQdeCotas < a.getQdeCotas()){
+                maxQdeCotas = a.getQdeCotas();
+            }
+        }
+        System.out.print("\n\nAssociados com o maior número de cotas (pelo método imperativo):");
+        for (Associado a : associados) {
+            if(a.getQdeCotas() == maxQdeCotas){
+                System.out.print(a);
+            }
+        }
+        //2. Utilizando a classe utilitária Collections
+        System.out.print("\n\nAssociados com o maior número de cotas (pelo método OO, utilizando a classe utilitária Collecions):");
+        double maxQdeCotasCollections =
+                Collections.max(
+                        associados,
+                        Comparator.comparing(Associado::getQdeCotas)).getQdeCotas();
+        for (Associado a : associados) {
+            if(a.getQdeCotas() == maxQdeCotasCollections){
+                System.out.print(a);
             }
         }
 
