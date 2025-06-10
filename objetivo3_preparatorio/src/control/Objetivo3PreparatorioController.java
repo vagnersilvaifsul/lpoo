@@ -76,15 +76,22 @@ public class Objetivo3PreparatorioController {
         System.out.println("\n\n********** e **********");
         List<Pedido> pedidos = new ArrayList<>(List.of(p1, p2));
         System.out.println("Pedidos registrados na coleção.");
+        pedidos.forEach(System.out::println);
 
         //f
         System.out.print("\n\n********** f **********");
         System.out.print("\n------ Relatório de Vendas ------");
+        //Solução utilizando a técnica OO Imperativa
+        BigDecimal totalVendas = BigDecimal.ZERO;
+        for(Pedido pedido : pedidos) {
+            totalVendas = totalVendas.add(pedido.getTotal());
+        }
+        System.out.println("=====>Total de vendas (programação imperativa)= " + totalVendas);
+        //Solução utilizando a Programação Funcional
         double totalDasVendas = pedidos.stream() //1. crie um fluxo para a coleção
             .mapToDouble(p -> p.getTotal().doubleValue()) //2. passe cada objeto para double
             .sum(); //3. some e devolva o resultado
-        pedidos.forEach(System.out::println);
-        System.out.println("=====> Total das Vendas= " + NumberFormat.getCurrencyInstance().format(totalDasVendas));
+        System.out.println("=====> Total das Vendas (programação funcional)= " + NumberFormat.getCurrencyInstance().format(totalDasVendas));
 
         //g
         System.out.println("\n\n********** g **********");
@@ -107,11 +114,18 @@ public class Objetivo3PreparatorioController {
         System.out.print("------ Relatório de Fornecimentos de Produtos ------");
         //cria a coleção com os fornecimentos
         List<Fornecimento> fornecimentos = new ArrayList<>(List.of(fn1, fn2));
+        //Solução utilizando a técnica OO Imperativa
+        BigDecimal totalFornecimentos = BigDecimal.ZERO;
+        for(Fornecimento fornecimento : fornecimentos) {
+            totalFornecimentos = totalFornecimentos.add(fornecimento.getTotal());
+        }
+        System.out.println("=====> Total de fornecimentos (programação imperativa)= " + totalFornecimentos);
+        //Solução utilizando a Programação Funcional
         double totalDosFornecimentos = fornecimentos.stream() //1. crie um fluxo para a coleção
-            .mapToDouble(p -> p.getTotal().doubleValue()) //2. passe cada objeto para double
+                .mapToDouble(p -> p.getTotal().doubleValue()) //2. passe cada objeto para double
             .sum(); //3. some e devolva o resultado
         fornecimentos.forEach(System.out::println);
-        System.out.println("=====> Total dos Fornecimentos= " + NumberFormat.getCurrencyInstance().format(totalDosFornecimentos));
+        System.out.println("=====> Total dos Fornecimentos (programação funcional)= " + NumberFormat.getCurrencyInstance().format(totalDosFornecimentos));
 
         //i
         System.out.println("\n\n********** i **********");
