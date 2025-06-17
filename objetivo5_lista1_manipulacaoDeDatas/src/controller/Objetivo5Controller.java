@@ -14,7 +14,7 @@ public class Objetivo5Controller {
     public static void main(String[] args) {
         /*
             a. Dado o Instant 1723066578101, em UTC-0, faça o programa imprimir a data e a hora no
-f           formato dd/MM/yyyy HH:mm referente a este instante em UTC-0;
+            formato dd/MM/yyyy HH:mm referente a este instante em UTC-0;
          */
         System.out.println("************ a ************");
         Instant instant = Instant.ofEpochMilli(1723066578101L);
@@ -24,7 +24,7 @@ f           formato dd/MM/yyyy HH:mm referente a este instante em UTC-0;
 
         /*
             b. Dado o mesmo Instant do item “a” faça o programa imprimir a data e a hora no formato
-d           dd/MM/yyyy HH:mm referente a este instante em UTC-3, e UTC+1;
+            dd/MM/yyyy HH:mm referente a este instante em UTC-3, e UTC+1;
          */
         System.out.println("\n\n************ b ************");
         System.out.println(instant.atZone(ZoneId.of("UTC-3")));
@@ -32,7 +32,7 @@ d           dd/MM/yyyy HH:mm referente a este instante em UTC-3, e UTC+1;
 
         /*
             c. Dado o mesmo Instant do item “a” faça o programa imprimir a data e a hora no formato
-d           dd/MM/yyyy HH:mm referente a este instante em “America/Sao_Paulo”, e “Europe/Paris”.
+            dd/MM/yyyy HH:mm referente a este instante em “America/Sao_Paulo”, e “Europe/Paris”.
          */
         /*
             Não há diferença entre UTC-3 e "America/Sao_Paulo", desde que em "America/Sao_Paulo"
